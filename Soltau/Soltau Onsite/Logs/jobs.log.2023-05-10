@@ -1,0 +1,907 @@
+2023-05-10 00:18:33,006:INFO:Compact Max  door opened
+2023-05-10 00:18:35,679:INFO:Compact Max  door closed and machine started
+2023-05-10 00:25:09,626:INFO:Sent locations Source,Destination: [[16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703], [16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703]]
+2023-05-10 00:25:09,629:INFO:ping interrupted for:3528.997 milli seconds 
+2023-05-10 00:25:43,035:INFO:ping interrupted for:24344.984 milli seconds 
+2023-05-10 00:26:43,418:INFO:ping interrupted for:29279.984 milli seconds 
+2023-05-10 01:10:12,419:INFO:Sent locations Source,Destination: [[27.299601, 77.391998, 100.0, 180.0, 0.0, -1.4113], [27.299601, 77.391998, 100.0, 180.0, 0.0, -1.4113]]
+2023-05-10 01:10:12,423:INFO:ping interrupted for:5299.955 milli seconds 
+2023-05-10 01:10:41,427:INFO:ping interrupted for:22955.947 milli seconds 
+2023-05-10 01:13:11,591:INFO:Sent locations Source,Destination: [[27.299601, 77.391998, 100.0, 180.0, 0.0, -1.4113], [27.299601, 77.391998, 100.0, 180.0, 0.0, -1.4113]]
+2023-05-10 01:13:11,594:INFO:ping interrupted for:2700.999 milli seconds 
+2023-05-10 01:13:15,146:INFO:ping interrupted for:3001.0840000000003 milli seconds 
+2023-05-10 01:15:32,320:INFO:Sent locations Source,Destination: [[27.299601, 77.391998, 100.0, 180.0, 0.0, -1.4113], [27.299601, 77.391998, 100.0, 180.0, 0.0, -1.4113]]
+2023-05-10 01:15:32,323:INFO:ping interrupted for:2050.0009999999997 milli seconds 
+2023-05-10 01:15:44,915:INFO:ping interrupted for:12055.993 milli seconds 
+2023-05-10 01:38:43,236:INFO:Sent locations Source,Destination: [[14.6393, 62.983299, 50.0, -180.0, 0.0, 0.0], [355.472992, -275.501587, -100.0, -180.0, -0.0001, -3.4113]]
+2023-05-10 01:38:43,239:INFO:ping interrupted for:4623.955 milli seconds 
+2023-05-10 01:38:50,595:INFO:ping interrupted for:6935.996 milli seconds 
+2023-05-10 01:42:33,262:INFO:Sent locations Source,Destination: [[14.6393, 62.983299, 50.0, -180.0, 0.0, 0.0], [355.472992, -275.501587, -100.0, -180.0, -0.0001, -3.4113]]
+2023-05-10 01:42:33,264:INFO:ping interrupted for:1491.0 milli seconds 
+2023-05-10 01:42:41,831:INFO:ping interrupted for:4253.996 milli seconds 
+2023-05-10 02:03:41,719:INFO:Sent locations Source,Destination: [[24.0938, -11.4549, 100.0, 180.0, 0.0, 0.0], [355.472992, -275.501587, -100.0, -180.0, -0.0001, -3.4113]]
+2023-05-10 02:03:41,722:INFO:ping interrupted for:7660.994 milli seconds 
+2023-05-10 02:04:19,846:INFO:ping interrupted for:36058.00399999999 milli seconds 
+2023-05-10 02:08:14,612:INFO:Sent locations Source,Destination: [[22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0], [355.472992, -275.501587, -100.0, -180.0, -0.0001, -3.4113]]
+2023-05-10 02:08:14,615:INFO:ping interrupted for:1176.961 milli seconds 
+2023-05-10 02:08:21,791:INFO:ping interrupted for:1384.962 milli seconds 
+2023-05-10 02:09:10,304:INFO:ping interrupted for:15937.047 milli seconds 
+2023-05-10 02:24:24,349:INFO:Sent locations Source,Destination: [[22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0], [355.472992, -275.501587, -100.0, -180.0, -0.0001, -3.4113]]
+2023-05-10 02:24:24,352:INFO:ping interrupted for:12992.991999999998 milli seconds 
+2023-05-10 02:24:45,126:INFO:ping interrupted for:1267.0 milli seconds 
+2023-05-10 02:27:08,537:INFO:ping interrupted for:99941.989 milli seconds 
+2023-05-10 02:27:17,758:INFO:Sent locations Source,Destination: [[22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0], [355.472992, -275.501587, -100.0, -180.0, -0.0001, -3.4113]]
+2023-05-10 02:27:24,423:INFO:ping interrupted for:3303.9990000000003 milli seconds 
+2023-05-10 02:27:59,072:INFO:ping interrupted for:8579.985 milli seconds 
+2023-05-10 02:28:08,371:INFO:Sent locations Source,Destination: [[22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0], [355.472992, -275.501587, -100.0, -180.0, -0.0001, -3.4113]]
+2023-05-10 02:28:18,199:INFO:ping interrupted for:6017.9580000000005 milli seconds 
+2023-05-10 02:29:11,576:INFO:ping interrupted for:23612.988999999998 milli seconds 
+2023-05-10 02:29:39,889:INFO:Sent locations Source,Destination: [[22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0], [355.472992, -275.501587, -100.0, -180.0, -0.0001, -3.4113]]
+2023-05-10 02:53:11,337:INFO:ping interrupted for:13249.689 milli seconds 
+2023-05-10 02:53:17,320:INFO:Check lock success for centrifuge machine
+2023-05-10 02:53:17,723:INFO:Check lock success for centrifuge machine
+2023-05-10 02:53:26,313:INFO:GREEN tube picked from camera1 at index 26 
+2023-05-10 02:53:33,989:INFO:Compact Max  door opened
+2023-05-10 02:53:33,990:INFO:GREEN tube is at camera2
+2023-05-10 02:53:33,991:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 02:53:33,991:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 02:53:33,994:INFO:Sent locations Source,Destination: [[213.0355, 61.859700000000004, 130.0, 180.0, 0.0, 0.0], [213.0355, 61.859700000000004, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 02:54:38,581:INFO:ping interrupted for:63834.718 milli seconds 
+2023-05-10 02:56:10,621:INFO:centrifuge racks batch 1 filling
+2023-05-10 02:56:10,622:INFO:GREEN tube placed at index 1 
+2023-05-10 02:56:10,622:INFO:Total Green: 1 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 02:56:10,623:INFO:Camera 2 results: Color-GREEN,Barcode-7040501742,Blood level-0,Plasma level-40.805
+2023-05-10 02:56:10,624:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 02:56:10,639:INFO:Sent locations Source,Destination: [[16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113], [16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 02:56:27,697:INFO:GREEN tube picked from camera1 at index 32 
+2023-05-10 02:56:27,698:INFO:GREEN tube is at camera2
+2023-05-10 02:56:27,698:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 02:56:27,699:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 02:56:27,701:INFO:Sent locations Source,Destination: [[121.834, 92.1597, 130.0, 180.0, 0.0, 0.0], [121.834, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 02:56:38,866:INFO:ping interrupted for:5692.743 milli seconds 
+2023-05-10 03:02:56,849:INFO:Check lock success for centrifuge machine
+2023-05-10 03:02:57,239:INFO:Check lock success for centrifuge machine
+2023-05-10 03:03:05,059:INFO:GREEN tube picked from camera1 at index 34 
+2023-05-10 03:03:12,736:INFO:Compact Max  door opened
+2023-05-10 03:03:12,737:INFO:GREEN tube is at camera2
+2023-05-10 03:03:12,738:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 03:03:12,740:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 03:03:12,742:INFO:Sent locations Source,Destination: [[182.63500000000002, 92.1597, 130.0, 180.0, 0.0, 0.0], [182.63500000000002, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:04:00,226:INFO:centrifuge racks batch 1 filling
+2023-05-10 03:04:00,226:INFO:GREEN tube placed at index 1 
+2023-05-10 03:04:00,227:INFO:Total Green: 1 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 03:04:00,228:INFO:Camera 2 results: Color-GREEN,Barcode-7040517471,Blood level-0,Plasma level-38.938
+2023-05-10 03:04:00,228:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 03:04:00,243:INFO:Sent locations Source,Destination: [[16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113], [16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 03:04:14,502:INFO:GREEN tube picked from camera1 at index 36 
+2023-05-10 03:04:14,502:INFO:GREEN tube is at camera2
+2023-05-10 03:04:14,503:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 03:04:14,504:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 03:04:14,506:INFO:Sent locations Source,Destination: [[243.436, 92.1597, 130.0, 180.0, 0.0, 0.0], [243.436, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:05:17,985:INFO:GREEN tube placed in Failed plate at index 1 
+2023-05-10 03:05:17,986:INFO:Camera 2 results: Color-GREEN,Barcode-,Blood level-0,Plasma level-0
+2023-05-10 03:05:17,986:INFO:GREEN tube moved from camera2 to Failed plate
+2023-05-10 03:05:17,996:INFO:Sent locations Source,Destination: [[76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 03:05:32,608:INFO:GREEN tube picked from camera1 at index 38 
+2023-05-10 03:05:32,609:INFO:GREEN tube is at camera2
+2023-05-10 03:05:32,610:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 03:05:32,611:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 03:05:32,613:INFO:Sent locations Source,Destination: [[30.6325, 122.4597, 130.0, 180.0, 0.0, 0.0], [30.6325, 122.4597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:06:35,935:INFO:GREEN tube placed in Failed plate at index 2 
+2023-05-10 03:06:35,936:INFO:Camera 2 results: Color-GREEN,Barcode-,Blood level-0,Plasma level-0
+2023-05-10 03:06:35,937:INFO:GREEN tube moved from camera2 to Failed plate
+2023-05-10 03:06:35,944:INFO:Sent locations Source,Destination: [[116.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [116.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 03:06:50,538:INFO:ORANGE tube picked from camera1 at index 11 
+2023-05-10 03:06:50,538:INFO:ORANGE tube is at camera2
+2023-05-10 03:06:50,539:INFO:ORANGE tube moved from camera1 to camera2
+2023-05-10 03:06:50,540:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 03:06:50,542:INFO:Sent locations Source,Destination: [[30.6325, 31.5597, 130.0, 180.0, 0.0, 0.0], [30.6325, 31.5597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:07:37,014:INFO:centrifuge racks batch 1 filling
+2023-05-10 03:07:37,015:INFO:ORANGE tube placed at index 2 
+2023-05-10 03:07:37,015:INFO:Total Green: 1 ,Orange: 1 ,Counter Filled: False 
+2023-05-10 03:07:37,016:INFO:Camera 2 results: Color-ORANGE,Barcode-12345abc,Blood level-0,Plasma level-41.574
+2023-05-10 03:07:37,017:INFO:ORANGE tube moved from camera2 to centrifuge racks
+2023-05-10 03:07:37,034:INFO:Sent locations Source,Destination: [[119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113], [119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 03:07:51,861:INFO:GREEN tube picked from camera1 at index 25 
+2023-05-10 03:07:51,862:INFO:GREEN tube is at camera2
+2023-05-10 03:07:51,863:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 03:07:51,863:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 03:07:51,865:INFO:Sent locations Source,Destination: [[182.63500000000002, 61.859700000000004, 130.0, 180.0, 0.0, 0.0], [182.63500000000002, 61.859700000000004, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:08:54,323:INFO:GREEN tube placed in Failed plate at index 3 
+2023-05-10 03:08:54,324:INFO:Camera 2 results: Color-GREEN,Barcode-,Blood level-0,Plasma level-0
+2023-05-10 03:08:54,324:INFO:GREEN tube moved from camera2 to Failed plate
+2023-05-10 03:08:54,336:INFO:Sent locations Source,Destination: [[156.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [156.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 03:09:08,984:INFO:ORANGE tube picked from camera1 at index 24 
+2023-05-10 03:09:08,985:INFO:ORANGE tube is at camera2
+2023-05-10 03:09:08,986:INFO:ORANGE tube moved from camera1 to camera2
+2023-05-10 03:09:08,987:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 03:09:08,989:INFO:Sent locations Source,Destination: [[152.2345, 61.859700000000004, 130.0, 180.0, 0.0, 0.0], [152.2345, 61.859700000000004, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:09:55,821:INFO:centrifuge racks batch 1 filling
+2023-05-10 03:09:55,822:INFO:ORANGE tube placed at index 3 
+2023-05-10 03:09:55,823:INFO:Total Green: 1 ,Orange: 2 ,Counter Filled: False 
+2023-05-10 03:09:55,823:INFO:Camera 2 results: Color-ORANGE,Barcode-891092322316,Blood level-0,Plasma level-41.105
+2023-05-10 03:09:55,824:INFO:ORANGE tube moved from camera2 to centrifuge racks
+2023-05-10 03:09:55,841:INFO:Sent locations Source,Destination: [[119.655602, 18.5891, 100.0, -179.899994, -0.0922, -3.4113], [119.655602, 18.5891, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 03:10:10,300:INFO:GREEN tube picked from camera1 at index 25 
+2023-05-10 03:10:10,301:INFO:GREEN tube is at camera2
+2023-05-10 03:10:10,302:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 03:10:10,302:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 03:10:10,304:INFO:Sent locations Source,Destination: [[182.63500000000002, 61.859700000000004, 130.0, 180.0, 0.0, 0.0], [182.63500000000002, 61.859700000000004, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:11:09,899:INFO:centrifuge racks batch 1 filling
+2023-05-10 03:11:09,900:INFO:GREEN tube placed at index 4 
+2023-05-10 03:11:09,901:INFO:Total Green: 2 ,Orange: 2 ,Counter Filled: False 
+2023-05-10 03:11:09,902:INFO:Camera 2 results: Color-GREEN,Barcode-7040501952,Blood level-0,Plasma level-46.219
+2023-05-10 03:11:09,903:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 03:11:09,922:INFO:Sent locations Source,Destination: [[16.3599, 111.0896, 100.0, -179.899994, -0.0922, -3.4113], [16.3599, 111.0896, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 03:11:24,811:INFO:YELLOW tube picked from camera1 at index 29 
+2023-05-10 03:11:24,811:INFO:YELLOW tube is at camera2
+2023-05-10 03:11:24,812:INFO:YELLOW tube moved from camera1 to camera2
+2023-05-10 03:11:24,813:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 03:11:24,815:INFO:Sent locations Source,Destination: [[30.6325, 92.1597, 130.0, 180.0, 0.0, 0.0], [30.6325, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:12:18,048:INFO:centrifuge racks batch 1 filling
+2023-05-10 03:12:18,049:INFO:YELLOW tube placed at index 5 
+2023-05-10 03:12:18,050:INFO:Total Green: 2 ,Orange: 2 ,Counter Filled: False 
+2023-05-10 03:12:18,050:INFO:Camera 2 results: Color-YELLOW,Barcode-12345abc,Blood level-0,Plasma level-46.948
+2023-05-10 03:12:18,051:INFO:YELLOW tube moved from camera2 to centrifuge racks
+2023-05-10 03:12:18,062:INFO:Sent locations Source,Destination: [[76.359902, 78.5891, 100.0, -179.899994, -0.0922, -3.4113], [76.359902, 78.5891, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 03:12:29,013:INFO:YELLOW tube picked from camera1 at index 29 
+2023-05-10 03:12:29,014:INFO:YELLOW tube is at camera2
+2023-05-10 03:12:29,015:INFO:YELLOW tube moved from camera1 to camera2
+2023-05-10 03:12:29,016:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 03:12:29,018:INFO:Sent locations Source,Destination: [[30.6325, 92.1597, 130.0, 180.0, 0.0, 0.0], [30.6325, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:16:16,980:INFO:ping interrupted for:199648.342 milli seconds 
+2023-05-10 03:16:50,551:INFO:NONE tube placed in Failed plate at index 4 
+2023-05-10 03:16:50,552:INFO:Camera 2 results: Color-NONE,Barcode-,Blood level-0,Plasma level-0
+2023-05-10 03:16:50,552:INFO:NONE tube moved from camera2 to Failed plate
+2023-05-10 03:16:50,561:INFO:Sent locations Source,Destination: [[196.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [196.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 03:17:05,008:INFO:centrifuge racks batch 1 filling
+2023-05-10 03:17:05,009:INFO:COUNTER tube placed at index 6 
+2023-05-10 03:17:05,010:INFO:Total Green: 2 ,Orange: 2 ,Counter Filled: True 
+2023-05-10 03:17:05,011:INFO:COUNTER tube moved from centrifuge racks - 1 
+2023-05-10 03:17:05,011:INFO:centrifuge racks batch 1 filled
+2023-05-10 03:17:05,012:INFO:batch moved from centrifuge racks to centrifuge machine
+2023-05-10 03:17:05,013:INFO:Sent Jobs Source,Destination: [54, 52]
+2023-05-10 03:17:05,015:INFO:Sent locations Source,Destination: [[-72.115997, 8.6447, 100.0, 179.999893, 0.0, -3.4113], [179.655604, 171.08960000000002, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 03:17:28,503:INFO:Sent Jobs Source,Destination: [51, 62]
+2023-05-10 03:17:28,505:INFO:Sent locations Source,Destination: [[1, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0]]
+2023-05-10 03:17:59,875:INFO:ping interrupted for:27797.055 milli seconds 
+2023-05-10 03:18:05,942:INFO:Hatch opened for centrifuge machine
+2023-05-10 03:18:08,989:INFO:Rotor position set to  1
+2023-05-10 03:18:31,384:INFO:Rotor position set to  2
+2023-05-10 03:18:53,702:INFO:Rotor position set to  3
+2023-05-10 03:19:15,998:INFO:Rotor position set to  4
+2023-05-10 03:19:35,514:INFO:Hatch closed for centrifuge machine
+2023-05-10 03:19:37,116:INFO:centrifuge machine machine started
+2023-05-10 03:20:02,737:INFO:RED tube picked from camera1 at index 23 
+2023-05-10 03:20:02,738:INFO:RED tube is at camera2
+2023-05-10 03:20:02,739:INFO:RED tube moved from camera1 to camera2
+2023-05-10 03:20:02,743:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 03:20:02,748:INFO:Sent locations Source,Destination: [[121.834, 61.859700000000004, 130.0, 180.0, 0.0, 0.0], [121.834, 61.859700000000004, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:20:24,869:INFO:ping interrupted for:18665.556 milli seconds 
+2023-05-10 03:21:49,271:INFO:Sysmex rack holders batch 1 filling
+2023-05-10 03:21:49,272:INFO:RED tube placed at index 1 
+2023-05-10 03:21:49,273:INFO:Camera 2 results: Color-RED,Barcode-891092327331,Blood level-0,Plasma level-34.911
+2023-05-10 03:21:49,273:INFO:RED tube moved from camera2 to Sysmex rack holders
+2023-05-10 03:21:49,290:INFO:Sent locations Source,Destination: [[22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0], [22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:22:14,861:INFO:ping interrupted for:20730.269 milli seconds 
+2023-05-10 03:22:34,159:INFO:RED tube picked from camera1 at index 31 
+2023-05-10 03:22:34,160:INFO:RED tube is at camera2
+2023-05-10 03:22:34,160:INFO:RED tube moved from camera1 to camera2
+2023-05-10 03:22:34,161:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 03:22:34,163:INFO:Sent locations Source,Destination: [[91.43350000000001, 92.1597, 130.0, 180.0, 0.0, 0.0], [91.43350000000001, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:23:18,174:INFO:ping interrupted for:40586.744000000006 milli seconds 
+2023-05-10 03:24:34,966:INFO:Sysmex rack holders batch 1 filling
+2023-05-10 03:24:34,967:INFO:RED tube placed at index 2 
+2023-05-10 03:24:34,968:INFO:Camera 2 results: Color-RED,Barcode-891092332331,Blood level-0,Plasma level-47.071
+2023-05-10 03:24:34,968:INFO:RED tube moved from camera2 to Sysmex rack holders
+2023-05-10 03:24:34,980:INFO:Sent locations Source,Destination: [[22.0938, 8.5142, 100.0, 180.0, 0.0, 0.0], [22.0938, 8.5142, 100.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:25:09,512:INFO:ping interrupted for:28713.123 milli seconds 
+2023-05-10 03:25:28,560:INFO:Sysmex rack holders batch 1 filled
+2023-05-10 03:25:28,561:INFO:rack moved from Sysmex rack holders to Sysmex machine
+2023-05-10 03:25:28,562:INFO:Sent Jobs Source,Destination: [91, 72]
+2023-05-10 03:25:28,565:INFO:Sent locations Source,Destination: [[27.299601, 77.391998, 100.0, 180.0, 0.0, -1.4113], [27.299601, 77.391998, 100.0, 180.0, 0.0, -1.4113]]
+2023-05-10 03:25:55,308:INFO:ping interrupted for:20725.238 milli seconds 
+2023-05-10 03:31:17,338:INFO:ping interrupted for:145000.356 milli seconds 
+2023-05-10 03:44:16,670:INFO:ping interrupted for:84175.505 milli seconds 
+2023-05-10 03:44:22,300:INFO:Check lock success for centrifuge machine
+2023-05-10 03:44:22,711:INFO:Check lock success for centrifuge machine
+2023-05-10 03:45:44,183:INFO:Check lock success for centrifuge machine
+2023-05-10 03:45:44,574:INFO:Check lock success for centrifuge machine
+2023-05-10 03:47:28,063:INFO:Check lock success for centrifuge machine
+2023-05-10 03:47:28,487:INFO:Check lock success for centrifuge machine
+2023-05-10 03:47:36,445:INFO:GREEN tube picked from camera1 at index 31 
+2023-05-10 03:47:44,123:INFO:Compact Max  door opened
+2023-05-10 03:47:44,125:INFO:GREEN tube is at camera2
+2023-05-10 03:47:44,125:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 03:47:44,126:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 03:47:44,129:INFO:Sent locations Source,Destination: [[91.43350000000001, 92.1597, 130.0, 180.0, 0.0, 0.0], [91.43350000000001, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:48:08,397:INFO:ping interrupted for:23823.719 milli seconds 
+2023-05-10 03:49:24,866:INFO:GREEN tube placed in Failed plate at index 1 
+2023-05-10 03:49:24,866:INFO:Camera 2 results: Color-GREEN,Barcode-,Blood level-0,Plasma level-0
+2023-05-10 03:49:24,867:INFO:GREEN tube moved from camera2 to Failed plate
+2023-05-10 03:49:24,877:INFO:Sent locations Source,Destination: [[76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 03:51:55,379:INFO:Check lock success for centrifuge machine
+2023-05-10 03:51:55,782:INFO:Check lock success for centrifuge machine
+2023-05-10 03:52:03,653:INFO:ORANGE tube picked from camera1 at index 23 
+2023-05-10 03:52:03,654:INFO:ORANGE tube is at camera2
+2023-05-10 03:52:03,655:INFO:ORANGE tube moved from camera1 to camera2
+2023-05-10 03:52:03,656:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 03:52:03,658:INFO:Sent locations Source,Destination: [[121.834, 61.859700000000004, 130.0, 180.0, 0.0, 0.0], [121.834, 61.859700000000004, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:52:09,985:INFO:ping interrupted for:2543.7799999999997 milli seconds 
+2023-05-10 03:53:06,568:INFO:centrifuge racks batch 1 filling
+2023-05-10 03:53:06,568:INFO:ORANGE tube placed at index 1 
+2023-05-10 03:53:06,569:INFO:Total Green: 0 ,Orange: 1 ,Counter Filled: False 
+2023-05-10 03:53:06,570:INFO:Camera 2 results: Color-ORANGE,Barcode-12345abc,Blood level-0,Plasma level-46.863
+2023-05-10 03:53:06,570:INFO:ORANGE tube moved from camera2 to centrifuge racks
+2023-05-10 03:53:06,584:INFO:Sent locations Source,Destination: [[16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113], [16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 03:53:21,991:INFO:GREEN tube picked from camera1 at index 22 
+2023-05-10 03:53:29,660:INFO:Compact Max  door opened
+2023-05-10 03:53:29,661:INFO:GREEN tube is at camera2
+2023-05-10 03:53:29,661:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 03:53:29,662:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 03:53:29,665:INFO:Sent locations Source,Destination: [[91.43350000000001, 61.859700000000004, 130.0, 180.0, 0.0, 0.0], [91.43350000000001, 61.859700000000004, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:54:23,106:INFO:centrifuge racks batch 1 filling
+2023-05-10 03:54:23,106:INFO:GREEN tube placed at index 2 
+2023-05-10 03:54:23,107:INFO:Total Green: 1 ,Orange: 1 ,Counter Filled: False 
+2023-05-10 03:54:23,107:INFO:Camera 2 results: Color-GREEN,Barcode-7040502102,Blood level-0,Plasma level-46.402
+2023-05-10 03:54:23,108:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 03:54:23,121:INFO:Sent locations Source,Destination: [[119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113], [119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 03:54:39,080:INFO:centrifuge racks batch 1 filled
+2023-05-10 03:54:39,083:INFO:batch moved from centrifuge racks to centrifuge machine
+2023-05-10 03:54:39,084:INFO:Sent Jobs Source,Destination: [51, 62]
+2023-05-10 03:54:39,087:INFO:Sent locations Source,Destination: [[1, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0]]
+2023-05-10 03:55:14,040:INFO:ping interrupted for:31088.893 milli seconds 
+2023-05-10 03:55:24,294:INFO:Hatch opened for centrifuge machine
+2023-05-10 03:55:27,784:INFO:Rotor position set to  1
+2023-05-10 03:55:51,992:INFO:Rotor position set to  2
+2023-05-10 03:56:16,688:INFO:Rotor position set to  3
+2023-05-10 03:56:40,571:INFO:Rotor position set to  4
+2023-05-10 03:57:01,971:INFO:Hatch closed for centrifuge machine
+2023-05-10 03:57:03,800:INFO:centrifuge machine machine started
+2023-05-10 03:57:11,011:INFO:RED tube picked from camera1 at index 30 
+2023-05-10 03:57:11,012:INFO:RED tube is at camera2
+2023-05-10 03:57:11,013:INFO:RED tube moved from camera1 to camera2
+2023-05-10 03:57:11,013:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 03:57:11,015:INFO:Sent locations Source,Destination: [[61.033, 92.1597, 130.0, 180.0, 0.0, 0.0], [61.033, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:57:45,079:INFO:ping interrupted for:22168.755999999998 milli seconds 
+2023-05-10 03:58:47,361:INFO:Sysmex rack holders batch 1 filling
+2023-05-10 03:58:47,361:INFO:RED tube placed at index 1 
+2023-05-10 03:58:47,362:INFO:Camera 2 results: Color-RED,Barcode-891092327331,Blood level-0,Plasma level-36.517
+2023-05-10 03:58:47,363:INFO:RED tube moved from camera2 to Sysmex rack holders
+2023-05-10 03:58:47,378:INFO:Sent locations Source,Destination: [[22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0], [22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0]]
+2023-05-10 03:59:12,656:INFO:ping interrupted for:20768.555 milli seconds 
+2023-05-10 03:59:12,659:INFO:skipped standby timer and skype message for centrifuge machine
+2023-05-10 03:59:28,131:INFO:batch moved from centrifuge machine to centrifuge racks
+2023-05-10 03:59:28,131:INFO:Sent Jobs Source,Destination: [61, 52]
+2023-05-10 03:59:28,133:INFO:Sent locations Source,Destination: [[1, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0]]
+2023-05-10 03:59:48,077:INFO:ping interrupted for:17576.377999999997 milli seconds 
+2023-05-10 03:59:58,301:INFO:Hatch opened for centrifuge machine
+2023-05-10 04:00:01,600:INFO:Rotor position set to  1
+2023-05-10 04:05:51,183:INFO:Check lock success for centrifuge machine
+2023-05-10 04:05:51,588:INFO:Check lock success for centrifuge machine
+2023-05-10 04:06:43,197:INFO:ping interrupted for:47873.0 milli seconds 
+2023-05-10 04:06:48,934:INFO:Check lock success for centrifuge machine
+2023-05-10 04:06:49,344:INFO:Check lock success for centrifuge machine
+2023-05-10 04:06:57,339:INFO:RED tube picked from camera1 at index 32 
+2023-05-10 04:06:57,340:INFO:RED tube is at camera2
+2023-05-10 04:06:57,340:INFO:RED tube moved from camera1 to camera2
+2023-05-10 04:06:57,341:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 04:06:57,343:INFO:Sent locations Source,Destination: [[121.834, 92.1597, 130.0, 180.0, 0.0, 0.0], [121.834, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 04:07:08,293:INFO:ping interrupted for:7196.575 milli seconds 
+2023-05-10 04:07:49,756:INFO:Sysmex rack holders batch 1 filling
+2023-05-10 04:07:49,757:INFO:RED tube placed at index 1 
+2023-05-10 04:07:49,758:INFO:Camera 2 results: Color-RED,Barcode-891092327331,Blood level-0,Plasma level-35.099
+2023-05-10 04:07:49,759:INFO:RED tube moved from camera2 to Sysmex rack holders
+2023-05-10 04:07:49,775:INFO:Sent locations Source,Destination: [[22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0], [22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0]]
+2023-05-10 04:08:15,689:INFO:ping interrupted for:22000.682999999997 milli seconds 
+2023-05-10 04:08:34,723:INFO:Sysmex rack holders batch 1 filled
+2023-05-10 04:08:34,724:INFO:rack moved from Sysmex rack holders to Sysmex machine
+2023-05-10 04:08:34,727:INFO:Sysmex machine machine started
+2023-05-10 04:08:34,729:INFO:Sent Jobs Source,Destination: [91, 72]
+2023-05-10 04:08:34,731:INFO:Sent locations Source,Destination: [[27.299601, 77.391998, 100.0, 180.0, 0.0, -1.4113], [27.299601, 77.391998, 100.0, 180.0, 0.0, -1.4113]]
+2023-05-10 04:08:43,138:INFO:ping interrupted for:7005.3640000000005 milli seconds 
+2023-05-10 04:11:55,327:INFO:Check lock success for centrifuge machine
+2023-05-10 04:11:55,738:INFO:Check lock success for centrifuge machine
+2023-05-10 04:12:03,709:INFO:RED tube picked from camera1 at index 23 
+2023-05-10 04:12:03,710:INFO:RED tube is at camera2
+2023-05-10 04:12:03,710:INFO:RED tube moved from camera1 to camera2
+2023-05-10 04:12:03,711:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 04:12:03,713:INFO:Sent locations Source,Destination: [[121.834, 61.859700000000004, 130.0, 180.0, 0.0, 0.0], [121.834, 61.859700000000004, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 04:12:18,241:INFO:ping interrupted for:14096.329000000002 milli seconds 
+2023-05-10 04:12:58,657:INFO:Sysmex rack holders batch 1 filling
+2023-05-10 04:12:58,658:INFO:RED tube placed at index 1 
+2023-05-10 04:12:58,659:INFO:Camera 2 results: Color-RED,Barcode-891092327331,Blood level-0,Plasma level-46.266
+2023-05-10 04:12:58,659:INFO:RED tube moved from camera2 to Sysmex rack holders
+2023-05-10 04:12:58,675:INFO:Sent locations Source,Destination: [[22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0], [22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0]]
+2023-05-10 04:13:09,983:INFO:ping interrupted for:7292.226000000001 milli seconds 
+2023-05-10 04:13:29,163:INFO:GREEN tube picked from camera1 at index 29 
+2023-05-10 04:13:36,824:INFO:Compact Max  door opened
+2023-05-10 04:13:36,825:INFO:GREEN tube is at camera2
+2023-05-10 04:13:36,826:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 04:13:36,827:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 04:13:36,830:INFO:Sent locations Source,Destination: [[30.6325, 92.1597, 130.0, 180.0, 0.0, 0.0], [30.6325, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 04:15:41,114:INFO:Check lock success for centrifuge machine
+2023-05-10 04:15:41,517:INFO:Check lock success for centrifuge machine
+2023-05-10 04:16:34,957:INFO:ping interrupted for:2325.368 milli seconds 
+2023-05-10 04:16:38,693:INFO:RED tube picked from camera1 at index 4 
+2023-05-10 04:16:38,694:INFO:RED tube is at camera2
+2023-05-10 04:16:38,695:INFO:RED tube moved from camera1 to camera2
+2023-05-10 04:16:38,696:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 04:16:38,698:INFO:Sent locations Source,Destination: [[91.43350000000001, 1.2597, 130.0, 180.0, 0.0, 0.0], [91.43350000000001, 1.2597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 04:17:03,491:INFO:ping interrupted for:24247.523 milli seconds 
+2023-05-10 04:18:05,605:INFO:Sysmex rack holders batch 1 filling
+2023-05-10 04:18:05,606:INFO:RED tube placed at index 1 
+2023-05-10 04:18:05,607:INFO:Camera 2 results: Color-RED,Barcode-891092327331,Blood level-0,Plasma level-42.419
+2023-05-10 04:18:05,607:INFO:RED tube moved from camera2 to Sysmex rack holders
+2023-05-10 04:18:05,625:INFO:Sent locations Source,Destination: [[22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0], [22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0]]
+2023-05-10 04:18:20,262:INFO:ping interrupted for:10324.349 milli seconds 
+2023-05-10 04:18:39,338:INFO:Sysmex rack holders batch 1 filled
+2023-05-10 04:18:39,339:INFO:rack moved from Sysmex rack holders to Sysmex machine
+2023-05-10 04:18:39,343:INFO:Sysmex machine machine started
+2023-05-10 04:18:39,344:INFO:Sent Jobs Source,Destination: [91, 72]
+2023-05-10 04:18:39,346:INFO:Sent locations Source,Destination: [[27.299601, 77.391998, 100.0, 180.0, 0.0, -1.4113], [27.299601, 77.391998, 100.0, 180.0, 0.0, -1.4113]]
+2023-05-10 04:18:45,188:INFO:ping interrupted for:4363.869000000001 milli seconds 
+2023-05-10 04:20:19,998:INFO:rack moved from Sysmex machine to Sysmex rack holders
+2023-05-10 04:20:19,999:INFO:Sent Jobs Source,Destination: [71, 92]
+2023-05-10 04:20:20,001:INFO:Sent locations Source,Destination: [[27.299601, 77.391998, 100.0, 180.0, 0.0, -1.4113], [27.299601, 77.391998, 100.0, 180.0, 0.0, -1.4113]]
+2023-05-10 04:20:24,884:INFO:ping interrupted for:3370.253 milli seconds 
+2023-05-10 04:20:56,933:INFO:RED tube picked from index 1 
+2023-05-10 04:20:56,934:INFO:RED tube placed in Archive at index 1 
+2023-05-10 04:20:56,935:INFO:RED tube moved from Sysmex rack holders to Archive
+2023-05-10 04:20:56,935:INFO:Sent Jobs Source,Destination: [93, 112]
+2023-05-10 04:20:56,937:INFO:Sent locations Source,Destination: [[22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0], [355.472992, -275.501587, -100.0, -180.0, -0.0001, -3.4113]]
+2023-05-10 04:21:00,907:INFO:ping interrupted for:2480.398 milli seconds 
+2023-05-10 04:21:38,468:INFO:ping interrupted for:23892.243000000002 milli seconds 
+2023-05-10 04:22:23,460:INFO:ping interrupted for:1941.859 milli seconds 
+2023-05-10 04:22:28,573:INFO:GREEN tube picked from camera1 at index 32 
+2023-05-10 04:22:36,239:INFO:Compact Max  door opened
+2023-05-10 04:22:36,240:INFO:GREEN tube is at camera2
+2023-05-10 04:22:36,240:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 04:22:36,241:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 04:22:36,243:INFO:Sent locations Source,Destination: [[121.834, 92.1597, 130.0, 180.0, 0.0, 0.0], [121.834, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 04:29:59,196:INFO:Check lock success for centrifuge machine
+2023-05-10 04:29:59,605:INFO:Check lock success for centrifuge machine
+2023-05-10 04:30:07,713:INFO:GREEN tube picked from camera1 at index 1 
+2023-05-10 04:30:07,934:INFO:Compact Max  door opened
+2023-05-10 04:30:07,935:INFO:GREEN tube is at camera2
+2023-05-10 04:30:07,936:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 04:30:07,937:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 04:30:07,939:INFO:Sent locations Source,Destination: [[0.232, 1.2597, 130.0, 180.0, 0.0, 0.0], [0.232, 1.2597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 04:33:54,917:INFO:Check lock success for centrifuge machine
+2023-05-10 04:33:55,327:INFO:Check lock success for centrifuge machine
+2023-05-10 04:33:59,420:INFO:Cobas Pure racks, rack is picked at index 0
+2023-05-10 04:33:59,421:INFO:Cobas pure rack moved from Cobas Pure racks to Cobas pure rack holder 
+2023-05-10 04:33:59,422:INFO:Sent Jobs Source,Destination: [21, 142]
+2023-05-10 04:33:59,424:INFO:Sent locations Source,Destination: [[16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703], [16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703]]
+2023-05-10 05:10:39,628:INFO:Check lock success for centrifuge machine
+2023-05-10 05:10:40,028:INFO:Check lock success for centrifuge machine
+2023-05-10 05:10:44,208:INFO:Cobas Pure racks, rack is picked at index 0
+2023-05-10 05:10:44,209:INFO:Cobas pure rack moved from Cobas Pure racks to Cobas pure rack holder 
+2023-05-10 05:10:44,210:INFO:Sent Jobs Source,Destination: [21, 142]
+2023-05-10 05:10:44,212:INFO:Sent locations Source,Destination: [[16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703], [16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703]]
+2023-05-10 05:13:18,725:INFO:Check lock success for centrifuge machine
+2023-05-10 05:13:19,124:INFO:Check lock success for centrifuge machine
+2023-05-10 05:13:23,356:INFO:Cobas Pure racks, rack is picked at index 0
+2023-05-10 05:13:23,357:INFO:Cobas pure rack moved from Cobas Pure racks to Cobas pure rack holder 
+2023-05-10 05:13:23,358:INFO:Sent Jobs Source,Destination: [21, 142]
+2023-05-10 05:13:23,360:INFO:Sent locations Source,Destination: [[16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703], [16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703]]
+2023-05-10 05:13:35,283:INFO:ping interrupted for:11287.01 milli seconds 
+2023-05-10 05:14:35,717:INFO:Check lock success for centrifuge machine
+2023-05-10 05:14:36,128:INFO:Check lock success for centrifuge machine
+2023-05-10 05:14:40,425:INFO:Cobas Pure racks, rack is picked at index 0
+2023-05-10 05:14:40,426:INFO:Cobas pure rack moved from Cobas Pure racks to Cobas pure rack holder 
+2023-05-10 05:14:40,426:INFO:Sent Jobs Source,Destination: [21, 142]
+2023-05-10 05:14:40,429:INFO:Sent locations Source,Destination: [[16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703], [16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703]]
+2023-05-10 05:14:44,533:INFO:GREEN tube picked from camera1 at index 1 
+2023-05-10 05:14:44,757:INFO:Compact Max  door opened
+2023-05-10 05:14:44,758:INFO:GREEN tube is at camera2
+2023-05-10 05:14:44,759:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 05:14:44,759:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 05:14:44,761:INFO:Sent locations Source,Destination: [[0.232, 1.2597, 130.0, 180.0, 0.0, 0.0], [0.232, 1.2597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 05:14:57,941:INFO:ping interrupted for:10545.979000000001 milli seconds 
+2023-05-10 05:16:04,734:INFO:NONE tube placed in Failed plate at index 1 
+2023-05-10 05:16:04,735:INFO:Camera 2 results: Color-NONE,Barcode-,Blood level-0,Plasma level-0
+2023-05-10 05:16:04,735:INFO:NONE tube moved from camera2 to Failed plate
+2023-05-10 05:16:04,744:INFO:Sent locations Source,Destination: [[76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 05:16:20,374:INFO:GREEN tube picked from camera1 at index 2 
+2023-05-10 05:16:20,375:INFO:GREEN tube is at camera2
+2023-05-10 05:16:20,376:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 05:16:20,377:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 05:16:20,379:INFO:Sent locations Source,Destination: [[30.6325, 1.2597, 130.0, 180.0, 0.0, 0.0], [30.6325, 1.2597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 05:16:34,721:INFO:ping interrupted for:10280.01 milli seconds 
+2023-05-10 05:17:43,966:INFO:NONE tube placed in Failed plate at index 2 
+2023-05-10 05:17:43,967:INFO:Camera 2 results: Color-NONE,Barcode-,Blood level-0,Plasma level-0
+2023-05-10 05:17:43,968:INFO:NONE tube moved from camera2 to Failed plate
+2023-05-10 05:17:43,977:INFO:Sent locations Source,Destination: [[116.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [116.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 05:25:08,233:INFO:Check lock success for centrifuge machine
+2023-05-10 05:25:08,639:INFO:Check lock success for centrifuge machine
+2023-05-10 05:25:12,843:INFO:Cobas Pure racks, rack is picked at index 0
+2023-05-10 05:25:12,844:INFO:Cobas pure rack moved from Cobas Pure racks to Cobas pure rack holder 
+2023-05-10 05:25:12,845:INFO:Sent Jobs Source,Destination: [21, 142]
+2023-05-10 05:25:12,847:INFO:Sent locations Source,Destination: [[16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703], [16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703]]
+2023-05-10 05:25:17,060:INFO:GREEN tube picked from camera1 at index 4 
+2023-05-10 05:25:17,267:INFO:Compact Max  door opened
+2023-05-10 05:25:17,268:INFO:GREEN tube is at camera2
+2023-05-10 05:25:17,269:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 05:25:17,269:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 05:25:17,272:INFO:Sent locations Source,Destination: [[91.43350000000001, 1.2597, 130.0, 180.0, 0.0, 0.0], [91.43350000000001, 1.2597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 05:25:24,147:INFO:ping interrupted for:3027.002 milli seconds 
+2023-05-10 05:26:24,645:INFO:NONE tube placed in Failed plate at index 1 
+2023-05-10 05:26:24,646:INFO:Camera 2 results: Color-NONE,Barcode-,Blood level-0,Plasma level-0
+2023-05-10 05:26:24,646:INFO:NONE tube moved from camera2 to Failed plate
+2023-05-10 05:26:24,655:INFO:Sent locations Source,Destination: [[76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 05:26:40,099:INFO:GREEN tube picked from camera1 at index 7 
+2023-05-10 05:26:40,100:INFO:GREEN tube is at camera2
+2023-05-10 05:26:40,100:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 05:26:40,101:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 05:26:40,102:INFO:Sent locations Source,Destination: [[182.63500000000002, 1.2597, 130.0, 180.0, 0.0, 0.0], [182.63500000000002, 1.2597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 05:27:44,564:INFO:NONE tube placed in Failed plate at index 2 
+2023-05-10 05:27:44,565:INFO:Camera 2 results: Color-NONE,Barcode-,Blood level-0,Plasma level-0
+2023-05-10 05:27:44,565:INFO:NONE tube moved from camera2 to Failed plate
+2023-05-10 05:27:44,574:INFO:Sent locations Source,Destination: [[116.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [116.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 05:28:00,064:INFO:GREEN tube picked from camera1 at index 8 
+2023-05-10 05:28:00,065:INFO:GREEN tube is at camera2
+2023-05-10 05:28:00,066:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 05:28:00,067:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 05:28:00,069:INFO:Sent locations Source,Destination: [[213.0355, 1.2597, 130.0, 180.0, 0.0, 0.0], [213.0355, 1.2597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 05:31:43,045:INFO:Check lock success for centrifuge machine
+2023-05-10 05:31:43,441:INFO:Check lock success for centrifuge machine
+2023-05-10 05:31:47,640:INFO:Cobas Pure racks, rack is picked at index 0
+2023-05-10 05:31:47,641:INFO:Cobas pure rack moved from Cobas Pure racks to Cobas pure rack holder 
+2023-05-10 05:31:47,641:INFO:Sent Jobs Source,Destination: [21, 142]
+2023-05-10 05:31:47,644:INFO:Sent locations Source,Destination: [[16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703], [16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703]]
+2023-05-10 05:31:51,780:INFO:GREEN tube picked from camera1 at index 4 
+2023-05-10 05:31:52,006:INFO:Compact Max  door opened
+2023-05-10 05:31:52,007:INFO:GREEN tube is at camera2
+2023-05-10 05:31:52,008:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 05:31:52,009:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 05:31:52,012:INFO:Sent locations Source,Destination: [[91.43350000000001, 1.2597, 130.0, 180.0, 0.0, 0.0], [91.43350000000001, 1.2597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 05:35:30,112:INFO:Check lock success for centrifuge machine
+2023-05-10 05:35:30,512:INFO:Check lock success for centrifuge machine
+2023-05-10 05:35:34,707:INFO:Cobas Pure racks, rack is picked at index 0
+2023-05-10 05:35:34,708:INFO:Cobas pure rack moved from Cobas Pure racks to Cobas pure rack holder 
+2023-05-10 05:35:34,709:INFO:Sent Jobs Source,Destination: [21, 142]
+2023-05-10 05:35:34,711:INFO:Sent locations Source,Destination: [[16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703], [16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703]]
+2023-05-10 05:35:38,957:INFO:GREEN tube picked from camera1 at index 13 
+2023-05-10 05:35:39,185:INFO:Compact Max  door opened
+2023-05-10 05:35:39,186:INFO:GREEN tube is at camera2
+2023-05-10 05:35:39,187:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 05:35:39,188:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 05:35:39,190:INFO:Sent locations Source,Destination: [[91.43350000000001, 31.5597, 130.0, 180.0, 0.0, 0.0], [91.43350000000001, 31.5597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 05:37:02,566:INFO:GREEN tube placed in Failed plate at index 1 
+2023-05-10 05:37:02,567:INFO:Camera 2 results: Color-GREEN,Barcode-7040503322,Blood level-0,Plasma level-0.0
+2023-05-10 05:37:02,567:INFO:GREEN tube moved from camera2 to Failed plate
+2023-05-10 05:37:02,578:INFO:Sent locations Source,Destination: [[76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 05:37:18,114:INFO:GREEN tube picked from camera1 at index 17 
+2023-05-10 05:37:18,115:INFO:GREEN tube is at camera2
+2023-05-10 05:37:18,116:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 05:37:18,117:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 05:37:18,119:INFO:Sent locations Source,Destination: [[213.0355, 31.5597, 130.0, 180.0, 0.0, 0.0], [213.0355, 31.5597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 05:38:00,666:INFO:centrifuge racks batch 1 filling
+2023-05-10 05:38:00,667:INFO:GREEN tube placed at index 1 
+2023-05-10 05:38:00,668:INFO:Total Green: 1 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 05:38:00,668:INFO:Camera 2 results: Color-GREEN,Barcode-12345abc,Blood level-0,Plasma level-37.271
+2023-05-10 05:38:00,669:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 05:38:00,682:INFO:Sent locations Source,Destination: [[16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113], [16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 05:38:16,151:INFO:YELLOW tube picked from camera1 at index 14 
+2023-05-10 05:38:16,151:INFO:YELLOW tube is at camera2
+2023-05-10 05:38:16,152:INFO:YELLOW tube moved from camera1 to camera2
+2023-05-10 05:38:16,152:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 05:38:16,154:INFO:Sent locations Source,Destination: [[121.834, 31.5597, 130.0, 180.0, 0.0, 0.0], [121.834, 31.5597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 05:39:34,271:INFO:GREEN tube placed in Failed plate at index 2 
+2023-05-10 05:39:34,273:INFO:Camera 2 results: Color-GREEN,Barcode-7040501952,Blood level-0,Plasma level-0.0
+2023-05-10 05:39:34,274:INFO:GREEN tube moved from camera2 to Failed plate
+2023-05-10 05:39:34,285:INFO:Sent locations Source,Destination: [[116.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [116.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 05:39:45,923:INFO:YELLOW tube picked from camera1 at index 15 
+2023-05-10 05:39:45,924:INFO:YELLOW tube is at camera2
+2023-05-10 05:39:45,925:INFO:YELLOW tube moved from camera1 to camera2
+2023-05-10 05:39:45,925:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 05:39:45,928:INFO:Sent locations Source,Destination: [[152.2345, 31.5597, 130.0, 180.0, 0.0, 0.0], [152.2345, 31.5597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 05:44:21,090:INFO:Check lock success for centrifuge machine
+2023-05-10 05:44:21,498:INFO:Check lock success for centrifuge machine
+2023-05-10 05:44:25,739:INFO:Cobas Pure racks, rack is picked at index 0
+2023-05-10 05:44:25,740:INFO:Cobas pure rack moved from Cobas Pure racks to Cobas pure rack holder 
+2023-05-10 05:44:25,741:INFO:Sent Jobs Source,Destination: [21, 142]
+2023-05-10 05:44:25,743:INFO:Sent locations Source,Destination: [[16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703], [16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703]]
+2023-05-10 05:44:30,001:INFO:GREEN tube picked from camera1 at index 13 
+2023-05-10 05:44:30,232:INFO:Compact Max  door opened
+2023-05-10 05:44:30,233:INFO:GREEN tube is at camera2
+2023-05-10 05:44:30,234:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 05:44:30,235:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 05:44:30,238:INFO:Sent locations Source,Destination: [[91.43350000000001, 31.5597, 130.0, 180.0, 0.0, 0.0], [91.43350000000001, 31.5597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 05:45:15,736:INFO:centrifuge racks batch 1 filling
+2023-05-10 05:45:15,737:INFO:GREEN tube placed at index 1 
+2023-05-10 05:45:15,737:INFO:Total Green: 1 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 05:45:15,738:INFO:Camera 2 results: Color-GREEN,Barcode-12345abc,Blood level-0,Plasma level-37.89
+2023-05-10 05:45:15,738:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 05:45:15,753:INFO:Sent locations Source,Destination: [[16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113], [16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 05:45:31,151:INFO:GREEN tube picked from camera1 at index 17 
+2023-05-10 05:45:31,152:INFO:GREEN tube is at camera2
+2023-05-10 05:45:31,153:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 05:45:31,153:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 05:45:31,155:INFO:Sent locations Source,Destination: [[213.0355, 31.5597, 130.0, 180.0, 0.0, 0.0], [213.0355, 31.5597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 05:46:14,858:INFO:centrifuge racks batch 1 filling
+2023-05-10 05:46:14,859:INFO:GREEN tube placed at index 2 
+2023-05-10 05:46:14,859:INFO:Total Green: 2 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 05:46:14,860:INFO:Camera 2 results: Color-GREEN,Barcode-12345abc,Blood level-0,Plasma level-38.746
+2023-05-10 05:46:14,861:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 05:46:14,878:INFO:Sent locations Source,Destination: [[119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113], [119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 05:46:30,796:INFO:centrifuge racks batch 1 filled
+2023-05-10 05:46:30,797:INFO:batch moved from centrifuge racks to centrifuge machine
+2023-05-10 05:46:30,798:INFO:Sent Jobs Source,Destination: [51, 62]
+2023-05-10 05:46:30,799:INFO:Sent locations Source,Destination: [[1, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0]]
+2023-05-10 05:46:35,183:INFO:Hatch closed for centrifuge machine
+2023-05-10 05:46:35,749:INFO:centrifuge machine machine started
+2023-05-10 05:46:36,087:INFO:GREEN tube picked from camera1 at index 35 
+2023-05-10 05:46:36,087:INFO:GREEN tube is at camera2
+2023-05-10 05:46:36,088:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 05:46:36,089:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 05:46:36,091:INFO:Sent locations Source,Destination: [[213.0355, 92.1597, 130.0, 180.0, 0.0, 0.0], [213.0355, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 05:47:42,728:INFO:NONE tube placed in Failed plate at index 1 
+2023-05-10 05:47:42,729:INFO:Camera 2 results: Color-NONE,Barcode-,Blood level-0,Plasma level-0
+2023-05-10 05:47:42,730:INFO:NONE tube moved from camera2 to Failed plate
+2023-05-10 05:47:42,738:INFO:Sent locations Source,Destination: [[76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 05:47:58,254:INFO:GREEN tube picked from camera1 at index 17 
+2023-05-10 05:47:58,255:INFO:GREEN tube is at camera2
+2023-05-10 05:47:58,256:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 05:47:58,257:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 05:47:58,259:INFO:Sent locations Source,Destination: [[213.0355, 31.5597, 130.0, 180.0, 0.0, 0.0], [213.0355, 31.5597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 05:48:35,747:INFO:skipped standby timer and skype message for centrifuge machine
+2023-05-10 05:55:03,729:INFO:Check lock success for centrifuge machine
+2023-05-10 05:55:04,143:INFO:Check lock success for centrifuge machine
+2023-05-10 06:01:16,446:INFO:Check lock success for centrifuge machine
+2023-05-10 06:01:16,853:INFO:Check lock success for centrifuge machine
+2023-05-10 06:01:20,972:INFO:Cobas Pure racks, rack is picked at index 0
+2023-05-10 06:01:20,973:INFO:Cobas pure rack moved from Cobas Pure racks to Cobas pure rack holder 
+2023-05-10 06:01:20,973:INFO:Sent Jobs Source,Destination: [21, 142]
+2023-05-10 06:01:20,976:INFO:Sent locations Source,Destination: [[16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703], [16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703]]
+2023-05-10 06:01:25,232:INFO:GREEN tube picked from camera1 at index 17 
+2023-05-10 06:01:25,455:INFO:Compact Max  door opened
+2023-05-10 06:01:25,456:INFO:GREEN tube is at camera2
+2023-05-10 06:01:25,457:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 06:01:25,458:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 06:01:25,460:INFO:Sent locations Source,Destination: [[213.0355, 31.5597, 130.0, 180.0, 0.0, 0.0], [213.0355, 31.5597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 06:02:15,515:INFO:centrifuge racks batch 1 filling
+2023-05-10 06:02:15,516:INFO:GREEN tube placed at index 1 
+2023-05-10 06:02:15,517:INFO:Total Green: 1 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 06:02:15,517:INFO:Camera 2 results: Color-GREEN,Barcode-12345abc,Blood level-0,Plasma level-37.499
+2023-05-10 06:02:15,518:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 06:02:15,531:INFO:Sent locations Source,Destination: [[16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113], [16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 06:02:30,896:INFO:GREEN tube picked from camera1 at index 35 
+2023-05-10 06:02:30,897:INFO:GREEN tube is at camera2
+2023-05-10 06:02:30,898:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 06:02:30,898:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 06:02:30,901:INFO:Sent locations Source,Destination: [[213.0355, 92.1597, 130.0, 180.0, 0.0, 0.0], [213.0355, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 06:03:37,077:INFO:NONE tube placed in Failed plate at index 1 
+2023-05-10 06:03:37,078:INFO:Camera 2 results: Color-NONE,Barcode-,Blood level-0,Plasma level-0
+2023-05-10 06:03:37,079:INFO:NONE tube moved from camera2 to Failed plate
+2023-05-10 06:03:37,086:INFO:Sent locations Source,Destination: [[76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 06:03:52,680:INFO:GREEN tube picked from camera1 at index 17 
+2023-05-10 06:03:52,681:INFO:GREEN tube is at camera2
+2023-05-10 06:03:52,682:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 06:03:52,682:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 06:03:52,684:INFO:Sent locations Source,Destination: [[213.0355, 31.5597, 130.0, 180.0, 0.0, 0.0], [213.0355, 31.5597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 06:04:35,116:INFO:centrifuge racks batch 1 filling
+2023-05-10 06:04:35,117:INFO:GREEN tube placed at index 2 
+2023-05-10 06:04:35,118:INFO:Total Green: 2 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 06:04:35,118:INFO:Camera 2 results: Color-GREEN,Barcode-12345abc,Blood level-0,Plasma level-38.844
+2023-05-10 06:04:35,119:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 06:04:35,132:INFO:Sent locations Source,Destination: [[119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113], [119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 06:04:51,090:INFO:centrifuge racks batch 1 filled
+2023-05-10 06:04:51,091:INFO:batch moved from centrifuge racks to centrifuge machine
+2023-05-10 06:04:51,092:INFO:Sent Jobs Source,Destination: [51, 62]
+2023-05-10 06:04:51,094:INFO:Sent locations Source,Destination: [[1, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0]]
+2023-05-10 06:04:51,880:INFO:Hatch closed for centrifuge machine
+2023-05-10 06:04:52,463:INFO:centrifuge machine machine started
+2023-05-10 06:04:52,803:INFO:GREEN tube picked from camera1 at index 35 
+2023-05-10 06:04:52,804:INFO:GREEN tube is at camera2
+2023-05-10 06:04:52,805:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 06:04:52,806:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 06:04:52,808:INFO:Sent locations Source,Destination: [[213.0355, 92.1597, 130.0, 180.0, 0.0, 0.0], [213.0355, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 06:05:59,367:INFO:NONE tube placed in Failed plate at index 2 
+2023-05-10 06:05:59,368:INFO:Camera 2 results: Color-NONE,Barcode-,Blood level-0,Plasma level-0
+2023-05-10 06:05:59,369:INFO:NONE tube moved from camera2 to Failed plate
+2023-05-10 06:05:59,379:INFO:Sent locations Source,Destination: [[116.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [116.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 06:06:14,913:INFO:ORANGE tube picked from camera1 at index 45 
+2023-05-10 06:06:14,914:INFO:ORANGE tube is at camera2
+2023-05-10 06:06:14,914:INFO:ORANGE tube moved from camera1 to camera2
+2023-05-10 06:06:14,915:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 06:06:14,916:INFO:Sent locations Source,Destination: [[243.436, 122.4597, 130.0, 180.0, 0.0, 0.0], [243.436, 122.4597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 06:06:52,461:INFO:skipped standby timer and skype message for centrifuge machine
+2023-05-10 06:09:54,266:INFO:Check lock success for centrifuge machine
+2023-05-10 06:09:54,657:INFO:Check lock success for centrifuge machine
+2023-05-10 06:09:58,861:INFO:Cobas Pure racks, rack is picked at index 0
+2023-05-10 06:09:58,862:INFO:Cobas pure rack moved from Cobas Pure racks to Cobas pure rack holder 
+2023-05-10 06:09:58,863:INFO:Sent Jobs Source,Destination: [21, 142]
+2023-05-10 06:09:58,866:INFO:Sent locations Source,Destination: [[16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703], [16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703]]
+2023-05-10 06:10:03,122:INFO:GREEN tube picked from camera1 at index 17 
+2023-05-10 06:10:03,343:INFO:Compact Max  door opened
+2023-05-10 06:10:03,344:INFO:GREEN tube is at camera2
+2023-05-10 06:10:03,344:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 06:10:03,345:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 06:10:03,347:INFO:Sent locations Source,Destination: [[213.0355, 31.5597, 130.0, 180.0, 0.0, 0.0], [213.0355, 31.5597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 06:10:45,909:INFO:centrifuge racks batch 1 filling
+2023-05-10 06:10:45,910:INFO:GREEN tube placed at index 1 
+2023-05-10 06:10:45,910:INFO:Total Green: 1 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 06:10:45,911:INFO:Camera 2 results: Color-GREEN,Barcode-12345abc,Blood level-0,Plasma level-37.926
+2023-05-10 06:10:45,911:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 06:10:45,925:INFO:Sent locations Source,Destination: [[16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113], [16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 06:11:01,281:INFO:GREEN tube picked from camera1 at index 35 
+2023-05-10 06:11:01,282:INFO:GREEN tube is at camera2
+2023-05-10 06:11:01,283:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 06:11:01,284:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 06:11:01,286:INFO:Sent locations Source,Destination: [[213.0355, 92.1597, 130.0, 180.0, 0.0, 0.0], [213.0355, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 06:12:07,568:INFO:NONE tube placed in Failed plate at index 1 
+2023-05-10 06:12:07,569:INFO:Camera 2 results: Color-NONE,Barcode-,Blood level-0,Plasma level-0
+2023-05-10 06:12:07,569:INFO:NONE tube moved from camera2 to Failed plate
+2023-05-10 06:12:07,577:INFO:Sent locations Source,Destination: [[76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 06:12:23,234:INFO:GREEN tube picked from camera1 at index 17 
+2023-05-10 06:12:23,235:INFO:GREEN tube is at camera2
+2023-05-10 06:12:23,236:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 06:12:23,237:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 06:12:23,239:INFO:Sent locations Source,Destination: [[213.0355, 31.5597, 130.0, 180.0, 0.0, 0.0], [213.0355, 31.5597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 06:16:21,797:INFO:Check lock success for centrifuge machine
+2023-05-10 06:16:22,202:INFO:Check lock success for centrifuge machine
+2023-05-10 06:16:26,404:INFO:Cobas Pure racks, rack is picked at index 0
+2023-05-10 06:16:26,405:INFO:Cobas pure rack moved from Cobas Pure racks to Cobas pure rack holder 
+2023-05-10 06:16:26,406:INFO:Sent Jobs Source,Destination: [21, 142]
+2023-05-10 06:16:26,409:INFO:Sent locations Source,Destination: [[16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703], [16.524401, 21.018801, 100.0, 90.0, -1.3637, 179.998703]]
+2023-05-10 06:16:30,601:INFO:GREEN tube picked from camera1 at index 26 
+2023-05-10 06:16:30,812:INFO:Compact Max  door opened
+2023-05-10 06:16:30,813:INFO:GREEN tube is at camera2
+2023-05-10 06:16:30,814:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 06:16:30,814:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 06:16:30,817:INFO:Sent locations Source,Destination: [[213.0355, 61.859700000000004, 130.0, 180.0, 0.0, 0.0], [213.0355, 61.859700000000004, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 06:17:14,760:INFO:centrifuge racks batch 1 filling
+2023-05-10 06:17:14,761:INFO:GREEN tube placed at index 1 
+2023-05-10 06:17:14,762:INFO:Total Green: 1 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 06:17:14,763:INFO:Camera 2 results: Color-GREEN,Barcode-12345abc,Blood level-0,Plasma level-38.286
+2023-05-10 06:17:14,763:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 06:17:14,777:INFO:Sent locations Source,Destination: [[16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113], [16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 06:17:30,334:INFO:GREEN tube picked from camera1 at index 33 
+2023-05-10 06:17:30,335:INFO:GREEN tube is at camera2
+2023-05-10 06:17:30,335:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 06:17:30,336:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 06:17:30,338:INFO:Sent locations Source,Destination: [[152.2345, 92.1597, 130.0, 180.0, 0.0, 0.0], [152.2345, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 06:18:15,176:INFO:centrifuge racks batch 1 filling
+2023-05-10 06:18:15,176:INFO:GREEN tube placed at index 2 
+2023-05-10 06:18:15,177:INFO:Total Green: 2 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 06:18:15,177:INFO:Camera 2 results: Color-GREEN,Barcode-12345abc,Blood level-0,Plasma level-37.447
+2023-05-10 06:18:15,178:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 06:18:15,191:INFO:Sent locations Source,Destination: [[119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113], [119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 06:18:31,118:INFO:centrifuge racks batch 1 filled
+2023-05-10 06:18:31,119:INFO:batch moved from centrifuge racks to centrifuge machine
+2023-05-10 06:18:31,120:INFO:Sent Jobs Source,Destination: [51, 62]
+2023-05-10 06:18:31,121:INFO:Sent locations Source,Destination: [[1, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0]]
+2023-05-10 06:18:31,924:INFO:Hatch closed for centrifuge machine
+2023-05-10 06:18:32,498:INFO:centrifuge machine machine started
+2023-05-10 06:20:32,508:INFO:skipped standby timer and skype message for centrifuge machine
+2023-05-10 06:20:32,567:INFO:batch moved from centrifuge machine to centrifuge racks
+2023-05-10 06:20:32,568:INFO:Sent Jobs Source,Destination: [61, 52]
+2023-05-10 06:20:32,570:INFO:Sent locations Source,Destination: [[1, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0]]
+2023-05-10 06:20:33,005:INFO:GREEN tube picked from index 1 
+2023-05-10 06:20:33,005:INFO:GREEN tube is at camera2
+2023-05-10 06:20:33,006:INFO:GREEN tube moved from centrifuge racks to camera2
+2023-05-10 06:20:33,006:INFO:Sent Jobs Source,Destination: [51, 41]
+2023-05-10 06:20:33,009:INFO:Sent locations Source,Destination: [[16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113], [16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 06:21:02,433:INFO:GREEN tube placed in Compact Max  at index 1 
+2023-05-10 06:21:02,434:INFO:Camera 2 results: Color-GREEN,Barcode-12345abc,Blood level-0,Plasma level-0
+2023-05-10 06:21:02,434:INFO:GREEN tube moved from camera2 to Compact Max 
+2023-05-10 06:21:02,491:INFO:Sent locations Source,Destination: [[15.6396, 66.9832, 50.0, 180.0, 0.0, 0.0], [15.6396, 66.9832, 50.0, 180.0, 0.0, 0.0]]
+2023-05-10 06:21:22,495:INFO:GREEN tube picked from index 2 
+2023-05-10 06:21:22,496:INFO:GREEN tube is at camera2
+2023-05-10 06:21:22,496:INFO:GREEN tube moved from centrifuge racks to camera2
+2023-05-10 06:21:22,497:INFO:Sent Jobs Source,Destination: [51, 41]
+2023-05-10 06:21:22,499:INFO:Sent locations Source,Destination: [[119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113], [119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 06:21:58,450:INFO:GREEN tube placed in Compact Max  at index 2 
+2023-05-10 06:21:58,451:INFO:Compact Max  machine is filled with tubes
+2023-05-10 06:21:58,451:INFO:Camera 2 results: Color-GREEN,Barcode-12345abc,Blood level-0,Plasma level-0
+2023-05-10 06:21:58,452:INFO:GREEN tube moved from camera2 to Compact Max 
+2023-05-10 06:21:58,487:INFO:Sent locations Source,Destination: [[51.5364, 66.9832, 50.0, 180.0, 0.0, 0.0], [51.5364, 66.9832, 50.0, 180.0, 0.0, 0.0]]
+2023-05-10 06:22:20,008:INFO:centrifuge racks batch 1 made empty
+2023-05-10 06:51:54,426:INFO:Check lock success for centrifuge machine
+2023-05-10 06:51:54,835:INFO:Check lock success for centrifuge machine
+2023-05-10 06:53:38,072:INFO:Check lock success for centrifuge machine
+2023-05-10 06:53:38,474:INFO:Check lock success for centrifuge machine
+2023-05-10 06:53:46,477:INFO:GREEN tube picked from camera1 at index 22 
+2023-05-10 06:53:46,699:INFO:Compact Max  door opened
+2023-05-10 06:53:46,700:INFO:GREEN tube is at camera2
+2023-05-10 06:53:46,701:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 06:53:46,701:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 06:53:46,704:INFO:Sent locations Source,Destination: [[91.43350000000001, 61.859700000000004, 130.0, 180.0, 0.0, 0.0], [91.43350000000001, 61.859700000000004, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 06:54:28,964:INFO:centrifuge racks batch 1 filling
+2023-05-10 06:54:28,965:INFO:GREEN tube placed at index 1 
+2023-05-10 06:54:28,965:INFO:Total Green: 1 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 06:54:28,966:INFO:Camera 2 results: Color-GREEN,Barcode-12345abc,Blood level-0,Plasma level-37.651
+2023-05-10 06:54:28,967:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 06:54:28,984:INFO:Sent locations Source,Destination: [[16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113], [16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 06:54:44,392:INFO:GREEN tube picked from camera1 at index 25 
+2023-05-10 06:54:44,392:INFO:GREEN tube is at camera2
+2023-05-10 06:54:44,393:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 06:54:44,394:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 06:54:44,395:INFO:Sent locations Source,Destination: [[182.63500000000002, 61.859700000000004, 130.0, 180.0, 0.0, 0.0], [182.63500000000002, 61.859700000000004, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 06:55:42,522:INFO:centrifuge racks batch 1 filling
+2023-05-10 06:55:42,523:INFO:GREEN tube placed at index 2 
+2023-05-10 06:55:42,523:INFO:Total Green: 2 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 06:55:42,524:INFO:Camera 2 results: Color-GREEN,Barcode-12345abc,Blood level-0,Plasma level-39.697
+2023-05-10 06:55:42,525:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 06:55:42,542:INFO:Sent locations Source,Destination: [[119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113], [119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 06:55:58,658:INFO:YELLOW tube picked from camera1 at index 41 
+2023-05-10 06:55:58,659:INFO:YELLOW tube is at camera2
+2023-05-10 06:55:58,659:INFO:YELLOW tube moved from camera1 to camera2
+2023-05-10 06:55:58,660:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 06:55:58,662:INFO:Sent locations Source,Destination: [[121.834, 122.4597, 130.0, 180.0, 0.0, 0.0], [121.834, 122.4597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 06:57:02,358:INFO:centrifuge racks batch 1 filling
+2023-05-10 06:57:02,359:INFO:YELLOW tube placed at index 3 
+2023-05-10 06:57:02,360:INFO:Total Green: 2 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 06:57:02,360:INFO:Camera 2 results: Color-YELLOW,Barcode-12345abc,Blood level-0,Plasma level-45.752
+2023-05-10 06:57:02,361:INFO:YELLOW tube moved from camera2 to centrifuge racks
+2023-05-10 06:57:02,380:INFO:Sent locations Source,Destination: [[119.655602, 18.5891, 100.0, -179.899994, -0.0922, -3.4113], [119.655602, 18.5891, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 06:57:14,159:INFO:YELLOW tube picked from camera1 at index 41 
+2023-05-10 06:57:14,160:INFO:YELLOW tube is at camera2
+2023-05-10 06:57:14,161:INFO:YELLOW tube moved from camera1 to camera2
+2023-05-10 06:57:14,162:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 06:57:14,164:INFO:Sent locations Source,Destination: [[121.834, 122.4597, 130.0, 180.0, 0.0, 0.0], [121.834, 122.4597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 06:58:20,932:INFO:NONE tube placed in Failed plate at index 1 
+2023-05-10 06:58:20,932:INFO:Camera 2 results: Color-NONE,Barcode-,Blood level-0,Plasma level-0
+2023-05-10 06:58:20,933:INFO:NONE tube moved from camera2 to Failed plate
+2023-05-10 06:58:20,942:INFO:Sent locations Source,Destination: [[76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 06:58:32,599:INFO:YELLOW tube picked from camera1 at index 41 
+2023-05-10 06:58:32,600:INFO:YELLOW tube is at camera2
+2023-05-10 06:58:32,601:INFO:YELLOW tube moved from camera1 to camera2
+2023-05-10 06:58:32,601:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 06:58:32,604:INFO:Sent locations Source,Destination: [[121.834, 122.4597, 130.0, 180.0, 0.0, 0.0], [121.834, 122.4597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 06:59:39,491:INFO:NONE tube placed in Failed plate at index 2 
+2023-05-10 06:59:39,492:INFO:Camera 2 results: Color-NONE,Barcode-,Blood level-0,Plasma level-0
+2023-05-10 06:59:39,493:INFO:NONE tube moved from camera2 to Failed plate
+2023-05-10 06:59:39,503:INFO:Sent locations Source,Destination: [[116.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [116.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 06:59:51,325:INFO:YELLOW tube picked from camera1 at index 41 
+2023-05-10 06:59:51,326:INFO:YELLOW tube is at camera2
+2023-05-10 06:59:51,327:INFO:YELLOW tube moved from camera1 to camera2
+2023-05-10 06:59:51,328:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 06:59:51,333:INFO:Sent locations Source,Destination: [[121.834, 122.4597, 130.0, 180.0, 0.0, 0.0], [121.834, 122.4597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 07:14:49,146:INFO:Check lock success for centrifuge machine
+2023-05-10 07:14:49,538:INFO:Check lock success for centrifuge machine
+2023-05-10 07:29:20,340:INFO:Check lock success for centrifuge machine
+2023-05-10 07:29:20,737:INFO:Check lock success for centrifuge machine
+2023-05-10 07:29:28,686:INFO:GREEN tube picked from camera1 at index 24 
+2023-05-10 07:29:28,916:INFO:Compact Max  door opened
+2023-05-10 07:29:28,917:INFO:GREEN tube is at camera2
+2023-05-10 07:29:28,917:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 07:29:28,918:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 07:29:28,920:INFO:Sent locations Source,Destination: [[152.2345, 61.859700000000004, 130.0, 180.0, 0.0, 0.0], [152.2345, 61.859700000000004, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 07:30:18,973:INFO:centrifuge racks batch 1 filling
+2023-05-10 07:30:18,974:INFO:GREEN tube placed at index 1 
+2023-05-10 07:30:18,975:INFO:Total Green: 1 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 07:30:18,976:INFO:Camera 2 results: Color-GREEN,Barcode-12345abc,Blood level-0,Plasma level-37.897
+2023-05-10 07:30:18,977:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 07:30:18,990:INFO:Sent locations Source,Destination: [[16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113], [16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 07:30:34,411:INFO:GREEN tube picked from camera1 at index 30 
+2023-05-10 07:30:34,412:INFO:GREEN tube is at camera2
+2023-05-10 07:30:34,413:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 07:30:34,413:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 07:30:34,415:INFO:Sent locations Source,Destination: [[61.033, 92.1597, 130.0, 180.0, 0.0, 0.0], [61.033, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 07:31:24,907:INFO:centrifuge racks batch 1 filling
+2023-05-10 07:31:24,907:INFO:GREEN tube placed at index 2 
+2023-05-10 07:31:24,908:INFO:Total Green: 2 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 07:31:24,909:INFO:Camera 2 results: Color-GREEN,Barcode-12345abc,Blood level-0,Plasma level-38.976
+2023-05-10 07:31:24,909:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 07:31:24,925:INFO:Sent locations Source,Destination: [[119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113], [119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 07:31:40,861:INFO:ORANGE tube picked from camera1 at index 20 
+2023-05-10 07:31:40,862:INFO:ORANGE tube is at camera2
+2023-05-10 07:31:40,862:INFO:ORANGE tube moved from camera1 to camera2
+2023-05-10 07:31:40,863:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 07:31:40,866:INFO:Sent locations Source,Destination: [[30.6325, 61.859700000000004, 130.0, 180.0, 0.0, 0.0], [30.6325, 61.859700000000004, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 07:32:42,700:INFO:centrifuge racks batch 1 filling
+2023-05-10 07:32:42,701:INFO:YELLOW tube placed at index 3 
+2023-05-10 07:32:42,702:INFO:Total Green: 2 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 07:32:42,703:INFO:Camera 2 results: Color-YELLOW,Barcode-891092323333,Blood level-0,Plasma level-33.339
+2023-05-10 07:32:42,704:INFO:YELLOW tube moved from camera2 to centrifuge racks
+2023-05-10 07:32:42,717:INFO:Sent locations Source,Destination: [[119.655602, 18.5891, 100.0, -179.899994, -0.0922, -3.4113], [119.655602, 18.5891, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 07:32:58,305:INFO:centrifuge racks batch 1 filling
+2023-05-10 07:32:58,306:INFO:COUNTER tube placed at index 4 
+2023-05-10 07:32:58,306:INFO:Total Green: 2 ,Orange: 0 ,Counter Filled: True 
+2023-05-10 07:32:58,307:INFO:COUNTER tube moved from centrifuge racks - 1 
+2023-05-10 07:32:58,307:INFO:centrifuge racks batch 1 filled
+2023-05-10 07:32:58,308:INFO:batch moved from centrifuge racks to centrifuge machine
+2023-05-10 07:32:58,309:INFO:Sent Jobs Source,Destination: [54, 52]
+2023-05-10 07:32:58,311:INFO:Sent locations Source,Destination: [[-72.115997, 8.6447, 100.0, 179.999893, 0.0, -3.4113], [16.3599, 111.0896, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 07:33:23,559:INFO:Sent Jobs Source,Destination: [51, 62]
+2023-05-10 07:33:23,561:INFO:Sent locations Source,Destination: [[1, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0]]
+2023-05-10 07:35:13,886:INFO:ping interrupted for:106424.033 milli seconds 
+2023-05-10 07:35:24,130:INFO:Hatch opened for centrifuge machine
+2023-05-10 07:35:30,678:INFO:Rotor position set to  1
+2023-05-10 07:35:56,468:INFO:Rotor position set to  2
+2023-05-10 07:36:22,962:INFO:Rotor position set to  3
+2023-05-10 07:36:48,900:INFO:Rotor position set to  4
+2023-05-10 07:37:11,812:INFO:Hatch closed for centrifuge machine
+2023-05-10 07:37:16,941:INFO:centrifuge machine machine started
+2023-05-10 07:37:52,671:INFO:ping interrupted for:4675.972 milli seconds 
+2023-05-10 07:37:58,683:INFO:ORANGE tube picked from camera1 at index 25 
+2023-05-10 07:37:58,684:INFO:ORANGE tube is at camera2
+2023-05-10 07:37:58,684:INFO:ORANGE tube moved from camera1 to camera2
+2023-05-10 07:37:58,685:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 07:37:58,687:INFO:Sent locations Source,Destination: [[182.63500000000002, 61.859700000000004, 130.0, 180.0, 0.0, 0.0], [182.63500000000002, 61.859700000000004, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 07:38:21,232:INFO:ping interrupted for:11325.98 milli seconds 
+2023-05-10 07:39:11,717:INFO:Sysmex rack holders batch 1 filling
+2023-05-10 07:39:11,718:INFO:RED tube placed at index 1 
+2023-05-10 07:39:11,719:INFO:Camera 2 results: Color-RED,Barcode-891092332331,Blood level-0,Plasma level-39.545
+2023-05-10 07:39:11,719:INFO:RED tube moved from camera2 to Sysmex rack holders
+2023-05-10 07:39:11,735:INFO:Sent locations Source,Destination: [[22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0], [22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0]]
+2023-05-10 07:39:16,919:INFO:skipped standby timer and skype message for centrifuge machine
+2023-05-10 07:54:16,209:INFO:Check lock success for centrifuge machine
+2023-05-10 07:54:16,601:INFO:Check lock success for centrifuge machine
+2023-05-10 07:54:24,612:INFO:GREEN tube picked from camera1 at index 22 
+2023-05-10 07:54:24,839:INFO:Compact Max  door opened
+2023-05-10 07:54:24,840:INFO:GREEN tube is at camera2
+2023-05-10 07:54:24,841:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 07:54:24,841:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 07:54:24,844:INFO:Sent locations Source,Destination: [[91.43350000000001, 61.859700000000004, 130.0, 180.0, 0.0, 0.0], [91.43350000000001, 61.859700000000004, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 07:54:28,469:INFO:ping interrupted for:3183.936 milli seconds 
+2023-05-10 07:55:09,991:INFO:centrifuge racks batch 1 filling
+2023-05-10 07:55:09,992:INFO:GREEN tube placed at index 1 
+2023-05-10 07:55:09,993:INFO:Total Green: 1 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 07:55:09,994:INFO:Camera 2 results: Color-GREEN,Barcode-12345abc,Blood level-0,Plasma level-37.238
+2023-05-10 07:55:09,994:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 07:55:10,012:INFO:Sent locations Source,Destination: [[16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113], [16.3599, 18.5891, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 07:55:25,482:INFO:GREEN tube picked from camera1 at index 30 
+2023-05-10 07:55:25,483:INFO:GREEN tube is at camera2
+2023-05-10 07:55:25,484:INFO:GREEN tube moved from camera1 to camera2
+2023-05-10 07:55:25,485:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 07:55:25,487:INFO:Sent locations Source,Destination: [[61.033, 92.1597, 130.0, 180.0, 0.0, 0.0], [61.033, 92.1597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 07:56:16,046:INFO:centrifuge racks batch 1 filling
+2023-05-10 07:56:16,046:INFO:GREEN tube placed at index 2 
+2023-05-10 07:56:16,047:INFO:Total Green: 2 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 07:56:16,048:INFO:Camera 2 results: Color-GREEN,Barcode-12345abc,Blood level-0,Plasma level-39.965
+2023-05-10 07:56:16,048:INFO:GREEN tube moved from camera2 to centrifuge racks
+2023-05-10 07:56:16,065:INFO:Sent locations Source,Destination: [[119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113], [119.655602, 111.0896, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 07:56:31,928:INFO:ORANGE tube picked from camera1 at index 3 
+2023-05-10 07:56:31,929:INFO:ORANGE tube is at camera2
+2023-05-10 07:56:31,930:INFO:ORANGE tube moved from camera1 to camera2
+2023-05-10 07:56:31,931:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 07:56:31,933:INFO:Sent locations Source,Destination: [[61.033, 1.2597, 130.0, 180.0, 0.0, 0.0], [61.033, 1.2597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 07:57:49,758:INFO:YELLOW tube placed in Failed plate at index 1 
+2023-05-10 07:57:49,759:INFO:Camera 2 results: Color-YELLOW,Barcode-891092322733,Blood level-0,Plasma level-0.0
+2023-05-10 07:57:49,759:INFO:YELLOW tube moved from camera2 to Failed plate
+2023-05-10 07:57:49,770:INFO:Sent locations Source,Destination: [[76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [76.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 07:58:05,202:INFO:ORANGE tube picked from camera1 at index 14 
+2023-05-10 07:58:05,203:INFO:ORANGE tube is at camera2
+2023-05-10 07:58:05,203:INFO:ORANGE tube moved from camera1 to camera2
+2023-05-10 07:58:05,204:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 07:58:05,206:INFO:Sent locations Source,Destination: [[121.834, 31.5597, 130.0, 180.0, 0.0, 0.0], [121.834, 31.5597, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 07:59:45,321:INFO:NONE tube placed in Failed plate at index 2 
+2023-05-10 07:59:45,322:INFO:Camera 2 results: Color-NONE,Barcode-891092327331,Blood level-0,Plasma level-0
+2023-05-10 07:59:45,323:INFO:NONE tube moved from camera2 to Failed plate
+2023-05-10 07:59:45,334:INFO:Sent locations Source,Destination: [[116.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113], [116.649002, -280.001587, -100.0, 180.0, -0.0001, -3.4113]]
+2023-05-10 08:00:00,895:INFO:ORANGE tube picked from camera1 at index 21 
+2023-05-10 08:00:00,895:INFO:ORANGE tube is at camera2
+2023-05-10 08:00:00,896:INFO:ORANGE tube moved from camera1 to camera2
+2023-05-10 08:00:00,897:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 08:00:00,899:INFO:Sent locations Source,Destination: [[61.033, 61.859700000000004, 130.0, 180.0, 0.0, 0.0], [61.033, 61.859700000000004, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 08:00:43,967:INFO:centrifuge racks batch 1 filling
+2023-05-10 08:00:43,967:INFO:YELLOW tube placed at index 3 
+2023-05-10 08:00:43,968:INFO:Total Green: 2 ,Orange: 0 ,Counter Filled: False 
+2023-05-10 08:00:43,968:INFO:Camera 2 results: Color-YELLOW,Barcode-12345abc,Blood level-0,Plasma level-45.991
+2023-05-10 08:00:43,969:INFO:YELLOW tube moved from camera2 to centrifuge racks
+2023-05-10 08:00:43,986:INFO:Sent locations Source,Destination: [[119.655602, 18.5891, 100.0, -179.899994, -0.0922, -3.4113], [119.655602, 18.5891, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 08:00:59,486:INFO:ORANGE tube picked from camera1 at index 25 
+2023-05-10 08:00:59,486:INFO:ORANGE tube is at camera2
+2023-05-10 08:00:59,487:INFO:ORANGE tube moved from camera1 to camera2
+2023-05-10 08:00:59,488:INFO:Sent Jobs Source,Destination: [11, 41]
+2023-05-10 08:00:59,490:INFO:Sent locations Source,Destination: [[182.63500000000002, 61.859700000000004, 130.0, 180.0, 0.0, 0.0], [182.63500000000002, 61.859700000000004, 130.0, 180.0, 0.0, 0.0]]
+2023-05-10 08:01:50,708:INFO:Sysmex rack holders batch 1 filling
+2023-05-10 08:01:50,709:INFO:RED tube placed at index 1 
+2023-05-10 08:01:50,710:INFO:Camera 2 results: Color-RED,Barcode-891092332331,Blood level-0,Plasma level-39.905
+2023-05-10 08:01:50,711:INFO:RED tube moved from camera2 to Sysmex rack holders
+2023-05-10 08:01:50,730:INFO:Sent locations Source,Destination: [[22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0], [22.0938, -11.4549, 100.0, 180.0, 0.0, 0.0]]
+2023-05-10 08:02:20,583:INFO:ping interrupted for:25977.02 milli seconds 
+2023-05-10 08:02:39,819:INFO:centrifuge racks batch 1 filling
+2023-05-10 08:02:39,821:INFO:COUNTER tube placed at index 4 
+2023-05-10 08:02:39,822:INFO:Total Green: 2 ,Orange: 0 ,Counter Filled: True 
+2023-05-10 08:02:39,823:INFO:COUNTER tube moved from centrifuge racks - 1 
+2023-05-10 08:02:39,824:INFO:centrifuge racks batch 1 filled
+2023-05-10 08:02:39,825:INFO:batch moved from centrifuge racks to centrifuge machine
+2023-05-10 08:02:39,826:INFO:Sent Jobs Source,Destination: [54, 52]
+2023-05-10 08:02:39,828:INFO:Sent locations Source,Destination: [[-72.115997, 8.6447, 100.0, 179.999893, 0.0, -3.4113], [16.3599, 111.0896, 100.0, -179.899994, -0.0922, -3.4113]]
+2023-05-10 08:04:18,847:INFO:Check lock success for centrifuge machine
+2023-05-10 08:04:19,265:INFO:Check lock success for centrifuge machine

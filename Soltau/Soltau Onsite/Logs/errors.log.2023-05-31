@@ -1,0 +1,55 @@
+2023-05-31 11:25:46,596:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 74, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-31 18:23:36,045:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 74, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-31 19:13:29,876:ERROR:Socket is closed
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\sftpClass.py", line 90, in upload
+    self.connection.put(source_local_path, remote_path)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\pysftp\__init__.py", line 363, in put
+    sftpattrs = self._sftp.put(localpath, remotepath, callback=callback,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\paramiko\sftp_client.py", line 759, in put
+    return self.putfo(fl, remotepath, file_size, callback, confirm)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\paramiko\sftp_client.py", line 714, in putfo
+    with self.file(remotepath, "wb") as fr:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\paramiko\sftp_client.py", line 372, in open
+    t, msg = self._request(CMD_OPEN, filename, imode, attrblock)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\paramiko\sftp_client.py", line 821, in _request
+    num = self._async_request(type(None), t, *args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\paramiko\sftp_client.py", line 846, in _async_request
+    self._send_packet(t, msg)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\paramiko\sftp.py", line 209, in _send_packet
+    self._write_all(out)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\paramiko\sftp.py", line 173, in _write_all
+    n = self.sock.send(out)
+        ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\paramiko\channel.py", line 799, in send
+    return self._send(s, m)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python311\Lib\paramiko\channel.py", line 1196, in _send
+    raise socket.error("Socket is closed")
+OSError: Socket is closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 694, in getStation4NextJob
+    sftpCommunication.moveCSVToSFTPServer()
+  File "C:\Diabots\Soltau Onsite\sftpClass.py", line 104, in moveCSVToSFTPServer
+    self.upload(src_path, fname)
+  File "C:\Diabots\Soltau Onsite\sftpClass.py", line 94, in upload
+    raise Exception(err)
+Exception: Socket is closed

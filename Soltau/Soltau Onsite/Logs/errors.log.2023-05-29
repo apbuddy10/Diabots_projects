@@ -1,0 +1,1807 @@
+2023-05-29 16:05:21,954:ERROR:list index out of range
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 744, in getStation4NextJob_afterCentrifugation
+    await self.station14.updateGrid(tube.color)
+  File "C:\Diabots\Soltau Onsite\station14.py", line 33, in updateGrid
+    self.tubes[self.counter].color=color
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+IndexError: list index out of range
+2023-05-29 16:41:09,603:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:09,617:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 63, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.HOME_POS_INIT)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 107, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:09,659:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:09,661:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:09,698:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:09,700:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:09,748:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:09,750:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:09,792:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:09,795:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:09,840:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:09,842:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:09,882:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:09,884:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:09,932:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:09,934:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:09,975:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:09,978:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,025:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,028:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,069:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,072:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,122:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,124:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,165:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,168:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,208:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,210:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,252:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,254:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,293:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,295:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,337:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,339:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,379:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,381:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,421:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,423:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,462:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,465:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,501:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,503:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,544:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,546:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,590:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,592:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,630:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,633:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,691:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,693:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,734:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,737:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,780:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,783:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,823:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,826:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,868:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,870:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,907:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,909:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,948:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,951:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:10,994:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:10,996:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,038:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,042:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,083:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,086:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,125:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,127:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,167:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,170:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,209:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,211:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,249:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,251:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,317:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,318:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,364:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,366:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,405:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,406:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,448:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,450:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,494:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,496:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,535:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,538:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,575:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,577:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,619:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,621:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,663:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,665:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,709:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,711:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,749:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,751:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,794:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,796:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,848:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,850:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,892:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,895:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,953:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:11,955:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:11,999:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:12,000:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:12,042:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:12,044:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:12,081:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:12,084:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:12,126:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:12,129:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:12,171:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:12,173:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:12,631:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:12,633:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:17,691:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:17,693:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:22,746:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:22,748:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:27,802:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:27,804:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:32,855:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:32,857:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:37,912:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:37,914:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:42,985:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:42,987:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:48,022:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:48,024:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:53,077:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:53,080:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:41:58,134:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:41:58,136:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:42:03,189:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:42:03,191:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:42:08,247:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:42:08,249:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:42:13,302:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:42:13,304:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:42:18,358:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:42:18,361:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:42:23,445:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:42:23,447:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 16:42:28,470:ERROR:[WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+2023-05-29 16:42:28,472:ERROR:Timeout error while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 69, in recvMessage
+    current = self.tcp_socket.recv(1)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Eine vorhandene Verbindung wurde vom Remotehost geschlossen
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 61, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.MSG_DISABLE)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 103, in sendMessage
+    retVal = await self.recvMessage()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 99, in recvMessage
+    raise CommonError("Timeout error while Receiving data")
+stations.CommonError: Timeout error while Receiving data
+2023-05-29 17:09:08,901:ERROR:list index out of range
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 744, in getStation4NextJob_afterCentrifugation
+    await self.station14.updateGrid(Color.ORANGE)
+  File "C:\Diabots\Soltau Onsite\station14.py", line 33, in updateGrid
+    self.tubes[self.counter].color=color
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+IndexError: list index out of range
+2023-05-29 18:44:10,544:ERROR:'AxisConn_7' object has no attribute 'slaveid'
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 63, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.HOME_POS_INIT)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 117, in sendMessage
+    messageDisable = bytes("disable(" + str(self.slaveid) + ")",'ascii')
+                                            ^^^^^^^^^^^^
+AttributeError: 'AxisConn_7' object has no attribute 'slaveid'
+2023-05-29 18:52:00,285:ERROR:retval False received, while Receiving data
+Traceback (most recent call last):
+  File "C:\Diabots\Soltau Onsite\main.py", line 63, in reset
+    await mainObj.axis7.sendMessage(mainObj.axis7.commandMsg.HOME_POS_INIT)
+  File "C:\Diabots\Soltau Onsite\axis7.py", line 127, in sendMessage
+    raise CommonError("retval False received, while Receiving data")
+stations.CommonError: retval False received, while Receiving data
