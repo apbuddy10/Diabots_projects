@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: pyVoIP
+Version: 1.6.4
+Summary: PyVoIP is a pure python VoIP/SIP/RTP library.
+Home-page: https://github.com/tayler6000/pyVoIP
+Author: Tayler Porter
+Author-email: taylerporter@gmail.com
+Project-URL: Bug Tracker, https://github.com/tayler6000/pyVoIP/issues
+Project-URL: Documentaiton, https://pyvoip.readthedocs.io/
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Topic :: Communications :: Internet Phone
+Classifier: Topic :: Communications :: Telephony
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# pyVoIP
+PyVoIP is a pure python VoIP/SIP/RTP library.  Currently, it supports PCMA, PCMU, and telephone-event.
+
+This library does not depend on a sound library, i.e. you can use any sound library that can handle linear sound data i.e. pyaudio or even wave.  Keep in mind PCMU/PCMA only supports 8000Hz, 1 channel, 8 bit audio.
+
+## Getting Started
+Simply run `pip install pyVoIP`, or if installing from source:
+
+```bash
+git clone https://github.com/tayler6000/pyVoIP.git
+cd pyVoIP
+pip install .
+```
+
+Don't forget to check out [the documentation](https://pyvoip.readthedocs.io/)!
+
+### Basic Example
+This basic code will simple make a phone that will automatically answer then hang up.
+
+```python
+from pyVoIP.VoIP import VoIPPhone, InvalidStateError
+
+def answer(call): # This will be your callback function for when you receive a phone call.
+    try:
+      call.answer()
+      call.hangup()
+    except InvalidStateError:
+      pass
+  
+if __name__ == "__main__":
+    phone=VoIPPhone(<SIP Server IP>, <SIP Server Port>, <SIP Server Username>, <SIP Server Password>, callCallback=answer, myIP=<Your computer's local IP>, sipPort=<Port to use for SIP (int, default 5060)>, rtpPortLow=<low end of the RTP Port Range>, rtpPortHigh=<high end of the RTP Port Range>)
+    phone.start()
+    input('Press enter to disable the phone')
+    phone.stop()
+```
+
+### Sponsors
+
+- [Nabu Casa](https://www.nabucasa.com/)
+- [Home Assistant](https://www.home-assistant.io/)

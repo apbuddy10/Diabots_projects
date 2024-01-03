@@ -1,0 +1,37 @@
+2023-04-06 10:21:55,293:INFO:Sysmex XN-550 initialization started. Time : 180
+2023-04-06 10:22:22,493:INFO:ACL elite PRO initialization started. Time : 60
+2023-04-06 10:23:22,511:INFO:ACL elite PRO Standby timer started. Time : 1800
+2023-04-06 10:24:55,318:INFO:Sysmex XN-550 Standby timer started. Time : 4800
+2023-04-06 10:29:50,782:INFO:centrifuge machine Standby timer canceled
+2023-04-06 10:29:50,798:INFO:centrifuge Runtime timer started. Time : 120
+2023-04-06 10:53:22,527:INFO:coagulation machine Standby timer refresh. Time : 1800
+2023-04-06 11:35:13,463:INFO:Sysmex XN-550 initialization started. Time : 180
+2023-04-06 11:35:40,637:INFO:ACL elite PRO initialization started. Time : 60
+2023-04-06 11:36:40,634:INFO:ACL elite PRO Standby timer started. Time : 1800
+2023-04-06 11:38:13,479:INFO:Sysmex XN-550 Standby timer started. Time : 4800
+2023-04-06 11:40:13,019:INFO:centrifuge machine Standby timer canceled
+2023-04-06 11:40:13,034:INFO:centrifuge Runtime timer started. Time : 120
+2023-04-06 12:07:47,684:INFO:Sysmex XN-550 initialization started. Time : 180
+2023-04-06 12:08:14,895:INFO:ACL elite PRO initialization started. Time : 60
+2023-04-06 12:09:14,906:INFO:ACL elite PRO Standby timer started. Time : 1800
+2023-04-06 12:10:47,713:INFO:Sysmex XN-550 Standby timer started. Time : 4800
+2023-04-06 12:19:11,524:INFO:centrifuge machine Standby timer canceled
+2023-04-06 12:19:11,524:INFO:centrifuge Runtime timer started. Time : 120
+2023-04-06 12:26:27,558:INFO:coagulation machine Standby timer canceled
+2023-04-06 12:26:27,573:INFO:ACL elite PRO Runtime timer started. Time : 1260
+2023-04-06 12:28:20,168:INFO:centrifuge machine Standby timer canceled
+2023-04-06 12:28:20,168:INFO:centrifuge Runtime timer started. Time : 120
+2023-04-06 12:28:41,927:INFO:haematology machine Standby timer canceled
+2023-04-06 12:28:41,928:INFO:Sysmex XN-550 Runtime timer started. Time : 296
+2023-04-06 12:33:37,922:INFO:Sysmex XN-550 Standby timer started. Time : 4800
+2023-04-06 12:38:02,515:INFO:haematology machine Standby timer canceled
+2023-04-06 12:38:02,530:INFO:Sysmex XN-550 Runtime timer started. Time : 296
+2023-04-06 12:42:58,509:INFO:Sysmex XN-550 Standby timer started. Time : 4800
+2023-04-06 12:47:27,576:INFO:ACL elite PRO Standby timer started. Time : 1800
+2023-04-06 13:16:31,222:INFO:Sysmex XN-550 initialization started. Time : 180
+2023-04-06 13:16:58,408:INFO:ACL elite PRO initialization started. Time : 60
+2023-04-06 13:17:58,410:INFO:ACL elite PRO Standby timer started. Time : 1800
+2023-04-06 13:19:31,217:INFO:Sysmex XN-550 Standby timer started. Time : 4800
+2023-04-06 13:25:23,449:INFO:centrifuge machine Standby timer canceled
+2023-04-06 13:25:23,449:INFO:centrifuge Runtime timer started. Time : 120
+2023-04-06 13:47:58,404:INFO:coagulation machine Standby timer refresh. Time : 1800

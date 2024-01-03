@@ -1,0 +1,1426 @@
+ Programm
+   VorStart
+     stn3_ok_popup≔ True 
+     stn3_cros_popup≔ True 
+     qMast≔rpc_factory("xmlrpc","http://192.168.20.222:9095")
+     'pMast≔rpc_factory("xmlrpc","http://192.168.20.222:9096")'
+     all_machines_on≔ False 
+     bc_2_check≔ True 
+     init_qMast≔ True 
+     start_ping≔ False 
+     jobDone≔ False 
+     jobID≔-1
+     Teach≔ False 
+     goToHome≔ True 
+     moveToHome≔ False 
+     stn2_ini_chk_rk≔ True 
+     cam2_angle≔10
+     cam2_angle2≔5
+     stn1_rows≔5
+     stn1_cols≔8
+     stn1_pick_z≔123
+     stn3_total_locs≔10
+     stn3_place_z≔21
+     stn3_rot_z≔60
+     stn3_pick_z≔81
+     stn2_pk_rk_z≔136
+     stn2_rk_chk_y≔64
+     stn4_loop_count≔0
+     stn5_pick_tb_z≔124
+     stn5_place_tb_z≔120
+     stn5_place_rk_z≔121
+     stn5_pick_rk_z≔121
+     stn5_pick_cw_z≔120
+     stn5_place_cw_z≔118
+     stn5_rows_parnt≔4
+     stn5_cols_parnt≔2
+     stn5_rows_child≔3
+     stn5_cols_child≔3
+     stn6_pick_z≔254
+     stn6_place_z≔250
+     stn7_rows_parnt≔1
+     stn7_cols_parnt≔2
+     stn7_rows_child≔2
+     stn7_cols_child≔5
+     stn7_place_z≔199
+     stn7_pick_z≔204
+     stn7_skype_msg≔"Sysmex Schubladenpos. manuell veraendert. Roboter bitte neu starten. Herzliche Gruesse Markus Praus"
+     stn10_place_z≔175
+     stn10_skype_ful≔"Fehlerstaender ist full. Bitte roboter neu starten"
+     stn11_place_z≔175
+     stn11_skype_msg≔"Bitte Archiv schublade offnen. Roboter bitte neu starten. Herzliche Gruesse Mrkus Praus"
+     stn11_skype_ful≔"Archivstaender ist full. Bitte roboter neu starten"
+     stn14_tb_rot_z≔70
+     stn14_tb_pl_z≔38
+     stn14_push_z≔70
+     stn14_pl_rk_z≔141
+     stn15_place_z≔175
+     stn15_pick_z≔178
+     archiv_opened≔ False 
+     Test≔ False 
+   Roboterprogramm
+     sync()
+     If goToHome ≟  True 
+       FahreAchse
+         home_p
+         stn1_home_p
+       goToHome≔ False 
+     If Teach≟ True 
+       'Station 1 Reference Positions'
+       FahreAchse
+         stn1_home_p
+         stn1_help_p
+         stn1_help2_p
+         stn1_ref_1_p
+         stn1_ref_2_p
+         stn1_ref_3_p
+       'Station 2 Reference Positions'
+       FahreAchse
+         stn2_home_p
+         stn2_ref_1_p
+         stn2_ref_2_p
+         stn2_ref_3_p
+         stn2_ref_4_p
+         stn2_ref_5_p
+         stn2_ref_6_p
+         'Door positions in subprograms'
+       'Station 3 Reference Positions'
+       FahreAchse
+         stn3_home_p
+         stn3_top_hlp_p
+         stn3_ref_1_p
+         stn3_ref_2_p
+         stn3_ref_3_p
+         stn3_ref_4_p
+         stn3_ref_5_p
+         stn3_ref_6_p
+         stn3_ref_7_p
+         stn3_ref_8_p
+         stn3_ini_apr_p
+         stn3_ini_prs_p
+         stn3_apr_run_p
+         stn3_prss_run_p
+       'Station 4,6,9,10 reference Positions'
+       FahreAchse
+         stn6_home_p
+         stn6_help_p
+         stn6_place_p
+         stn4_ref_1_p
+         'stn4_color_p'
+         stn4_cam_help_p
+         stn4_next_hlp_p
+         stn5_stn4_hlp_p
+         stn9_dcap_apr_p
+         stn7_dcap_apr_p
+         'stn7_tb_lv_p'
+         'stn7_hold_tb_p'
+         'stn9_stn3_hlp_p'
+         'stn9_st3_hlp2_p'
+         'stn9_hold_cap_p'
+         'stn9_lv_tb_p'
+         'stn9_dcap_up_p'
+         'stn9_bin_apr_p'
+         'stn9_bin_thrw_p'
+         stn10_ref_1_p
+         stn10_ref_2_p
+         stn10_ref_3_p
+       'Station 5 reference Positions'
+       FahreAchse
+         stn5_rk_rf_1_p
+         stn5_rk_rf_2_p
+         stn5_rk_rf_3_p
+         stn5_tb_rf_1_p
+         stn5_tb_rf_2_p
+         stn5_tb_rf_3_p
+         stn5_tb_rf_4_p
+         stn5_tb_rf_5_p
+         stn5_cw_rf_1_p
+         stn5_cw_rf_2_p
+       'Station 5 init ref Positions'
+       'FahreAchse'
+       'Station 11 reference positions'
+       FahreAchse
+         stn11_home_p
+         stn11_ref_1_p
+         stn11_ref_2_p
+         stn11_ref_3_p
+         stn11_ref_4_p
+         stn11_ref_5_p
+         stn11_ref_6_p
+         stn11_ref_7_p
+         stn11_ref_8_p
+         stn11_ref_9_p
+         stn11_ref10_p
+         stn11_ref11_p
+         stn11_ref12_p
+         'Station 11 door positions in sub program'
+       'Station 7 reference positions'
+       FahreAchse
+         stn7_home_p
+         stn7_ref_1_p
+         stn7_ref_2_p
+         stn7_ref_4_p
+         stn7_ref_5_p
+         stn7_bin_help_p
+         stn7_bin_apr_p
+         stn7_bin_thrw_p
+         'Station 7 init positions in sub program'
+       'Station 8 reference positions'
+       FahreAchse
+         stn14_stn8_hl_p
+         stn8_home_p
+         stn8_pl_apr1_p
+         stn8_pl_apr2_p
+         stn8_place_p
+       'Station 14 reference positions'
+       FahreAchse
+         stn14_home_p
+         stn14_pk_rk_p
+         stn14_pkrk_up_p
+         stn14_pl_rk_h_p
+         stn14_pl_rk_p
+         stn14_plrk_rt_p
+         stn14_lv_rk_p
+         stn14_pl_tb_h_p
+         stn14_ref_1_p
+         stn14_ref_3_p
+       'Station 15 ref positions'
+       FahreAchse
+         stn15_home_p
+         stn15_ref_1_p
+         stn15_ref_2_p
+         stn15_ref_3_p
+     If init_qMast ≟  True 
+       stn1_ref_1_plan≔pose_trans(pose_inv(stn1_plane), stn1_ref_1_p)
+       stn1_ref_2_plan≔pose_trans(pose_inv(stn1_plane), stn1_ref_2_p)
+       stn1_ref_3_plan≔pose_trans(pose_inv(stn1_plane), stn1_ref_3_p)
+       stn2_rf_1_plane≔pose_trans(pose_inv(stn2_plane), stn2_ref_1_p)
+       stn2_rf_2_plane≔pose_trans(pose_inv(stn2_plane), stn2_ref_2_p)
+       stn2_rf_3_plane≔pose_trans(pose_inv(stn2_plane), stn2_ref_3_p)
+       stn2_rf_4_plane≔pose_trans(pose_inv(stn2_plane), stn2_ref_4_p)
+       stn2_rf_5_plane≔pose_trans(pose_inv(stn2_plane), stn2_ref_5_p)
+       stn2_rf_6_plane≔pose_trans(pose_inv(stn2_plane), stn2_ref_6_p)
+       stn3_ref_1_plan≔pose_trans(pose_inv(stn3_plane), stn3_ref_1_p)
+       stn3_ref_2_plan≔pose_trans(pose_inv(stn3_plane), stn3_ref_2_p)
+       stn3_ref_3_plan≔pose_trans(pose_inv(stn3_plane), stn3_ref_3_p)
+       stn3_ref_4_plan≔pose_trans(pose_inv(stn3_plane), stn3_ref_4_p)
+       stn3_ref_5_plan≔pose_trans(pose_inv(stn3_plane), stn3_ref_5_p)
+       stn3_ref_6_plan≔pose_trans(pose_inv(stn3_plane), stn3_ref_6_p)
+       stn3_ref_7_plan≔pose_trans(pose_inv(stn3_plane), stn3_ref_7_p)
+       stn3_ref_8_plan≔pose_trans(pose_inv(stn3_plane), stn3_ref_8_p)
+       stn5_ref_1_plan≔pose_trans(pose_inv(stn5_plane),stn5_tb_rf_1_p)
+       stn5_ref_2_plan≔pose_trans(pose_inv(stn5_plane),stn5_tb_rf_2_p)
+       stn5_ref_3_plan≔pose_trans(pose_inv(stn5_plane),stn5_tb_rf_3_p)
+       stn5_ref_4_plan≔pose_trans(pose_inv(stn5_plane),stn5_tb_rf_4_p)
+       stn5_ref_5_plan≔pose_trans(pose_inv(stn5_plane),stn5_tb_rf_5_p)
+       stn5_rk_1_plane≔pose_trans(pose_inv(stn5_plane),stn5_rk_rf_1_p)
+       stn5_rk_2_plane≔pose_trans(pose_inv(stn5_plane),stn5_rk_rf_2_p)
+       stn5_rk_3_plane≔pose_trans(pose_inv(stn5_plane),stn5_rk_rf_3_p)
+       stn5_cw_1_plane≔pose_trans(pose_inv(stn5_plane),stn5_cw_rf_1_p)
+       stn5_cw_2_plane≔pose_trans(pose_inv(stn5_plane), stn5_cw_rf_2_p)
+       stn7_ref_1_plan≔pose_trans(pose_inv(stn7_plane), stn7_ref_1_p)
+       stn7_ref_2_plan≔pose_trans(pose_inv(stn7_plane), stn7_ref_2_p)
+       stn7_ref_3_plan≔pose_trans(pose_inv(stn7_plane), stn7_ref_1_p)
+       stn7_ref_4_plan≔pose_trans(pose_inv(stn7_plane), stn7_ref_4_p)
+       stn7_ref_5_plan≔pose_trans(pose_inv(stn7_plane), stn7_ref_5_p)
+       stn10_ref_1_pln≔pose_trans(pose_inv(stn6_plane), stn10_ref_1_p)
+       stn10_ref_2_pln≔pose_trans(pose_inv(stn6_plane), stn10_ref_2_p)
+       stn10_ref_3_pln≔pose_trans(pose_inv(stn6_plane), stn10_ref_3_p)
+       stn11_ref_1_pln≔pose_trans(pose_inv(stn6_plane), stn11_ref_1_p)
+       stn11_ref_2_pln≔pose_trans(pose_inv(stn6_plane), stn11_ref_2_p)
+       stn11_ref_3_pln≔pose_trans(pose_inv(stn6_plane), stn11_ref_3_p)
+       stn11_ref_4_pln≔pose_trans(pose_inv(stn6_plane), stn11_ref_4_p)
+       stn11_ref_5_pln≔pose_trans(pose_inv(stn6_plane), stn11_ref_5_p)
+       stn11_ref_6_pln≔pose_trans(pose_inv(stn6_plane), stn11_ref_6_p)
+       stn11_ref_7_pln≔pose_trans(pose_inv(stn6_plane), stn11_ref_7_p)
+       stn11_ref_8_pln≔pose_trans(pose_inv(stn6_plane), stn11_ref_8_p)
+       stn11_ref_9_pln≔pose_trans(pose_inv(stn6_plane), stn11_ref_9_p)
+       stn11_ref_10_pl≔pose_trans(pose_inv(stn6_plane), stn11_ref10_p)
+       stn11_ref_11_pl≔pose_trans(pose_inv(stn6_plane), stn11_ref11_p)
+       stn11_ref_12_pl≔pose_trans(pose_inv(stn6_plane), stn11_ref12_p)
+       stn14_ref_1_pln≔pose_trans(pose_inv(stn6_plane), stn14_ref_1_p)
+       stn14_ref_3_pln≔pose_trans(pose_inv(stn6_plane), stn14_ref_3_p)
+       stn15_ref_1_pln≔pose_trans(pose_inv(stn6_plane), stn15_ref_1_p)
+       stn15_ref_2_pln≔pose_trans(pose_inv(stn6_plane), stn15_ref_2_p)
+       stn15_ref_3_pln≔pose_trans(pose_inv(stn6_plane), stn15_ref_3_p)
+       qMast.reset()
+       qMast.init_q400()
+       qMast.set_stn1_grid(1,stn1_ref_1_plan,stn1_ref_2_plan,stn1_ref_3_plan,stn1_rows,stn1_cols)
+       qMast.set_stn2_grid(1,stn2_rf_1_plane,stn2_rf_2_plane,stn2_rf_3_plane,stn2_rf_4_plane,stn2_rf_5_plane,stn2_rf_6_plane)
+       qMast.set_stn3_grid(1, stn3_ref_1_plan, stn3_ref_2_plan, stn3_ref_3_plan, stn3_ref_4_plan, stn3_ref_5_plan, stn3_ref_6_plan, stn3_ref_7_plan, stn3_ref_8_plan)
+       qMast.set_stn5_grid(1,stn5_ref_1_plan,stn5_ref_2_plan,stn5_ref_3_plan,stn5_rows_parnt,stn5_cols_parnt,stn5_ref_4_plan,stn5_ref_5_plan,stn5_rows_child,stn5_cols_child)
+       qMast.set_stn5_counter_grid(stn5_cw_1_plane, stn5_cw_2_plane)
+       qMast.set_stn5_batch_grid(1,stn5_rk_1_plane,stn5_rk_2_plane,stn5_rk_3_plane,4,2)
+       qMast.set_stn7_grid(1,stn7_ref_1_plan,stn7_ref_2_plan,stn7_ref_3_plan,stn7_rows_parnt,stn7_cols_parnt,stn7_ref_4_plan,stn7_ref_5_plan,stn7_rows_child,stn7_cols_child)
+       qMast.set_stn10_grid(1,stn10_ref_1_pln,stn10_ref_2_pln,stn10_ref_3_pln,8,4)
+       qMast.set_stn11_grid(1,stn11_ref_1_pln,stn11_ref_2_pln,stn11_ref_3_pln,stn11_ref_4_pln,stn11_ref_5_pln,stn11_ref_6_pln,stn11_ref_7_pln,stn11_ref_8_pln,stn11_ref_9_pln,stn11_ref_10_pl,stn11_ref_11_pl,stn11_ref_12_pl,8,4)
+       qMast.set_stn14_grid(1,stn14_ref_1_pln,stn14_ref_1_pln,stn14_ref_3_pln,5,1)
+       qMast.set_stn15_grid(1,stn15_ref_1_pln,stn15_ref_2_pln,stn15_ref_3_pln,8,4)
+       Greifer zurücksetzen und aktivieren
+       Greifer geschlossen (1)
+       init_qMast≔ False 
+       Aufruf UserPopups
+       Aufruf MachineInputPopUps
+       start_ping≔ True 
+       'jobDone≔ True '
+     Switch jobID
+       Case 11
+         dest_jobID≔jobArr[1]
+         src_dest_p≔qMast.get_loc()
+         source_p≔src_dest_p[0]
+         Greifer geschlossen (1)
+         FahreAchse
+           stn1_home_p
+         FahreAchse
+           stn1_help2_p
+           stn1_help_p
+         isStn1Good≔qMast.is_stn1_good()
+         If isStn1Good ≟  True 
+           FahreAchse
+             source_p
+           isStn1Good≔qMast.is_stn1_good()
+           If isStn1Good ≟  True 
+             Greiferbewegung50% (1)
+             cur_pose≔pose_trans(pose_inv(stn1_plane), get_actual_tcp_pose())
+             stn1_pick_p≔pose_trans(cur_pose, p[0,0,stn1_pick_z/1000,0,0,0])
+             FahreLinear
+               stn1_pick_p
+             isStn1Good≔qMast.is_stn1_good()
+             If isStn1Good ≟  True 
+               Greifer geschlossen (1)
+               Warten: 0.2
+             Else
+               dest_jobID≔1000
+             FahreAchse
+               source_p
+           Else
+             dest_jobID≔1000
+         Else
+           dest_jobID≔1000
+         FahreAchse
+           stn1_help_p
+           stn1_help2_p
+           Griffkontrolle
+             Wenn Objekt nicht erkannt          
+               dest_jobID≔1000
+         Switch dest_jobID
+           Case 41
+             FahreAchse
+               stn1_home_p
+             FahreAchse
+               stn6_home_p
+               stn9_dcap_apr_p
+             Einstellen Decap=Ein
+             FahreLinear
+               stn9_lv_tb_p
+             Greiferbewegung65% (1)
+             Warten: 0.5
+             Einstellen Decap=Aus
+             FahreLinear
+               stn9_hold_cap_p
+             Greifer geschlossen (1)
+             Einstellen Decap=Ein
+             FahreLinear
+               stn9_dcap_apr_p
+             Aufruf stn4_grab_loop
+             dest2_jobID≔qMast.stn4_get_next(stn4_tube_ok)
+             src_dest_p≔qMast.get_loc()
+             dest_p≔src_dest_p[0]
+             Switch dest2_jobID
+               Case 52
+                 FahreAchse
+                   stn5_stn4_hlp_p
+                 FahreLinear
+                   dest_p
+                 cur_pose≔pose_trans(pose_inv(stn5_plane), get_actual_tcp_pose())
+                 stn5_place_z_p≔pose_trans(cur_pose, p[0,0,stn5_place_tb_z/1000,0,0,0])
+                 FahreLinear
+                   stn5_place_z_p
+                   Greiferbewegung50% (1)
+                   dest_p
+                   Greifer geschlossen (1)
+                 FahreAchse
+                   stn5_stn4_hlp_p
+                   stn6_home_p
+                 Aufruf reset_jobs
+               Case 72
+                 FahreAchse
+                   stn6_home_p
+                 FahreAchse
+                   stn7_home_p
+                 Aufruf stn7_check_doors
+                 FahreAchse
+                   dest_p
+                 cur_pose≔pose_trans(pose_inv(stn7_plane), get_actual_tcp_pose())
+                 stn7_place_p≔pose_trans(cur_pose, p[0,0,stn7_place_z/1000,0,0,0])
+                 FahreLinear
+                   stn7_place_p
+                 Greifer offen (1)
+                 FahreLinear
+                   dest_p
+                 Greifer geschlossen (1)
+                 FahreAchse
+                   stn7_home_p
+                 Aufruf reset_jobs
+               Case 102
+                 FahreAchse
+                   stn6_home_p
+                   stn10_hlp_p
+                 FahreLinear
+                   dest_p
+                 cur_pose≔pose_trans(pose_inv(stn6_plane), get_actual_tcp_pose())
+                 'stn10_place_p≔qMast.add_z(cur_pose, stn10_place_z)'
+                 stn10_place_p≔pose_trans(cur_pose, p[0,0,stn10_place_z/1000,0,0,0])
+                 FahreLinear
+                   stn10_place_p
+                   Greiferbewegung50% (1)
+                   dest_p
+                   Greifer geschlossen (1)
+                 FahreAchse
+                   stn10_hlp_p
+                   stn6_home_p
+                 Aufruf reset_jobs
+               Case 152
+                 FahreAchse
+                   stn11_hlp_p
+                   stn15_home_p
+                   dest_p
+                 cur_pose≔pose_trans(pose_inv(stn6_plane), get_actual_tcp_pose())
+                 stn15_place_z_p≔pose_trans(cur_pose, p[0,0,stn15_place_z/1000,0,0,0])
+                 FahreLinear
+                   stn15_place_z_p
+                   Greiferbewegung50% (1)
+                   dest_p
+                   Greifer geschlossen (1)
+                 FahreAchse
+                   stn15_home_p
+                 FahreAchse
+                   stn1_home_p
+                 Aufruf reset_jobs
+           Case 1000
+             FahreAchse
+               stn1_home_p
+             Greifer geschlossen (1)
+             Aufruf reset_jobs
+       Case 21
+         dest_jobID≔jobArr[1]
+         src_dest_p≔qMast.get_loc()
+         source_p≔src_dest_p[0]
+         Switch dest_jobID
+           Case 142
+             FahreAchse
+               stn2_home_p
+               source_p
+             Greiferbewegung35% (1)
+             cur_pose≔pose_trans(pose_inv(stn2_plane), get_actual_tcp_pose())
+             stn2_pick_z_p≔pose_trans(cur_pose, p[0,0,stn2_pk_rk_z/1000,0,0,0])
+             FahreLinear
+               stn2_pick_z_p
+             cur_pose≔pose_trans(pose_inv(stn2_plane), get_actual_tcp_pose())
+             stn2_rk_chk_y_p≔pose_trans(cur_pose, p[0,stn2_rk_chk_y/1000,0,0,0,0])
+             FahreLinear
+               stn2_rk_chk_y_p
+             stn14_angle≔0
+             stn2_rack_yes≔ False 
+             Greifer geschlossen (1)
+             gripper_pos≔rq_current_pos_norm()
+             If gripper_pos ≤ 65 and gripper_pos ≥ 57
+               stn2_rack_yes≔ True 
+               stn14_angle≔180
+             ElseIf gripper_pos > 65  and gripper_pos ≤ 90
+               stn2_rack_yes≔ True 
+             Else
+               stn2_rack_yes≔ False 
+             Greiferbewegung35% (1)
+             FahreLinear
+               stn2_pick_z_p
+             If stn2_rack_yes ≟  True 
+               Greifer geschlossen (1)
+               FahreLinear
+                 source_p
+               FahreAchse
+                 stn2_home_p
+               FahreAchse
+                 stn6_home_p
+                 stn14_pl_rk_h_p
+                 stn14_pl_rk_p
+               If stn14_angle ≟ 180
+                 FahreAchse
+                   stn14_plrk_rt_p
+                 FahreLinear
+                   cur_pose≔pose_trans(pose_inv(stn6_plane), get_actual_tcp_pose())
+                   stn14_pl_rk_z_p≔pose_trans(cur_pose, p[0,0,stn14_pl_rk_z/1000,0,0,0])
+                   stn14_pl_rk_z_p
+                   Greiferbewegung35% (1)
+                   stn14_plrk_rt_p
+                   Greifer geschlossen (1)
+               Else
+                 FahreLinear
+                   cur_pose≔pose_trans(pose_inv(stn6_plane), get_actual_tcp_pose())
+                   stn14_pl_rk_z_p≔pose_trans(cur_pose, p[0,0,stn14_pl_rk_z/1000,0,0,0])
+                   stn14_pl_rk_z_p
+                   Greiferbewegung35% (1)
+                   stn14_pl_rk_p
+                   Greifer geschlossen (1)
+               FahreAchse
+                 stn6_home_p
+               qMast.stn14_fill_holder()
+             Else
+               FahreLinear
+                 source_p
+               FahreAchse
+                 stn2_home_p
+             Aufruf reset_jobs
+       Case 23
+         Aufruf stn2_door1_close
+         Aufruf stn2_door1_open
+         Aufruf reset_jobs
+       Case 24
+         Aufruf stn2_door1_close
+         FahreAchse
+           stn2_home_p
+         Aufruf reset_jobs
+       Case 25
+         Aufruf stn2_door2_close
+         Aufruf stn2_door2_open
+         Aufruf reset_jobs
+       Case 26
+         Aufruf stn2_door2_close
+         FahreAchse
+           stn2_home_p
+         Aufruf reset_jobs
+       Case 27
+         Aufruf stn2_door3_close
+         Aufruf stn2_door3_open
+         Aufruf reset_jobs
+       Case 28
+         Aufruf stn2_door3_close
+         FahreAchse
+           stn2_home_p
+         Aufruf reset_jobs
+       Case 29
+         FahreAchse
+           stn2_home_p
+         FahreAchse
+           stn1_home_p
+           home_p
+         Meldung: Alle Cobas Racks benutzen
+         Aufruf reset_jobs
+       Case 30
+         If Test ≟  True 
+           qMast.set_init_alarm(3)
+         Else
+           Aufruf stn3_init_stndby
+           qMast.set_init_alarm(3)
+           FahreAchse
+             stn3_home_p
+         Aufruf reset_jobs
+       Case 31
+         dest_jobID≔jobArr[1]
+         src_dest_p≔qMast.get_loc()
+         source_p≔src_dest_p[0]
+         FahreAchse
+           stn3_home_p
+           stn3_top_hlp_p
+           source_p
+         Greiferbewegung50% (1)
+         cur_pose≔pose_trans(pose_inv(stn3_plane), get_actual_tcp_pose())
+         stn3_pick_p≔pose_trans(cur_pose, p[0,0,stn3_pick_z/1000,0,0,0])
+         FahreLinear
+           stn3_pick_p
+           Greifer geschlossen (1)
+           source_p
+         dest_p≔src_dest_p[1]
+         FahreAchse
+           stn3_top_hlp_p
+           stn3_home_p
+         FahreAchse
+           stn11_home_p
+           stn11_hlp_p
+           dest_p
+         cur_pose≔pose_trans(pose_inv(stn6_plane), get_actual_tcp_pose())
+         'stn11_place_p≔qMast.add_z(cur_pose, stn11_place_z)'
+         stn11_place_p≔pose_trans(cur_pose, p[0,0,stn11_place_z/1000,0,0,0])
+         FahreLinear
+           stn11_place_p
+         Greiferbewegung50% (1)
+         FahreLinear
+           dest_p
+         Greifer geschlossen (1)
+         FahreAchse
+           stn11_hlp_p
+           stn11_home_p
+         FahreAchse
+           stn3_home_p
+         Aufruf reset_jobs
+       Case 33
+         Aufruf stn3_press_run
+         'Warten: 10.0'
+         'FahreLinear'
+         qMast.set_runtime_alarm(3)
+         FahreAchse
+           stn3_home_p
+         FahreAchse
+           stn3_pen_pk_u_p
+         FahreLinear
+           stn3_pen_pk_p
+           Greiferbewegung50% (1)
+           stn3_pen_pk_u_p
+           Greifer geschlossen (1)
+         FahreAchse
+           stn3_home_p
+         Aufruf reset_jobs
+       Case 34
+         Aufruf stn3_press_run
+         FahreAchse
+           stn3_home_p
+         FahreAchse
+           stn3_pen_pk_u_p
+         FahreLinear
+           stn3_pen_pk_p
+           Greiferbewegung50% (1)
+           stn3_pen_pk_u_p
+           Greifer geschlossen (1)
+         FahreAchse
+           stn3_home_p
+         Aufruf reset_jobs
+       Case 35
+         If Test ≟  True 
+           qMast.set_init_alarm(3)
+         Else
+           Aufruf stn3_init_stndby
+           qMast.set_init_alarm(3)
+           FahreAchse
+             stn3_home_p
+         Aufruf reset_jobs
+       Case 51
+         dest_jobID≔jobArr[1]
+         FahreAchse
+           stn6_home_p
+         Switch dest_jobID
+           Case 41
+             src_dest_p≔qMast.get_loc()
+             source_p≔src_dest_p[0]
+             FahreAchse
+               source_p
+             FahreLinear
+               Greiferbewegung50% (1)
+               cur_pose≔pose_trans(pose_inv(stn5_plane), get_actual_tcp_pose())
+               'stn5_pick_z_p≔qMast.add_z(cur_pose, stn5_pick_tb_z)'
+               stn5_pick_z_p≔pose_trans(cur_pose, p[0,0,stn5_pick_tb_z/1000,0,0,0])
+               stn5_pick_z_p
+               Greifer geschlossen (1)
+               source_p
+             FahreAchse
+               stn5_stn4_hlp_p
+             Aufruf stn9_decap
+             Aufruf stn4_grab_loop_after
+             'stn4_tube_ok≔ True '
+             'stn4_tube_angle≔180'
+             dest2_jobID≔qMast.stn4_get_next_after(stn4_tube_ok)
+             src_dest_p≔qMast.get_loc()
+             dest_p≔src_dest_p[0]
+             Switch dest2_jobID
+               Case 32
+                 FahreAchse
+                   stn3_home_p
+                   stn3_top_hlp_p
+                   dest_p
+                 FahreLinear
+                   cur_pose≔pose_trans(pose_inv(stn3_plane), get_actual_tcp_pose())
+                   stn3_rot_set_p≔pose_trans(cur_pose,p[0,0,stn3_rot_z/1000,0,0,0])
+                   stn3_rot_set_p
+                 FahreLinear
+                   stn3_rot_angle≔stn4_tube_angle
+                   cur_pose≔pose_trans(pose_inv(stn3_plane), get_actual_tcp_pose())
+                   stn3_rot_p≔pose_trans(cur_pose, p[0,0,0,0,0,d2r(stn3_rot_angle)])
+                   stn3_rot_p
+                 FahreLinear
+                   cur_pose≔pose_trans(pose_inv(stn3_plane), get_actual_tcp_pose())
+                   stn3_place_z_p≔pose_trans(cur_pose,p[0,0,stn3_place_z/1000,0,0,0])
+                   stn3_place_z_p
+                 Greiferbewegung50% (1)
+                 FahreLinear
+                   cur_pose≔pose_trans(pose_inv(stn3_plane), get_actual_tcp_pose())
+                   stn3_place_z_p≔pose_trans(cur_pose,p[0,0,-stn3_place_z/1000,0,0,0])
+                   stn3_place_z_p
+                 'FahreAchse'
+                 FahreAchse
+                   stn3_top_hlp_p
+                   stn3_home_p
+                 Greifer geschlossen (1)
+                 Aufruf reset_jobs
+               Case 102
+                 FahreAchse
+                   stn10_hlp_p
+                 FahreLinear
+                   dest_p
+                 cur_pose≔pose_trans(pose_inv(stn6_plane), get_actual_tcp_pose())
+                 stn10_place_p≔pose_trans(cur_pose, p[0,0,stn10_place_z/1000,0,0,0])
+                 FahreLinear
+                   stn10_place_p
+                   Greiferbewegung50% (1)
+                   dest_p
+                   Greifer geschlossen (1)
+                 FahreAchse
+                   stn10_hlp_p
+                   stn6_home_p
+                 Aufruf reset_jobs
+               Case 143
+                 FahreAchse
+                   dest_p
+                 FahreLinear
+                   cur_pose≔pose_trans(pose_inv(stn6_plane), get_actual_tcp_pose())
+                   stn14_set_rot_p≔pose_trans(cur_pose, p[0,0,stn14_tb_rot_z/1000,0,0,0])
+                   stn14_set_rot_p
+                   cur_pose≔pose_trans(pose_inv(stn6_plane), get_actual_tcp_pose())
+                   stn14_rot_p≔pose_trans(cur_pose, p[0,0,0,0,0,d2r(stn4_tube_angle)])
+                   stn14_rot_p
+                   cur_pose≔pose_trans(pose_inv(stn6_plane), get_actual_tcp_pose())
+                   stn14_plac_tb_p≔pose_trans(cur_pose, p[0,0,stn14_tb_pl_z/1000,0,0,0])
+                   stn14_plac_tb_p
+                   Greiferbewegung70% (1)
+                   cur_pose≔pose_trans(pose_inv(stn6_plane), get_actual_tcp_pose())
+                   stn14_plac_tb_p≔pose_trans(cur_pose, p[0,0,-50/1000,0,0,0])
+                   stn14_plac_tb_p
+                 FahreAchse
+                   stn14_rot_hlp_p
+                   stn6_home_p
+                 Greifer geschlossen (1)
+                 Aufruf reset_jobs
+           Case 55
+             src_dest_p≔qMast.get_loc()
+             source_p≔src_dest_p[0]
+             dest_p≔src_dest_p[1]
+             FahreAchse
+               stn5_stn4_hlp_p
+             FahreAchse
+               source_p
+             Greiferbewegung50% (1)
+             cur_pose≔pose_trans(pose_inv(stn5_plane), get_actual_tcp_pose())
+             stn5_cw_pick_p≔pose_trans(cur_pose, p[0,0,stn5_pick_tb_z/1000,0,0,0])
+             FahreLinear
+               stn5_cw_pick_p
+               Greifer geschlossen (1)
+               source_p
+             FahreAchse
+               stn5_stn4_hlp_p
+             FahreAchse
+               dest_p
+             cur_pose≔pose_trans(pose_inv(stn5_plane), get_actual_tcp_pose())
+             stn5_cw_place_p≔pose_trans(cur_pose, p[0,0,stn5_place_cw_z/1000,0,0,0])
+             FahreLinear
+               stn5_cw_place_p
+               Greiferbewegung60% (1)
+               dest_p
+             Greifer geschlossen (1)
+             FahreAchse
+               stn6_home_p
+             Aufruf reset_jobs
+           Case 62
+             stn5_dest_4ps_p≔qMast.stn5_get_loc()
+             FahreAchse
+               stn6_help_p
+             If Test ≟  True 
+               qMast.set_runtime_alarm(6)
+             Else
+               stn6_hatch_open≔qMast.stn6_hatch_open()
+               If stn6_hatch_open ≟  True 
+                 stn5_loop_count≔0
+                 Schleife 4 mal
+                   FahreAchse
+                     stn6_help_p
+                   stn6_set_rotor≔qMast.stn6_set_rotor_position(stn5_loop_count + 1)
+                   If stn6_set_rotor ≟  True 
+                     stn5_source_p≔stn5_dest_4ps_p[stn5_loop_count]
+                     FahreAchse
+                       stn5_source_p
+                     FahreLinear
+                       Greiferbewegung50% (1)
+                       cur_pose≔pose_trans(pose_inv(stn5_plane), get_actual_tcp_pose())
+                       stn5_pick_rk_p≔pose_trans(cur_pose, p[0,0,stn5_pick_rk_z/1000,0,0,0])
+                       stn5_pick_rk_p
+                       Greifer geschlossen (1)
+                       stn5_source_p
+                     FahreAchse
+                       stn6_help_p
+                       stn6_place_p
+                     FahreLinear
+                       cur_pose≔pose_trans(pose_inv(stn6_plane), get_actual_tcp_pose())
+                       stn6_place_z_p≔pose_trans(cur_pose, p[0,0,stn6_place_z/1000,0,0,0])
+                       stn6_place_z_p
+                       Greiferbewegung40% (1)
+                     FahreLinear
+                       stn6_place_p
+                       Greifer geschlossen (1)
+                     stn5_loop_count≔stn5_loop_count + 1
+               FahreAchse
+                 stn6_help_p
+               stn6_hatch_clse≔qMast.stn6_hatch_close()
+               If stn6_hatch_clse ≟  True 
+                 stn6_start_fuge≔qMast.stn6_start_centrifuge()
+                 qMast.set_runtime_alarm(6)
+             FahreAchse
+               stn6_home_p
+             Aufruf reset_jobs
+       Case 54
+         dest_jobID≔jobArr[1]
+         src_dest_p≔qMast.get_loc()
+         source_p≔src_dest_p[0]
+         dest_p≔src_dest_p[1]
+         Switch dest_jobID
+           Case 52
+             FahreAchse
+               stn6_home_p
+             FahreAchse
+               source_p
+             Greiferbewegung50% (1)
+             cur_pose≔pose_trans(pose_inv(stn5_plane), get_actual_tcp_pose())
+             'stn5_cw_pick_p≔qMast.add_z(cur_pose, stn5_pick_cw_z)'
+             stn5_cw_pick_p≔pose_trans(cur_pose, p[0,0,stn5_pick_cw_z/1000,0,0,0])
+             FahreLinear
+               stn5_cw_pick_p
+               Greifer geschlossen (1)
+               source_p
+             FahreAchse
+               dest_p
+             cur_pose≔pose_trans(pose_inv(stn5_plane), get_actual_tcp_pose())
+             'stn5_cw_place_p≔qMast.add_z(cur_pose, stn5_place_tb_z)'
+             stn5_cw_place_p≔pose_trans(cur_pose, p[0,0,stn5_place_tb_z/1000,0,0,0])
+             FahreLinear
+               stn5_cw_place_p
+               Greiferbewegung50% (1)
+               dest_p
+               Greifer geschlossen (1)
+             FahreAchse
+               stn5_stn4_hlp_p
+               stn6_home_p
+             Aufruf reset_jobs
+       Case 60
+         If Test ≟  True 
+           qMast.set_init_alarm(6)
+         Else
+           FahreAchse
+             stn6_home_p
+           FahreAchse
+             stn6_help_p
+           qMast.set_init_alarm(6)
+           FahreAchse
+             stn14_pl_rk_p
+           Greiferbewegung30% (1)
+           FahreLinear
+             stn14_ch_rk_p
+             Greifer geschlossen (1)
+             Griffkontrolle
+               Wenn Objekt erkannt          
+                 qMast.stn14_fill_holder()
+             Greiferbewegung30% (1)
+             stn14_pl_rk_p
+             Greifer geschlossen (1)
+           FahreAchse
+             stn5_chkrk_h1_p
+           Greifer offen (1)
+           FahreLinear
+             stn5_chk_rk_1_p
+             Aufruf stn5_rack_check
+             stn5_chk_rk_1_p
+             stn5_chk_rk_2_p
+             Aufruf stn5_rack_check
+             stn5_chk_rk_2_p
+             stn5_chk_rk_3_p
+             Aufruf stn5_rack_check
+             stn5_chk_rk_3_p
+             stn5_chk_rk_4_p
+             Aufruf stn5_rack_check
+             stn5_chk_rk_4_p
+             stn5_chkrk_h2_p
+             stn5_chkrk_h3_p
+             stn5_chk_rk_5_p
+             Aufruf stn5_rack_check
+             stn5_chk_rk_5_p
+             stn5_chk_rk_6_p
+             Aufruf stn5_rack_check
+             stn5_chk_rk_6_p
+             stn5_chk_rk_7_p
+             Aufruf stn5_rack_check
+             stn5_chk_rk_7_p
+             stn5_chk_rk_8_p
+             Aufruf stn5_rack_check
+             stn5_chk_rk_8_p
+             stn5_chkrk_h4_p
+           Greifer geschlossen (1)
+           FahreAchse
+             stn6_home_p
+           If archiv_opened ≟  False 
+             Aufruf stn11_open_archiv
+             archiv_opened≔ True 
+           FahreAchse
+             stn6_home_p
+         Aufruf reset_jobs
+       Case 61
+         FahreAchse
+           stn6_home_p
+           stn6_help_p
+         dest_jobID≔jobArr[1]
+         stn5_dest_4ps_p≔qMast.stn5_get_loc()
+         If Test ≟  True 
+           Kommentar
+         Else
+           stn6_hatch_open≔qMast.stn6_hatch_open()
+           If stn6_hatch_open ≟  True 
+             stn5_loop_count≔0
+             Schleife 4 mal
+               FahreAchse
+                 stn6_help_p
+               stn6_set_rotor≔qMast.stn6_set_rotor_position(stn5_loop_count + 1)
+               If stn6_set_rotor ≟  True 
+                 FahreAchse
+                   stn6_place_p
+                 Greiferbewegung40% (1)
+                 FahreLinear
+                   cur_pose≔pose_trans(pose_inv(stn6_plane), get_actual_tcp_pose())
+                   'stn6_pick_z_p≔qMast.add_z(cur_pose, stn6_pick_z)'
+                   stn6_pick_z_p≔pose_trans(cur_pose, p[0,0,stn6_pick_z/1000,0,0,0])
+                   stn6_pick_z_p
+                   Greifer geschlossen (1)
+                   stn6_place_p
+                 stn5_source_p≔stn5_dest_4ps_p[stn5_loop_count]
+                 FahreAchse
+                   stn6_help_p
+                 FahreAchse
+                   stn5_source_p
+                 FahreLinear
+                   cur_pose≔pose_trans(pose_inv(stn5_plane), get_actual_tcp_pose())
+                   stn5_place_rk_p≔pose_trans(cur_pose, p[0,0,stn5_place_rk_z/1000,0,0,0])
+                   stn5_place_rk_p
+                   Greiferbewegung50% (1)
+                   stn5_source_p
+                   Greifer geschlossen (1)
+                 stn5_loop_count≔stn5_loop_count + 1
+         FahreAchse
+           stn6_help_p
+           stn6_home_p
+         Aufruf reset_jobs
+       Case 70
+         If Test ≟  True 
+           qMast.set_init_alarm(7)
+         Else
+           Aufruf stn7_close_doors
+           Aufruf stn7_init_stndby
+           If archiv_opened ≟  False 
+             Aufruf stn11_open_archiv
+             archiv_opened≔ True 
+         Aufruf reset_jobs
+       Case 71
+         FahreAchse
+           stn7_home_p
+         src_dest_p≔qMast.get_loc()
+         source_p≔src_dest_p[0]
+         FahreAchse
+           source_p
+         FahreLinear
+           Greifer offen (1)
+           cur_pose≔pose_trans(pose_inv(stn7_plane), get_actual_tcp_pose())
+           'stn7_pick_z_p≔qMast.add_z(cur_pose, stn7_pick_z)'
+           stn7_pick_z_p≔pose_trans(cur_pose, p[0,0,stn7_pick_z/1000,0,0,0])
+           stn7_pick_z_p
+           Greifer geschlossen (1)
+           source_p
+         FahreLinear
+           stn7_bin_help_p
+         FahreAchse
+           stn7_bin_apr_p
+           stn7_bin_thrw_p
+           Greifer offen (1)
+           Warten: 0.1
+           stn7_bin_apr_p
+           Greifer geschlossen (1)
+           stn7_bin_help_p
+           stn7_home_p
+         Aufruf reset_jobs
+       Case 73
+         FahreAchse
+           stn7_home_p
+           Greifer geschlossen (1)
+           stn7_ld_apr_p
+         FahreLinear
+           stn7_ld_press_p
+           stn7_ld_apr_p
+         qMast.set_runtime_alarm(7)
+         FahreAchse
+           stn7_home_p
+         Aufruf reset_jobs
+       Case 74
+         Aufruf stn7_close_doors
+         Aufruf stn7_open_doors
+         Aufruf reset_jobs
+       Case 75
+         Aufruf stn7_close_doors
+         FahreAchse
+           stn7_home_p
+         Aufruf reset_jobs
+       Case 103
+         FahreAchse
+           stn1_home_p
+           home_p
+         'qMast.send_msg(stn10_skype_ful)'
+         Meldung
+         Aufruf reset_jobs
+       Case 113
+         FahreAchse
+           stn1_home_p
+           home_p
+         'qMast.send_msg(stn11_skype_ful)'
+         Meldung
+         Aufruf reset_jobs
+       Case 141
+         dest_jobID≔jobArr[1]
+         FahreAchse
+           stn6_home_p
+           stn14_pkrk_up_p
+         Greifer offen (1)
+         FahreLinear
+           stn14_pk_rk_p
+           Greifer geschlossen (1)
+           stn14_pkrk_up_p
+         FahreLinear
+           stn14_stn8_hl_p
+           stn8_hlp_2_p
+           stn8_home_p
+           stn8_pl_apr1_p
+           stn8_pl_apr2_p
+           stn8_place_p
+           Greiferbewegung40% (1)
+           stn8_pl_apr2_p
+           stn8_pl_apr1_p
+           Greifer geschlossen (1)
+         FahreAchse
+           stn8_home_p
+           stn8_stn6_hlp_p
+           stn6_home_p
+         Aufruf reset_jobs
+       Case 151
+         dest_jobID≔jobArr[1]
+         FahreAchse
+           stn1_home_p
+         Switch dest_jobID
+           Case 72
+             src_dest_p≔qMast.get_loc()
+             source_p≔src_dest_p[0]
+             dest_p≔src_dest_p[1]
+             FahreAchse
+               stn15_home_p
+             FahreLinear
+               source_p
+               Greiferbewegung50% (1)
+               cur_pose≔pose_trans(pose_inv(stn6_plane), get_actual_tcp_pose())
+               stn15_pk_z_p≔pose_trans(cur_pose, p[0,0,stn15_pick_z/1000,0,0,0])
+               stn15_pk_z_p
+               Greifer geschlossen (1)
+               source_p
+               stn15_home_p
+             FahreAchse
+               stn7_home_p
+             Aufruf stn7_check_doors
+             FahreLinear
+               dest_p
+             cur_pose≔pose_trans(pose_inv(stn7_plane), get_actual_tcp_pose())
+             stn7_place_p≔pose_trans(cur_pose, p[0,0,stn7_place_z/1000,0,0,0])
+             FahreLinear
+               stn7_place_p
+             Greifer offen (1)
+             FahreLinear
+               dest_p
+             Greifer geschlossen (1)
+             FahreAchse
+               stn7_home_p
+             Aufruf reset_jobs
+   MachineInputPopUps
+     all_machines_on≔'Wollen sie alle Gerate Starten?'
+     qMast.set_machine_status(0,all_machines_on)
+     If all_machines_on ≠  True 
+       haematology_on≔'Wollen sie Sysmex Starten'
+       qMast.set_machine_status(7,haematology_on)
+       coagulation_on≔'Wollen sie ACL elite PRO Starten?'
+       qMast.set_machine_status(3,coagulation_on)
+       chemistry_on≔'Wollen sie Cobas pure Starten?'
+       qMast.set_machine_status(8,chemistry_on)
+       centrifuge_on≔'Wollen sie Zentrifuge Starten?'
+       qMast.set_machine_status(6,centrifuge_on)
+     jobDone≔ True 
+   UserPopups
+     Meldung: Alle Sicherheitsysteme (Durchreiche, Beide Tueren und zwischen Zentrifuge und Kuehlschrank) OK
+     Meldung: Fenster Jalousien zu
+     Meldung: Durchreiche Leer
+     Meldung: Schublade Durchreiche: Racks leer
+     Meldung: Racks Durchreiche: Barcodes nach links
+     Meldung: Schublade Fehler-,Archiv-,Sysmexladeracks leer
+     Meldung: Kuli Position: links 2.Position von oben
+     Meldung: Zentrifugen Einsaetze in Position und Leer
+     Meldung: Zentriugen Schluessel in Lock 2 Programm
+     Meldung: Elite Pro bereit und Gewartet
+     Meldung: Sysmex Schubladen Leer und Bereit
+     Meldung: Cobas pure Proben Teller Frei
+     Meldung: CobasPure racks in Position and Leer
+     Meldung: Alle erdenklichen Hindernisse in dem der Roboteranlage gestoert wird aufraeumen
+   reset_jobs
+     jobID≔0
+     dest_jobID≔0
+     dest2_jobID≔0
+     jobDone≔ True 
+   stn2_door1_close
+     Greifer geschlossen (1)
+     FahreAchse
+       stn2_home_p
+     FahreLinear
+       stn2_dr1_apr_p
+       stn2_dr1_ph_p
+       stn2_dr1_up_p
+   stn2_door1_open
+     FahreLinear
+       stn2_dr1_op_u_p
+       Greifer offen (1)
+       stn2_dr1_op_d_p
+       stn2_dr_opn_p
+       stn2_dr1_hlp_p
+     Greifer geschlossen (1)
+     FahreAchse
+       stn2_home_p
+   stn2_door2_close
+     Greifer geschlossen (1)
+     FahreAchse
+       stn2_home_p
+     FahreLinear
+       stn2_dr2_apr_p
+       stn2_dr2_ph1_p
+       stn2_dr2_ph2_p
+       stn2_dr2_up_p
+   stn2_door2_open
+     FahreLinear
+       stn2_dr2_op_u_p
+       stn2_dr2_op_d_p
+       stn2_dr2_opn_p
+       stn2_dr2_hlp_p
+     FahreAchse
+       stn2_home_p
+   stn2_door3_close
+     Greifer geschlossen (1)
+     FahreAchse
+       stn2_home_p
+     FahreLinear
+       stn2_dr3_apr_p
+       stn2_dr3_ph1_p
+       stn2_dr3_ph2_p
+       stn2_dr3_up_p
+   stn2_door3_open
+     FahreLinear
+       stn2_dr3_op_u_p
+       stn2_dr3_op_d_p
+       stn2_dr3_opn_p
+       stn2_dr3_hlp_p
+     FahreLinear
+       stn2_home_p
+   stn3_init_stndby
+     FahreAchse
+       Greifer geschlossen (1)
+       stn3_home_p
+       stn3_ini_apr_p
+     FahreLinear
+       stn3_ini_prs_p
+       Warten: 0.5
+       stn3_ini_apr_p
+   stn3_press_run
+     Greifer geschlossen (1)
+     FahreAchse
+       stn3_home_p
+     FahreAchse
+       stn3_pen_pk_u_p
+     Greiferbewegung11% (1)
+     FahreLinear
+       stn3_pen_pk_p
+       Greifer geschlossen (1)
+       stn3_pen_pk_u_p
+     FahreAchse
+       stn3_home_p
+     If stn3_ok_popup ≟  True 
+       FahreAchse
+         stn3_ok_apr_p
+       FahreLinear
+         stn3_ok_prss_p
+         Warten: 1.0
+         stn3_ok_apr_p
+     If stn3_cros_popup ≟  True 
+       FahreAchse
+         stn3_crs_apr_p
+       FahreLinear
+         stn3_crs_prss_p
+         Warten: 1.0
+         stn3_crs_apr_p
+     FahreAchse
+       stn3_apr_run_p
+     FahreLinear
+       stn3_prss_run_p
+       Warten: 1.0
+       stn3_apr_run_p
+   stn4_grab_loop
+     FahreAchse
+       stn4_cam_help_p
+     FahreLinear
+       stn4_ref_1_p
+     Einstellen DO[0]=Ein
+     Einstellen DO[1]=Ein
+     stn4_tube_ok≔ False 
+     stn4_pose_ok≔ False 
+     stn4_color_ok≔ False 
+     stn4_level_ok≔ False 
+     stn4_color_val≔0
+     stn4_loop_count≔0
+     stn4_color_val≔qMast.q400_execute_cam2(13)
+     If stn4_color_val ≠ 0
+       Schleife 36 mal
+         stn4_pose_ok≔qMast.q400_execute_cam2(14)
+         stn4_tube_ok≔stn4_pose_ok
+         stn4_tube_angle≔stn4_loop_count * cam2_angle
+         If stn4_pose_ok ≟  True 
+           cur_joints_2≔get_actual_joint_positions()
+           movej([cur_joints_2[0], cur_joints_2[1], cur_joints_2[2], cur_joints_2[3], cur_joints_2[4], cur_joints_2[5] + d2r(0.5)], a = 8, v = 3)
+           stn4_pose_ok≔qMast.q400_execute_cam2(15)
+           stn4_tube_ok≔stn4_pose_ok
+           If stn4_pose_ok ≟  True 
+             cur_joints≔get_actual_joint_positions()
+             movej([cur_joints[0], cur_joints[1], cur_joints[2], cur_joints[3], cur_joints[4], cur_joints[5] + d2r(180)], a = 8, v = 3)
+             If stn4_color_val ≟ 11
+               stn4_level_ok≔qMast.q400_execute_cam2(16)
+             ElseIf stn4_color_val ≟ 12
+               stn4_level_ok≔qMast.q400_execute_cam2(17)
+             ElseIf stn4_color_val ≟ 13
+               stn4_level_ok≔qMast.q400_execute_cam2(18)
+             ElseIf stn4_color_val ≟ 14
+               stn4_level_ok≔qMast.q400_execute_cam2(19)
+             stn4_tube_ok≔stn4_level_ok
+             ng_count≔stn4_loop_count
+             If stn4_level_ok ≠  True 
+               Schleife
+                 movej([cur_joints[0], cur_joints[1], cur_joints[2], cur_joints[3], cur_joints[4], cur_joints[5] + d2r(cam2_angle)], a = 8, v = 3)
+                 cur_joints≔get_actual_joint_positions()
+                 stn4_level_ng≔qMast.q400_execute_cam2(20)
+                 ng_count≔ng_count + 1
+                 If ng_count ≥ 36
+                   break
+             break
+           'Else'
+         'Else'
+         cur_joints≔get_actual_joint_positions()
+         movej([cur_joints[0], cur_joints[1], cur_joints[2], cur_joints[3], cur_joints[4], cur_joints[5] + d2r(cam2_angle)], a = 8, v = 3)
+         stn4_loop_count≔stn4_loop_count + 1
+     Einstellen DO[0]=Aus
+     Einstellen DO[1]=Aus
+     FahreAchse
+       stn4_ref_1_p
+     FahreLinear
+       stn4_cam_help_p
+     FahreAchse
+       stn4_next_hlp_p
+   stn4_grab_loop_after
+     FahreAchse
+       stn4_cam_help_p
+     FahreLinear
+       stn4_ref_1_p
+     Einstellen DO[0]=Ein
+     Einstellen DO[1]=Ein
+     stn4_pose_ok≔ False 
+     stn4_level_ok≔ False 
+     stn4_tube_ok≔ False 
+     stn4_loop_count≔0
+     Schleife 36 mal
+       stn4_pose_ok≔qMast.q400_execute_cam2(14)
+       stn4_tube_ok≔stn4_pose_ok
+       stn4_tube_angle≔stn4_loop_count * cam2_angle
+       If stn4_pose_ok ≟  True 
+         break
+       cur_joints≔get_actual_joint_positions()
+       movej([cur_joints[0], cur_joints[1], cur_joints[2], cur_joints[3], cur_joints[4], cur_joints[5] + d2r(cam2_angle)], a = 8, v = 3)
+       stn4_loop_count≔stn4_loop_count + 1
+     If stn4_tube_ok ≠  True 
+       FahreAchse
+         stn4_ref_1_p
+       stn4_loop_count≔0
+       Schleife 72 mal
+         stn4_pose_ok≔qMast.q400_execute_cam2(14)
+         stn4_tube_ok≔stn4_pose_ok
+         stn4_tube_angle≔stn4_loop_count * cam2_angle2
+         If stn4_pose_ok ≟  True 
+           break
+         cur_joints≔get_actual_joint_positions()
+         movej([cur_joints[0], cur_joints[1], cur_joints[2], cur_joints[3], cur_joints[4], cur_joints[5] + d2r(cam2_angle2)], a = 8, v = 3)
+         stn4_loop_count≔stn4_loop_count + 1
+     Einstellen DO[0]=Aus
+     Einstellen DO[1]=Aus
+     FahreAchse
+       stn4_ref_1_p
+     FahreLinear
+       stn4_cam_help_p
+     FahreAchse
+       stn4_next_hlp_p
+   stn5_rack_check
+     Greifer geschlossen (1)
+     gripper_pos≔rq_current_pos_norm()
+     If gripper_pos ≤ 83 and gripper_pos > 70
+       cur_pose≔pose_trans(pose_inv(stn5_plane), get_actual_tcp_pose())
+       stn5_rk_wng_p≔pose_trans(cur_pose, p[0,0,-60/1000,0,0,0])
+       FahreLinear
+         stn5_rk_wng_p
+       cur_pose≔pose_trans(pose_inv(stn5_plane), get_actual_tcp_pose())
+       stn5_rk_wng_p≔pose_add(cur_pose, p[0,0,0,0,0,d2r(90)])
+       FahreLinear
+         stn5_rk_wng_p
+       cur_pose≔pose_trans(pose_inv(stn5_plane), get_actual_tcp_pose())
+       stn5_rk_wng_p≔pose_trans(cur_pose, p[0,0,60/1000,0,0,0])
+       FahreLinear
+         stn5_rk_wng_p
+     ElseIf gripper_pos ≥ 94
+       cur_pose≔pose_trans(pose_inv(stn5_plane), get_actual_tcp_pose())
+       stn5_rk_wng_p≔pose_trans(cur_pose, p[0,0,-60/1000,0,0,0])
+       FahreLinear
+         stn5_rk_wng_p
+       FahreAchse
+         stn5_stn4_hlp_p
+         stn6_home_p
+       FahreAchse
+         home_p
+       Meldung: Keine Zentrifugen rack finden.
+     Greifer offen (1)
+   stn7_init_stndby
+     FahreAchse
+       stn7_retrct2_p
+       stn7_dr2_up_p
+       Greifer offen (1)
+       stn7_dr2_dwn_p
+       Greifer geschlossen (1)
+     FahreLinear
+       stn7_dr2_ini_p
+       stn7_dr2_dwn_p
+       Greifer offen (1)
+     FahreLinear
+       stn7_dr1_dwn_p
+       Greifer geschlossen (1)
+       stn7_dr1_ini_p
+       stn7_dr1_dwn_p
+       Greifer offen (1)
+       stn7_dr1_up_p
+       Greifer geschlossen (1)
+     FahreAchse
+       stn7_ld_apr_p
+     FahreLinear
+       stn7_ld_press_p
+       Warten: 1.0
+       stn7_ld_apr_p
+     qMast.set_init_alarm(7)
+     FahreAchse
+       stn7_home_p
+   stn7_open_doors
+     FahreAchse
+       'stn7_home_p'
+       stn7_retrct1_p
+       stn7_dr1_up_p
+       Greifer offen (1)
+     FahreLinear
+       stn7_dr1_dwn_p
+       stn7_dr1_open_p
+       stn7_dr2_ohp1_p
+     FahreLinear
+       stn7_dr2_up_p
+       stn7_dr2_dwn_p
+       stn7_dr2_open_p
+       stn7_dr2_ohp1_p
+       Greifer geschlossen (1)
+     FahreAchse
+       stn7_home_p
+   stn7_close_doors
+     Greifer geschlossen (1)
+     FahreAchse
+       stn7_home_p
+       stn7_apr1_p
+     FahreLinear
+       stn7_push1_p
+       stn7_apr1_p
+       stn7_apr2_p
+       stn7_push2_p
+       stn7_dr2_bk_p
+   stn7_check_doors
+     Schleife
+       stn7_door_1_ok≔get_digital_in(2)
+       If stn7_door_1_ok ≟  False 
+         'qMast.send_msg(stn7_skype_msg)'
+         Meldung
+       Else
+         stn7_door_2_ok≔get_digital_in(0)
+         If stn7_door_2_ok ≟  False 
+           'qMast.send_msg(stn7_skype_msg)'
+           Meldung
+         Else
+           break
+   stn9_decap
+     FahreAchse
+       stn9_dcap_apr_p
+     Einstellen Decap=Ein
+     FahreLinear
+       stn9_lv_tb_p
+     Greiferbewegung65% (1)
+     Warten: 0.5
+     Einstellen Decap=Aus
+     FahreAchse
+       stn9_hold_dcp_p
+     Greifer geschlossen (1)
+     FahreAchse
+       stn9_dcap_up_p
+     FahreLinear
+       stn9_dcap_hlp_p
+     FahreAchse
+       stn9_dcap_apr_p
+     FahreAchse
+       stn9_bin_apr_p
+       stn9_lv_cap_p
+       Greiferbewegung50% (1)
+       Greifer geschlossen (1)
+       Greiferbewegung50% (1)
+     FahreAchse
+       stn9_bin_apr_p
+       stn9_dcap_apr_p
+     Greifer offen (1)
+     FahreLinear
+       stn9_hold_cap_p
+     Greifer geschlossen (1)
+     Einstellen Decap=Ein
+     FahreLinear
+       stn9_dcap_apr_p
+   stn11_open_archiv
+     Greifer geschlossen (1)
+     FahreAchse
+       stn11_home_p
+     FahreLinear
+       stn11_hlp_up_p
+       stn11_clo_apr_p
+       stn11_close_p
+       stn11_clo_up_p
+       stn11_clo_up2_p
+       Greifer offen (1)
+       stn11_opn_apr_p
+       stn11_opn_p
+       stn11_opn_up_p
+     Greifer geschlossen (1)
+     FahreAchse
+       stn11_home_p
+   Thread_1
+     sync()
+     If jobDone≟ True 
+       jobArr≔qMast.get_job()
+       jobID≔jobArr[0]
+       If jobID ≠ 0
+         jobDone≔ False 
+   Thread_2
+     sync()
+     Warten: 0.1
+     If start_ping ≟  True 
+       qMast.ping()
+   'Thread_3'
