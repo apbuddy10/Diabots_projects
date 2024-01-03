@@ -1,0 +1,3 @@
+
+
+uint16_t FIRMWARE_VERSION = 2;
