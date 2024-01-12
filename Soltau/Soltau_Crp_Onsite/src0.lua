@@ -1,57 +1,83 @@
 --- Movements Function commands-------------------
 
-function setGripper(position, speed, force)
+
+local gripperStatus = 0
+
+function getGripperStatus()
+  local crc2,crc1 = CRC16({9,0x03,0x07,0xD0,0x00,0x03})
+  Sync() 
+  GWrite(0x01,{9,0x03,0x07,0xD0,0x00,0x03,crc1,crc2})
+  local value = GRead(0x01)
+  local retPosition = nil
+  if value ~= nil and value.size == 11 then
+    retPosition = math.floor((255-value.buf[8])*100/255)
+    local objectStatus = value.buf[4]
+    local t = {}
+	for i=7,0,-1 do
+	  t[#t+1] = math.floor(objectStatus / 2^i)
+	  objectStatus = objectStatus % 2^i
+    end
+    return retPosition, tonumber(tostring(t[1])..tostring(t[2]),2)
+  end
+  return -1, -1
+end
+
+function setGripperWithoutCheck(position, speed, force)
   RiqSet(position, speed, force)
   Sync()
   Sleep(500)
 end
 
-function setGripperCheck(gripper,expectedStatus)
-  local gripInit = gripper.init or 0     --// Default value 0
-  local pos = gripper.pos or 0     --// Default value 0
-  local speed = gripper.speed or 100     --// Default value 0
-  local force = gripper.force or 100     --// Default value 0
+function setGripper(position, speed, force)
+  local commandCount = 0
   local count = 0
-  if(gripInit == 1) then 
+  local success = false
+  local openbuff = 5
+  while(true) do
+    count = 0
     Sync()
-    RiqInit()
+    RiqSet(position, speed, force)
     Sync()
-  else 
-    Sync()
-    RiqSet(pos,speed,force)
-    Sync()
-  end
-  while(count < 5) do
-    Sleep((gripInit + 1)*1100) -- // Init needs a 2 sec sleep
-    status = RiqGetStatus()
-    print(status)
-    if (status == expectedStatus ) then  -- at rest
-      return 0
-    else
-      if(expectedStatus ~= 3 and gripInit == 1) then 
-        Sync()
-        RiqInit()
-        Sync()
-      elseif(expectedStatus ~= 2 or expectedStatus ~= 3) then 
-        Sync()
-        RiqSet(pos,speed,force)
-        Sync()
+    commandCount = commandCount + 1
+    while(true) do
+      Sleep(50)
+      local reponsePosition = -1
+      local reponseObjStatus = -1
+      gripperStatus = 0
+      reponsePosition, reponseObjStatus = getGripperStatus()
+      gripperStatus = reponseObjStatus
+      Sync()
+      count = count + 1
+      if (reponsePosition ~= nil) then
+        if ((reponsePosition >= position-openbuff and reponsePosition <= position+openbuff) or (position == 0 and gripperStatus == 2)) then
+          success = true   
+          Sleep(100)
+          break
+        end
+      end
+      if(count >= 10) then
+        break
       end
     end
-    count = count + 1
-    if(count >= 3) then
+    if (commandCount <= 100) then
+      if (success == true) then
+        break
+      end
+    else
       Pause()
+      break
     end
   end
+  Sync()
 end
 
 function openDoorArchive()
   setGripper(0,50,50)
-  Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=50 SYNC=0") --// Drive end
+  Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1") --// Drive end
   interfaceOut[5] = 704 ----- axis 7 cam2 home
   statusACK = send_UDP_ACK_2()
   interfaceOut[5] = 0
-  Go(P176,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
+  Go(P176,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
   Move(P177,"User=3 Tool=1 CP=0 SpeedS=5 AccelS=100 SYNC=1")
   Go(P125,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
   Go(P126,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
@@ -96,9 +122,9 @@ end
 -- End of Movements Function commands-------------
 
 --// Initialization of Variables and Communication
-setGripperCheck( {init=1},3)  --// Init Gripper ,status 3
+RiqInit()
 Sync()
-setGripperCheck( {pos=0},3)  --// Close the Gripper ,status 3
+setGripper(0,50,50)
 MoveJ(P91,"CP=100 Speed=50 Accel=10 SYNC=1")
 err, socket = TCPCreate(isServer, IP, PORT)
 err = TCPStart(socket, 0)
@@ -151,9 +177,9 @@ if (err == 0)
     InitializeMachine(17) --// Init Cobas Pure Filled Rack Holder_1
     InitializeMachine(18) --// Init Cobas Pure Filled Rack Holder_2
     
-    setGripperCheck( {init=1},3 )  --// Init Gripper ,status 3
+    RiqInit()
     Sync()
-    setGripperCheck( {pos=0},3 )  --// Close the Gripper ,status 3
+    setGripper(0,50,50)
     openDoorArchive() --Open the Door of Archive 
     --[[while true do
       interfaceOut[5] = 701 ----- axis 7 sysmex home
@@ -194,7 +220,7 @@ if (err == 0)
           interfaceOut[5] = 701 ----- axis 7 cam1 home
           statusACK = send_UDP_ACK_2()
           interfaceOut[5] = 0
-          Go(P27,"User=1 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")  --// Stn1 Home Pos
+          Go(P27,"User=1 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")  --// Stn1 Home Pos
           Go(P88,"User=1 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
           Go(P89,"User=1 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
           Go(coordinateArrSrcDest[1],"User=1 Tool=1 CP=100 Speed=50 Accel=100 SYNC=0")  --// Src Pose
@@ -207,18 +233,17 @@ if (err == 0)
           Go(P89,"User=1 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
           Go(P88,"User=1 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
           Go(P27,"User=1 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")  --// Stn1 Home Pos
-          --local gripperStatus = RiqGetStatus()
-          --if (gripperStatus ~= 2) then
-            --srcJob = 0
-            --destJob = 0
-            --reset_jobs()
-            --resetLockStatus()
-          --end
+          if (gripperStatus ~= 2) then
+            srcJob = 0
+            destJob = 0
+            reset_jobs()
+            resetLockStatus()
+          end
           if(destJob == 41) then   --// Stn4 Pick or Place
             interfaceOut[5] = 704 ----- axis 7 cam2 home
             statusACK = send_UDP_ACK_2()
             interfaceOut[5] = 0
-            Go(P28,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
+            Go(P28,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
             DO(1, ON)
             Move(P32,"User=3 Tool=1 CP=100 SpeedS=100 AccelS=100 SYNC=1")
             local colorOfTube = 0
@@ -328,11 +353,9 @@ if (err == 0)
                 -- coordinateArr = setCoordinatePos_z({coordinate=updatedPos.coordinate},stn5_z_plc_val)
                 coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn5_z_plc_val)
                 Move(coordinateArr,"User=3 SpeedS=50 AccelS=100 CP=0 SYNC=1")
-                --setGripper(50,50,50)
-                setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
+                setGripper(50,50,50)
                 Move(coordinateArrSrcDest[1],"User=3 SpeedS=100 AccelS=100 CP=0 SYNC=1")
                 setGripper(0,50,50) --// --// Close the Gripper 
-                --setGripperCheck( {pos=0,speed=50,force=50},3 )  --// Close the Gripper ,status 3
                 Go(P92,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
                 Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
                 Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
@@ -343,7 +366,7 @@ if (err == 0)
                 interfaceOut[5] = 707 ----- axis 7 sysmex home
                 statusACK = send_UDP_ACK_2()
                 interfaceOut[5] = 0
-                Go(P30,"User=4 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")        
+                Go(P30,"User=4 Tool=1 Speed=100 Accel=100 CP=100 SYNC=1")        
                 Go(coordinateArrSrcDest[1],"User=4 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")  --// Src Pose
                 -- coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn9_z_rot_val)
                 -- Move(coordinateArr,"User=4 SpeedS=5 AccelS=3 CP=0 SYNC=1")
@@ -353,8 +376,8 @@ if (err == 0)
                 --local updatedPos = GetPose()
                 coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn9_z_plc_val)
                 Move(coordinateArr,"User=4 SpeedS=20 AccelS=100 CP=0 SYNC=1")
-                --setGripper(50,50,50)
-                setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
+                setGripper(50,50,50)
+                --setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
                 Move(coordinateArrSrcDest[1],"User=4 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")  --// Src Pose
                 Go(P30,"User=4 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")
                 Go(P91,"User=0 Tool=1 Speed=100 Accel=100 CP=0 SYNC=1")
@@ -371,8 +394,8 @@ if (err == 0)
                 Go(coordinateArrSrcDest[1],"User=5 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")  --// Src Pose
                 coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn10_z_val)
                 Move(coordinateArr,"User=5 Tool=1 SpeedS=50 AccelS=100 CP=0 SYNC=1")  
-                --setGripper(50,50,50)
-                setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
+                setGripper(50,50,50)
+                --setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
                 Move(coordinateArrSrcDest[1],"User=5 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")  
                 Go(P93,"User=3 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")
                 Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
@@ -397,8 +420,8 @@ if (err == 0)
             Go(coordinateArrSrcDest[1],"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")  --// Src Pose
             coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn5_z_pick_val)
             Move(coordinateArr,"User=3 Tool=1 SpeedS=50 AccelS=100 CP=0 SYNC=1")
-            --setGripper(0,50,50) --// --// Close the Gripper
-            setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
+            setGripper(0,50,50) --// --// Close the Gripper
+            --setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
             Move(coordinateArrSrcDest[1],"User=3 SpeedS=100 AccelS=100 CP=100 SYNC=0")
             Go(P92,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
             Go(P28,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
@@ -454,7 +477,8 @@ if (err == 0)
                 DO(2, OFF)
                 MoveJ(jointArr,"CP=0 Speed=100 Accel=100 SYNC=1")
                 Move(P100,"User=3 Tool=1 SpeedS=100 AccelS=100 CP=0 SYNC=1")
-                setGripperCheck( {pos=0,speed=50,force=10},2 )  --// Close the Gripper ,status 2
+                --setGripperCheck( {pos=0,speed=50,force=10},2 )  --// Close the Gripper ,status 2
+                setGripper(0,50,10)
                 DOExecute(2, ON)
                 Sleep(1)
                 Move(P101,"User=3 Tool=1 CP=100 SpeedS=100 AccelS=100 SYNC=0")
@@ -508,8 +532,8 @@ if (err == 0)
                   Go(coordinateArrSrcDest[1],"User=2 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")  --// Src Pose
                   coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn3_z_plc_val)
                   Move(coordinateArr,"User=2 Tool=1 SpeedS=2 AccelS=5 CP=0 SYNC=1") 
-                  --setGripper(50,50,50)
-                  setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
+                  setGripper(50,50,50)
+                  --setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
                   Move(coordinateArrSrcDest[1],"User=2 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")  
                   DOExecute(9, OFF) --// Turn off process indicator compact max
                   Go(P31,"User=2 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")  --// Stn3 Home Pose
@@ -525,14 +549,14 @@ if (err == 0)
                   if(statusACK == true) then
                     srcJob = interfaceIn[4]
                     destJob = interfaceIn[5]
-                    Go(P31,"User=2 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")  --// Stn3 Home Pose
+                    Go(P31,"User=2 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")  --// Stn3 Home Pose
                     Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
                     Go(P93,"User=3 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")
                     Go(coordinateArrSrcDest[1],"User=5 Tool=1 Speed=100 Accel=100 CP=0 SYNC=0")  --// Src Pose
                     coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn10_z_val)
                     Move(coordinateArr,"User=5 Tool=1 SpeedS=50 AccelS=100 CP=0 SYNC=1")  
-                    --setGripper(50,50,50)
-                    setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
+                    setGripper(50,50,50)
+                    --setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
                     Move(coordinateArrSrcDest[1],"User=5 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")  
                     Go(P93,"User=3 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")
                     Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
@@ -558,8 +582,8 @@ if (err == 0)
                 DO(2, OFF)
                 --MoveJ(startDecap,"CP=0 Speed =100 Accel=100 SYNC=1")
                 Go(P138,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
-                --setGripper(0,100,100)
-                setGripperCheck( {pos=0},2 )  --// Close the Gripper ,status 2
+                setGripper(0,50,50)
+                --setGripperCheck( {pos=0},2 )  --// Close the Gripper ,status 2
                 --MoveJ(endDecap,"CP=0 Speed =100 Accel=50 SYNC=1")
                 Go(P139,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
                 Go(P101,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
@@ -574,8 +598,8 @@ if (err == 0)
                 --setGripperCheck( {pos=100,speed=100,force=0},3 )  --// Open the Gripper ,status 3
                 MoveJ(jointArr,"CP=0 Speed =100 Accel=100 SYNC=1")
                 Move(P179,"User=3 Tool=1 SpeedS=100 AccelS=100 CP=0 SYNC=1")
-                --setGripper(0,20,8)
-                setGripperCheck( {pos=0,speed=20,force=8},2 )  --// Close the Gripper ,status 2
+                setGripper(0,20,8)
+                --setGripperCheck( {pos=0,speed=20,force=8},2 )  --// Close the Gripper ,status 2
                 --Sleep(2000)
                 DOExecute(2, ON)
                 Move(P101,"User=3 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")
@@ -583,8 +607,8 @@ if (err == 0)
                 Go(coordinateArrSrcDest[1],"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")  --// Src Pose
                 local coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn14_z_val)
                 Move(coordinateArr,"User=3 Tool=1 SpeedS=20 AccelS=100 CP=0 SYNC=1")
-                --setGripper(35,50,50)
-                setGripperCheck( {pos=35,speed=50,force=50},3 )  --// Open the Gripper ,status 3
+                setGripper(35,50,50)
+                --setGripperCheck( {pos=35,speed=50,force=50},3 )  --// Open the Gripper ,status 3
                 Move(coordinateArrSrcDest[1],"User=3 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")
                 Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
                 resetLockStatus()  --// Reset the Lock Status
@@ -594,15 +618,15 @@ if (err == 0)
                 interfaceOut[5] = 706 ----- axis 7 centifuge home
                 statusACK = send_UDP_ACK_2()
                 interfaceOut[5] = 0
-                Go(P93,"User=3 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")
+                Go(P93,"User=3 Tool=1 Speed=100 Accel=100 CP=100 SYNC=1")
                 Go(coordinateArrSrcDest[1],"User=5 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")  --// Src Pose
                 coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn10_z_val)
                 Move(coordinateArr,"User=5 Tool=1 SpeedS=50 AccelS=100 CP=0 SYNC=1")  
-                --setGripper(50,50,50)
-                setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
+                setGripper(50,50,50)
+                --setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
                 Move(coordinateArrSrcDest[1],"User=5 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")  
-                --setGripper(0,50,50)
-                setGripperCheck( {pos=0,speed=50,force=50},3 )  --// Close the Gripper ,status 3
+                setGripper(0,50,50)
+                --setGripperCheck( {pos=0,speed=50,force=50},3 )  --// Close the Gripper ,status 3
                 Go(P93,"User=3 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")
                 Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
                 resetLockStatus()  --// Reset the Lock Status
@@ -621,7 +645,7 @@ if (err == 0)
               interfaceOut[5] = 706 ----- axis 7 centifuge home
               statusACK = send_UDP_ACK_2()
               interfaceOut[5] = 0
-              Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
+              Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
               Go(P103,"User=3 Tool=1 Speed=100 Accel=100 CP=100 SYNC=1")            
               local rack_poses = {}
               local batch_num = coordinateArrSrcDest[1].coordinate[1]
@@ -652,14 +676,14 @@ if (err == 0)
                 --setGripperCheck( {pos=50,speed=100,force=0},3 )  --// Open the Gripper ,status 3
                 local coordinateArr = setCoordinatePos_z(rack_poses[loop_count],stn5_rack_pick_z_val)
                 Move(coordinateArr,"User=3 Tool=1 SpeedS=100 AccelS=100 CP=0 SYNC=1")
-                --setGripper(0,50,50)
-                setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
+                setGripper(0,50,50)
+                --setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
                 Move(rack_poses[loop_count],"User=3 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0") 
                 Go(P103,"User=3 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")   
                 Go(P44,"User=3 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")                
                 Move(P104,"User=3 Tool=1 SpeedS=2 AccelS=1 CP=0 SYNC=1")
-                --setGripper(50,100,0)
-                setGripperCheck( {pos=50,speed=100,force=0},3 )  --// Open the Gripper ,status 3
+                setGripper(50,100,0)
+                --setGripperCheck( {pos=50,speed=100,force=0},3 )  --// Open the Gripper ,status 3
                 Move(P44,"User=3 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")
                 Go(P103,"User=3 Tool=1 Speed=100 Accel=100 CP=50 SYNC=1") 
                 if(loop_count >= 4) then
@@ -671,7 +695,7 @@ if (err == 0)
               statusACK = send_UDP_ACK_2()
               interfaceOut[5] = 68  --// mac ID 
               statusACK = send_UDP_ACK_2()
-              Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
+              Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
               Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
             end
           elseif(destJob == 55) then   --// Pick from racks and place tube in Counter Weight Pos
@@ -679,22 +703,22 @@ if (err == 0)
             interfaceOut[5] = 704 ----- axis 7 cam2 home
             statusACK = send_UDP_ACK_2()
             interfaceOut[5] = 0
-            Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
+            Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
             setGripper(50,50,50)
             --setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
             Go(P92,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
             Go(coordinateArrSrcDest[1],"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")  --// Src Pose
             coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn5_z_pick_val)
             Move(coordinateArr,"User=3 Tool=1 SpeedS=50 AccelS=100 CP=0 SYNC=1")
-            --setGripper(0,50,50) --// --// Close the Gripper
-            setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
+            setGripper(0,50,50) --// --// Close the Gripper
+            --setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
             Move(coordinateArrSrcDest[1],"User=3 SpeedS=100 AccelS=20 CP=100 SYNC=0")
             Go(P92,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")              
             Go(coordinateArrSrcDest[2],"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")  --// Src Pose
             coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[2],stn5_cw_plc_z_val)  
             Move(coordinateArr,"User=3 SpeedS=50 AccelS=100 CP=0 SYNC=1") 
-            --setGripper(50,50,50)
-            setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
+            setGripper(50,50,50)
+            --setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
             Move(coordinateArrSrcDest[2],"User=3 SpeedS=100 AccelS=100 CP=100 SYNC=0")  
             setGripper(0,50,50)
             --setGripperCheck( {pos=0,speed=50,force=50},3 )  --// Close the Gripper ,status 3
@@ -705,11 +729,11 @@ if (err == 0)
           if (test == true) then 
             print("Centrifuge skipped")
           else
-            Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
+            Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
             interfaceOut[5] = 706 ----- axis 7 centrifuge home
             statusACK = send_UDP_ACK_2()
             interfaceOut[5] = 0
-            Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
+            Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
             Go(P103,"User=3 Tool=1 Speed=100 Accel=100 CP=50 SYNC=1")            
             local rack_poses = {}
             local batch_num = coordinateArrSrcDest[1].coordinate[1]
@@ -735,23 +759,23 @@ if (err == 0)
                 interfaceOut[5] = 66 
               end
               statusACK = send_UDP_ACK_2()
-              --setGripper(60,50,50)
-              setGripperCheck( {pos=60,speed=50,force=50},3 )  --// Open the Gripper ,status 3
-              Go(P44,"User=3 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")                
+              setGripper(60,50,50)
+              --setGripperCheck( {pos=60,speed=50,force=50},3 )  --// Open the Gripper ,status 3
+              Go(P44,"User=3 Tool=1 Speed=100 Accel=100 CP=100 SYNC=1")                
               Move(P104,"User=3 Tool=1 SpeedS=100 AccelS=100 CP=0 SYNC=1")
-              --setGripper(0,50,50)
-              setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
+              setGripper(0,50,50)
+              --setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
               Move(P44,"User=3 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")
               Go(P103,"User=3 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")
               Go(rack_poses[loop_count],"User=3 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")  --// Src Pose
               coordinateArr = setCoordinatePos_z(rack_poses[loop_count],stn5_rack_plc_z_val)
               Move(coordinateArr,"User=3 Tool=1 SpeedS=20 AccelS=100 CP=0 SYNC=1")
-              --setGripper(50,100,0)
-              setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
+              setGripper(50,100,0)
+              --setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
               Move(rack_poses[loop_count],"User=3 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0") 
               Go(P103,"User=3 Tool=1 Speed=100 Accel=100 CP=50 SYNC=1") 
               --setGripper(0,100,0)
-              setGripperCheck( {pos=0,speed=100,force=0},3 )  --// Close the Gripper ,status 3
+              --setGripperCheck( {pos=0,speed=100,force=0},3 )  --// Close the Gripper ,status 3
               if(loop_count >= 4) then
                 break
               end
@@ -767,25 +791,25 @@ if (err == 0)
           interfaceOut[5] = 704 ----- axis 7 cam2 home
           statusACK = send_UDP_ACK_2()
           interfaceOut[5] = 0
-          Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
+          Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
           Go(coordinateArrSrcDest[1],"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")  --// Src Pose
-          --setGripper(50,100,0)
-          setGripperCheck( {pos=50,speed=100,force=0},3 )  --// Open the Gripper ,status 3
+          setGripper(50,100,0)
+          --setGripperCheck( {pos=50,speed=100,force=0},3 )  --// Open the Gripper ,status 3
           coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn5_cw_pick_z_val)
           Move(coordinateArr,"User=3 Tool=1 SpeedS=50 AccelS=100 CP=0 SYNC=1")  
-          --setGripper(0,50,50)
-          setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
+          setGripper(0,50,50)
+          --setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
           Move(coordinateArrSrcDest[1],"User=3 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")  
           Go(P92,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
           if(destJob == 52) then     --// Place Counter Weight in Centrifuge Racks
             Go(coordinateArrSrcDest[2],"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")  --// Dest Pose
             coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[2],stn5_z_plc_val)
             Move(coordinateArr,"User=3 Tool=1 SpeedS=50 AccelS=100 CP=0 SYNC=1")  --// Src Pose
-            --setGripper(50,100,0)
-            setGripperCheck( {pos=50,speed=100,force=0},3 )  --// Open the Gripper ,status 3
+            setGripper(50,100,0)
+            --setGripperCheck( {pos=50,speed=100,force=0},3 )  --// Open the Gripper ,status 3
             Move(coordinateArrSrcDest[2],"User=3 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")  --// Src Pose
-            --setGripper(0,100,0)
-            setGripperCheck( {pos=0,speed=100,force=0},3 )  --// Close the Gripper ,status 3
+            setGripper(0,100,0)
+            --setGripperCheck( {pos=0,speed=100,force=0},3 )  --// Close the Gripper ,status 3
             Go(P92,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
             Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
             Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
@@ -797,12 +821,12 @@ if (err == 0)
           interfaceOut[5] = 702 ----- axis 7 Cobas Pure Rack Holder
           statusACK = send_UDP_ACK_2()
           interfaceOut[5] = 0
-          Go(P112,"User=6 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
+          Go(P112,"User=6 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
           Go(coordinateArrSrcDest[1],"User=6 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
           coordinateArr = setCoordinateDiffPos_z(coordinateArrSrcDest[1],stn2_z_diff_pick_val)
           Move(coordinateArr,"User=6 Tool=1 SpeedS=10 AccelS=10 CP=0 SYNC=1")
-          --setGripper(0,50,100)
-          setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2
+          setGripper(0,50,100)
+          --setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2
           Move(coordinateArrSrcDest[1],"User=6 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")
           Go(P112,"User=6 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
           --Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1")
@@ -814,8 +838,8 @@ if (err == 0)
           Go(P193,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
           Go(P118,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
           Move(P115,"User=3 Tool=1 SpeedS=2 AccelS=50 CP=0 SYNC=1")
-          --setGripper(100,50,100)
-          setGripperCheck( {pos=100,speed=50,force=100},3 )  --// Open the Gripper ,status 3
+          setGripper(100,50,100)
+          --setGripperCheck( {pos=100,speed=50,force=100},3 )  --// Open the Gripper ,status 3
           Move(P118,"User=3 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")
           --Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
           Go(P193,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
@@ -831,7 +855,7 @@ if (err == 0)
           interfaceOut[5] = 0
           setGripper(0,50,100)
           --setGripperCheck( {pos=0,speed=50,force=100},3 )  --// Close the Gripper ,status 3
-          Go(P119,"User=4 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
+          Go(P119,"User=4 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
           x_val = coordinateArrSrcDest[1].coordinate[1]
           coordinateArr = setCoordinatePos_x({coordinate=P202.coordinate},x_val)
           Go(coordinateArr,"User=4 Tool=1 CP=100 Speed=50 Accel=100 SYNC=0")
@@ -854,8 +878,8 @@ if (err == 0)
           --setGripperCheck( {pos=70,speed=50,force=100},3 )  --// Open the Gripper ,status 3
           coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn9_rack_z_val)
           Move(coordinateArr,"User=4 Tool=1 SpeedS=10 AccelS=5 CP=0 SYNC=1")
-          --setGripper(0,50,100)
-          setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2
+          setGripper(0,50,100)
+          --setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2
           local updatedPos = GetPose()
           coordinateArr = setCoordinatePos_y({coordinate=updatedPos.coordinate},stn9_y_slide_out)
           Move(coordinateArr,"User=4 Tool=1 SpeedS=3 AccelS=1 CP=0 SYNC=1")
@@ -863,8 +887,8 @@ if (err == 0)
           Go(P120,"User=4 Tool=1 CP=100 Speed=50 Accel=100 SYNC=0")
           DOExecute(9, ON) --// Turn on process indicator sysmex 
           Move(P121,"User=4 Tool=1 SpeedS=3 AccelS=1 CP=0 SYNC=1")
-          --setGripper(70,50,100)
-          setGripperCheck( {pos=70,speed=50,force=100},3 )  --// Open the Gripper ,status 3
+          setGripper(70,50,100)
+          --setGripperCheck( {pos=70,speed=50,force=100},3 )  --// Open the Gripper ,status 3
           Move(P120,"User=4 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=1")
           DOExecute(9, OFF) --// Turn off process indicator sysmex 
           Go(P119,"User=4 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
@@ -886,8 +910,8 @@ if (err == 0)
           setGripper(100,50,100)
           --setGripperCheck( {pos=100,speed=50,force=100},3 )  --// Open the Gripper ,status 3
           Move(P123,"User=4 Tool=1 SpeedS=5 AccelS=2 CP=0 SYNC=1")
-          --setGripper(0,50,100)
-          setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2
+          setGripper(0,50,100)
+          --setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2
           Move(P133,"User=4 Tool=1 CP=0 SpeedS=3 AccelS=1 SYNC=1")
           Move(P134,"User=4 Tool=1 CP=0 SpeedS=5 AccelS=2 SYNC=1")
           Go(P132,"User=4 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
@@ -900,8 +924,8 @@ if (err == 0)
           local updatedPos = GetPose()
           coordinateArr = setCoordinatePos_y({coordinate=updatedPos.coordinate},stn9_y_slide_in)
           Move(coordinateArr,"User=4 Tool=1 SpeedS=3 AccelS=100 CP=0 SYNC=1")
-          --setGripper(70,50,100)
-          setGripperCheck( {pos=70,speed=50,force=100},3 )  --// Open the Gripper ,status 3
+          setGripper(70,50,100)
+          --setGripperCheck( {pos=70,speed=50,force=100},3 )  --// Open the Gripper ,status 3
           Move(coordinateArrSrcDest[1],"User=4 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")
           Go(P119,"User=4 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
           Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
@@ -921,20 +945,20 @@ if (err == 0)
           setGripper(100,100,100)
           --setGripperCheck( {pos=100},3 )  --// Open the Gripper ,status 3
           Move(P116,"User=3 Tool=1 SpeedS=100 AccelS=100 CP=0 SYNC=1")
-          --setGripper(0,50,100)
-          setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2
+          setGripper(0,50,100)
+          --setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2
           Move(P117,"User=3 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")
           Go(P130,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
           Go(P114,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
           interfaceOut[5] = 708 ----- axis 7 Cobas Pure
           statusACK = send_UDP_ACK_2()
           interfaceOut[5] = 0
-          Go(P111,"User=0 Tool=1 CP=100 Speed=50 Accel=100 SYNC=0")
+          Go(P111,"User=0 Tool=1 CP=100 Speed=50 Accel=100 SYNC=1")
           DOExecute(9, ON) --// Turn on process indicator Cobas Pure
           Move(P110,"User=0 Tool=1 SpeedS=5 AccelS=2 CP=0 SYNC=1")
           Move(P109,"User=0 Tool=1 SpeedS=2 AccelS=1 CP=0 SYNC=1")
-          --setGripper(100,50,100)
-          setGripperCheck( {pos=100,speed=50,force=100},3 )  --// Open the Gripper ,status 3
+          setGripper(100,50,100)
+          --setGripperCheck( {pos=100,speed=50,force=100},3 )  --// Open the Gripper ,status 3
           Move(P110,"User=0 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=1")
           DOExecute(9, OFF) --// Turn off process indicator Cobas Pure
           Go(P111,"User=0 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
@@ -945,14 +969,14 @@ if (err == 0)
           interfaceOut[5] = 707 ----- axis 7 sysmex home
           statusACK = send_UDP_ACK_2()
           interfaceOut[5] = 0
-          Go(P30,"User=4 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")
+          Go(P30,"User=4 Tool=1 Speed=100 Accel=100 CP=100 SYNC=1")
           setGripper(50,50,100)
           --setGripperCheck( {pos=50,speed=50,force=100},3 )  --// Open the Gripper ,status 3
           Go(coordinateArrSrcDest[1],"User=4 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
           coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn9_z_pick_val)
           Move(coordinateArr,"User=4 Tool=1 SpeedS=100 AccelS=100 CP=0 SYNC=1")
-          --setGripper(0,50,50)
-          setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
+          setGripper(0,50,50)
+          --setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
           Move(coordinateArrSrcDest[1],"User=4 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")
           Go(P30,"User=4 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")
           Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
@@ -963,8 +987,8 @@ if (err == 0)
           Go(coordinateArrSrcDest[2],"User=5 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")  --// Src Pose
           coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[2],stn11_z_val)
           Move(coordinateArr,"User=5 Tool=1 SpeedS=50 AccelS=100 CP=0 SYNC=1")  
-          --setGripper(50,50,50)
-          setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
+          setGripper(50,50,50)
+          --setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
           Move(coordinateArrSrcDest[2],"User=5 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")  
           Go(P93,"User=3 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")
           Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")            
@@ -977,14 +1001,14 @@ if (err == 0)
           interfaceOut[5] = 706 ----- axis 7 Centrifuge Home
           statusACK = send_UDP_ACK_2()
           interfaceOut[5] = 0
-          Go(P124,"User=2 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
+          Go(P124,"User=2 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
           setGripper(50,50,100)
           --setGripperCheck( {pos=50,speed=50,force=100},3 )  --// Open the Gripper ,status 3
           Go(coordinateArrSrcDest[1],"User=2 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
           coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn3_z_pick_val)
           Move(coordinateArr,"User=2 Tool=1 SpeedS=10 AccelS=100 CP=0 SYNC=1")
-          --setGripper(0,50,50)
-          setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
+          setGripper(0,50,50)
+          --setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
           Move(coordinateArrSrcDest[1],"User=2 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")
           Go(P124,"User=2 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
           Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
@@ -992,8 +1016,8 @@ if (err == 0)
           Go(coordinateArrSrcDest[2],"User=5 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")  --// Src Pose
           coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[2],stn11_z_val)
           Move(coordinateArr,"User=5 Tool=1 SpeedS=50 AccelS=100 CP=0 SYNC=1")  
-          --setGripper(50,50,50)
-          setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
+          setGripper(50,50,50)
+          --setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
           Move(coordinateArrSrcDest[2],"User=5 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")  
           Go(P93,"User=3 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0")
           Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")            
@@ -1016,7 +1040,7 @@ if (err == 0)
           --setGripperCheck( {pos=30},3 )  --// Open the Gripper ,status 3
           Move(P163,"User=0 Tool=1 SpeedS=20 AccelS=20 CP=0 SYNC=1") --// Cobas Pure Approach 2
           --setGripper(0,50,100) --// Gripper Closed
-          setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2 --AP
+          --setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2 --AP
           Move(P164,"User=0 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --// Cobas Pure Approach 1
           Go(P98,"User=0 Tool=1 Speed=5 Accel=5 CP=50 SYNC=1") --// Cobas Pure Home Pos
           interfaceOut[5] = 703 ----- axis 7 Cobas Pure Rack Holder slow speed
@@ -1026,7 +1050,7 @@ if (err == 0)
           Go(P167,"User=6 Tool=1 Speed=5 Accel=5 CP=50 SYNC=1") --// Stn 15 Basket Approach 1 
           Move(P165,"User=6 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --// 
           --setGripper(60,50,100)
-          setGripperCheck( {pos=60,speed=50,force=100},3 )  --// Open the Gripper ,status 3
+          --setGripperCheck( {pos=60,speed=50,force=100},3 )  --// Open the Gripper ,status 3
           Move(P165,"User=6 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --// 
           setGripper(0,50,100)
           --setGripperCheck( {pos=0,speed=50,force=100},3 )  --// Close the Gripper ,status 3 --AP
@@ -1045,11 +1069,12 @@ if (err == 0)
           interfaceOut[5] = 710 ----- axis 7 Cobas Pure loading/unloading
           statusACK = send_UDP_ACK_2()
           interfaceOut[5] = 0
-          Go(P253,"User=0 Tool=1 Speed=100 Accel=100 CP=50 SYNC=0") --// Pick Help 1
+          Go(P253,"User=0 Tool=1 Speed=100 Accel=100 CP=50 SYNC=1") --// Pick Help 1
           Move(P254,"User=0 Tool=1 SpeedS=50 AccelS=10 CP=0 SYNC=1") --// Pick Help 2
           setGripper(30,100,100)
           Move(P255,"User=0 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --// Pick Pose
-          setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2 
+          setGripper(0,50,100)
+          --setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2 
           Move(P256,"User=0 Tool=1 SpeedS=1 AccelS=1 CP=0 SYNC=1") --// Pick Help 3
           Move(P257,"User=0 Tool=1 SpeedS=1 AccelS=1 CP=0 SYNC=1") --// Pick Help 4
           Move(P258,"User=0 Tool=1 SpeedS=1 AccelS=1 CP=0 SYNC=1") --// Pick Help 5
@@ -1058,8 +1083,8 @@ if (err == 0)
           Go(P261,"User=6 Tool=1 Speed=2 Accel=2 CP=0 SYNC=1") --// Place Help 2
           Move(P262,"User=6 Tool=1 SpeedS=1 AccelS=1 CP=0 SYNC=1") --// Place Pose
           Move(P263,"User=6 Tool=1 SpeedS=1 AccelS=1 CP=0 SYNC=1") --// Place Slide Pose
-          setGripperCheck( {pos=100,speed=50,force=100},3 )  --// Open the Gripper ,status 3
-          --setGripper(100,50,100) --//Open the gripper
+          --setGripperCheck( {pos=100,speed=50,force=100},3 )  --// Open the Gripper ,status 3
+          setGripper(100,50,100) --//Open the gripper
           Go(P264,"User=6 Tool=1 Speed=1 Accel=1 CP=0 SYNC=1") --// Place Help 3
           Go(P265,"User=6 Tool=1 Speed=100 Accel=100 CP=0 SYNC=1") --// Place Help 4
           Go(P260,"User=6 Tool=1 Speed=100 Accel=100 CP=0 SYNC=1") --// Place Help 1
@@ -1080,7 +1105,7 @@ if (err == 0)
           --setGripperCheck( {pos=30},3 )  --// Close the Gripper ,status 3
           Move(P168,"User=0 Tool=1 SpeedS=20 AccelS=20 CP=0 SYNC=1") --// Cobas Pure Approach 2
           --setGripper(0,50,100) --// Gripper Closed
-          setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2 --AP
+          --setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2 --AP
           Move(P169,"User=0 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --// Cobas Pure Approach 1
           Go(P98,"User=0 Tool=1 Speed=2 Accel=2 CP=50 SYNC=1") --// Cobas Pure Home Pos
           interfaceOut[5] = 703 ----- axis 7 Cobas Pure Rack Holder slow speed
@@ -1096,7 +1121,7 @@ if (err == 0)
           --setGripperCheck( {pos=0,speed=50,force=100},3 )  --// Close the Gripper ,status 3  --AP
           Move(P171,"User=6 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --// Stn 16 Basket Approach 2
           --setGripper(100,50,100)
-          setGripperCheck( {pos=100,speed=50,force=100},3 )  --// Open the Gripper ,status 3
+          --setGripperCheck( {pos=100,speed=50,force=100},3 )  --// Open the Gripper ,status 3
           Go(P172,"User=6 Tool=1 Speed=100 Accel=100 CP=50 SYNC=0") --// Stn 16 Basket Pos
           Go(P152,"User=6 Tool=1 Speed=100 Accel=100 CP=50 SYNC=0") --// Stn 15-16 Basket Help
           Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")   
@@ -1108,11 +1133,12 @@ if (err == 0)
           interfaceOut[5] = 710 ----- axis 7 Cobas Pure loading/unloading
           statusACK = send_UDP_ACK_2()
           interfaceOut[5] = 0
-          Go(P226,"User=0 Tool=1 Speed=100 Accel=100 CP=50 SYNC=0") --// Pick Help 1
+          Go(P226,"User=0 Tool=1 Speed=100 Accel=100 CP=50 SYNC=1") --// Pick Help 1
           Move(P227,"User=0 Tool=1 SpeedS=50 AccelS=10 CP=0 SYNC=1") --// Pick Help 2
           setGripper(30,100,100)
           Move(P228,"User=0 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --// Pick Pose
-          setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2 
+          setGripper(0,500,100)
+          --setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2 
           Move(P229,"User=0 Tool=1 SpeedS=1 AccelS=2 CP=0 SYNC=1") --// Pick Help 3
           Move(P230,"User=0 Tool=1 SpeedS=1 AccelS=2 CP=0 SYNC=1") --// Pick Help 4
           Move(P231,"User=0 Tool=1 SpeedS=1 AccelS=2 CP=0 SYNC=1") --// Pick Help 5
@@ -1122,8 +1148,8 @@ if (err == 0)
           Move(P235,"User=6 Tool=1 SpeedS=2 AccelS=1 CP=0 SYNC=1") --// Place Help 3
           Move(P236,"User=6 Tool=1 SpeedS=1 AccelS=1 CP=0 SYNC=1") --// Place Pose
           Move(P237,"User=6 Tool=1 SpeedS=1 AccelS=1 CP=0 SYNC=1") --// Place Slide Pose
-          setGripperCheck( {pos=100,speed=50,force=100},3 )  --// Open the Gripper ,status 3
-          --setGripper(100,50,100) --//Open the gripper
+          --setGripperCheck( {pos=100,speed=50,force=100},3 )  --// Open the Gripper ,status 3
+          setGripper(100,50,100) --//Open the gripper
           Move(P268,"User=6 Tool=1 SpeedS=1 AccelS=1 CP=0 SYNC=1") --// Place Help Pull 
           Go(P238,"User=6 Tool=1 Speed=1 Accel=1 CP=0 SYNC=1") --// Place Help 4
           Go(P239,"User=6 Tool=1 Speed=100 Accel=100 CP=0 SYNC=1") --// Place Help 5
@@ -1149,7 +1175,7 @@ if (err == 0)
             --setGripperCheck( {pos=40},3 )  --// Open the Gripper ,status 3
             Go(P74,"User=6 Tool=1 Speed=20 Accel=20 CP=50 SYNC=1") --// Stn 15 Basket Approach 2
             --setGripper(0,50,100)
-            setGripperCheck( {pos=0,speed=50,force=100}, 2 )  --// Close the Gripper ,status 2  --AP
+            --setGripperCheck( {pos=0,speed=50,force=100}, 2 )  --// Close the Gripper ,status 2  --AP
             Move(P70,"User=6 Tool=1 SpeedS=5 AccelS=5 CP=50 SYNC=1") --// Stn 15 Basket Approach 1 
             Go(P152,"User=6 Tool=1 Speed=20 Accel=20 CP=50 SYNC=1") --// Stn 15-16 Basket Help
             Go(P98,"User=0 Tool=1 Speed=100 Accel=50 CP=50 SYNC=1") --// Cobas Pure Home Pos
@@ -1159,7 +1185,7 @@ if (err == 0)
             Go(P94,"User=0 Tool=1 Speed=10 Accel=10 CP=50 SYNC=1") --// Cobas Pure Approach 1
             Move(P95,"User=0 Tool=1 SpeedS=2 AccelS=1 CP=0 SYNC=1") --// Cobas Pure Approach 2
             --setGripper(100,5,100) --Gripper Opened
-            setGripperCheck( {pos=100,speed=5,force=100},3 )  --// Open the Gripper ,status 3
+            --setGripperCheck( {pos=100,speed=5,force=100},3 )  --// Open the Gripper ,status 3
             --Sleep(2000)
             Go(P96,"User=0 Tool=1 Speed=100 Accel=100 CP=50 SYNC=0") --// Cobas Pure Basket Pos
             --setGripper(100,50,100) --Gripper Opened
@@ -1175,12 +1201,12 @@ if (err == 0)
           interfaceOut[5] = 710 ----- axis 7 Cobas Pure loading/unloading
           statusACK = send_UDP_ACK_2()
           interfaceOut[5] = 0
-          Go(P240,"User=6 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0") --//Pick Help 1
+          Go(P240,"User=6 Tool=1 Speed=100 Accel=100 CP=100 SYNC=1") --//Pick Help 1
           Move(P241,"User=6 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=1") --//Pick Help 2
           setGripper(30,50,100) --//Close the gripper
           Move(P242,"User=6 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --//Pick Pose
-          --setGripper(0,50,100) --//Close the gripper
-          setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2
+          setGripper(0,50,100) --//Close the gripper
+          --setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2
           Move(P243,"User=6 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --//Slide Pose
           Move(P244,"User=6 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --//Pick Help 3
           Move(P245,"User=6 Tool=1 SpeedS=5 AccelS=5 CP=0 SYNC=1") --//Pick Help 4
@@ -1190,8 +1216,8 @@ if (err == 0)
           Move(P248,"User=0 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --//Place Help 2
           Move(P249,"User=0 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --//Place Help 3
           Move(P250,"User=0 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --//Place Pose
-          --setGripper(100,50,100) --//Open the gripper
-          setGripperCheck( {pos=50,speed=50,force=100},3 )  --// Open the Gripper ,status 3
+          setGripper(100,50,100) --//Open the gripper
+          --setGripperCheck( {pos=50,speed=50,force=100},3 )  --// Open the Gripper ,status 3
           Go(P251,"User=0 Tool=1 Speed=50 Accel=50 CP=0 SYNC=1") --//Place Help 4
           Move(P252,"User=0 Tool=1 SpeedS=100 AccelS=100 CP=0 SYNC=1") --//Place Help 5
           Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1")
@@ -1212,7 +1238,7 @@ if (err == 0)
           --setGripperCheck( {pos=40},3 )  --// Open the Gripper ,status 3
           Go(P154,"User=6 Tool=1 Speed=20 Accel=20 CP=50 SYNC=1") --// Stn 16 Basket Approach 2
           --setGripper(0,50,100)
-          setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2  --AP
+          --setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2  --AP
           Move(P153,"User=6 Tool=1 SpeedS=5 AccelS=5 CP=50 SYNC=1") --// Stn 16 Basket Approach 1 
           Go(P152,"User=6 Tool=1 Speed=20 Accel=20 CP=50 SYNC=1") --// Stn 15-16 Basket Help
           Go(P98,"User=0 Tool=1 Speed=100 Accel=50 CP=50 SYNC=1") --// Cobas Pure Home Pos
@@ -1222,7 +1248,7 @@ if (err == 0)
           Go(P174,"User=0 Tool=1 Speed=10 Accel=10 CP=50 SYNC=1") --// Cobas Pure Approach 1
           Move(P175,"User=0 Tool=1 SpeedS=2 AccelS=1 CP=0 SYNC=1") --// Cobas Pure Approach 2
           --setGripper(100,50,100) --Gripper Opened
-          setGripperCheck( {pos=100,speed=50,force=100},3 )  --// Open the Gripper ,status 3
+          --setGripperCheck( {pos=100,speed=50,force=100},3 )  --// Open the Gripper ,status 3
           Go(P96,"User=0 Tool=1 Speed=100 Accel=50 CP=50 SYNC=1") --// Cobas Pure Basket Pos
           --setGripper(100,50,100) --Gripper Opened
           --setGripperCheck( {pos=100,speed=50,force=100},3 )  --// Open the Gripper ,status 3
@@ -1237,13 +1263,13 @@ if (err == 0)
           interfaceOut[5] = 710 ----- axis 7 Cobas Pure loading/unloading
           statusACK = send_UDP_ACK_2()
           interfaceOut[5] = 0
-          Go(P204,"User=6 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0") --//Pick Help 1
+          Go(P204,"User=6 Tool=1 Speed=100 Accel=100 CP=100 SYNC=1") --//Pick Help 1
           Go(P205,"User=6 Tool=1 Speed=100 Accel=100 CP=100 SYNC=0") --//Pick Help 2
           Move(P206,"User=6 Tool=1 SpeedS=10 AccelS=10 CP=0 SYNC=1") --//Pick Help 3
           setGripper(30,50,100) --//Close the gripper
           Move(P207,"User=6 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --//Pick Pose
-          --setGripper(0,50,100) --//Close the gripper
-          setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2
+          setGripper(0,50,100) --//Close the gripper
+          --setGripperCheck( {pos=0,speed=50,force=100},2 )  --// Close the Gripper ,status 2
           Move(P208,"User=6 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --//Slide Pose
           Move(P209,"User=6 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --//Pick Help 4
           Move(P210,"User=6 Tool=1 SpeedS=5 AccelS=5 CP=0 SYNC=1") --//Pick Help 5
@@ -1254,8 +1280,8 @@ if (err == 0)
           Move(P221,"User=0 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --//Place Help 2
           Move(P222,"User=0 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --//Place Help 3
           Move(P223,"User=0 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --//Place Pose
-          --setGripper(100,50,100) --//Open the gripper
-          setGripperCheck( {pos=50,speed=50,force=100},3 )  --// Open the Gripper ,status 3
+          setGripper(100,50,100) --//Open the gripper
+          --setGripperCheck( {pos=50,speed=50,force=100},3 )  --// Open the Gripper ,status 3
           Go(P224,"User=0 Tool=1 Speed=50 Accel=50 CP=0 SYNC=1") --//Place Help 4
           Move(P225,"User=0 Tool=1 SpeedS=100 AccelS=100 CP=0 SYNC=1") --//Place Help 5
           Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1")
@@ -1267,7 +1293,7 @@ if (err == 0)
           statusACK = send_UDP_ACK_2()
           interfaceOut[5] = 0
           setGripper(50,50,100)
-          Go(P112,"User=6 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0") --// Stn 2 Help Pos
+          Go(P112,"User=6 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1") --// Stn 2 Help Pos
           Go(coordinateArrSrcDest[1],"User=7 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")
           x_val = coordinateArrSrcDest[1].coordinate[1]
           Move(P196,"User=7 Tool=1 CP=100 SpeedS=100 AccelS=100 SYNC=1")
@@ -1281,8 +1307,8 @@ if (err == 0)
           --setGripperCheck( {pos=40,speed=50,force=100},3 )  --// Open the Gripper ,status 3
           coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn17_rack_z_val)
           Move(coordinateArr,"User=7 Tool=1 SpeedS=10 AccelS=10 CP=0 SYNC=1")
-          --setGripper(0,50,50)
-          setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
+          setGripper(0,50,50)
+          --setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
           --Move(P158,"User=6 Tool=1 SpeedS=1 AccelS=1 CP=0 SYNC=1") --// Stn 17 Slide out
           --Move(P159,"User=6 Tool=1 SpeedS=20 AccelS=5 CP=0 SYNC=1") --// Stn 17 Slide out up
           Move(P189,"User=7 Tool=1 SpeedS=1 AccelS=1 CP=0 SYNC=1") --// Stn 17 Slide out
@@ -1294,8 +1320,8 @@ if (err == 0)
           Go(coordinateArrSrcDest[2],"User=6 Tool=1 Speed=50 Accel=100 CP=100 SYNC=0")  --// Src Pose
           coordinateArr = setCoordinateDiffPos_z(coordinateArrSrcDest[2],stn2_z_diff_plc_val)
           Move(coordinateArr,"User=6 Tool=1 SpeedS=1 AccelS=100 CP=0 SYNC=1")  
-          --setGripper(50,50,50)
-          setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
+          setGripper(50,50,50)
+          --setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
           Move(coordinateArrSrcDest[2],"User=6 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")  
           --Go(P160,"User=6 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1") --// Stn 17-18 Rack Help Pos
           Go(P112,"User=6 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0") --// Stn 2 Help Pos
@@ -1323,8 +1349,8 @@ if (err == 0)
           --setGripperCheck( {pos=40,speed=50,force=100},3 )  --// Open the Gripper ,status 3
           coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn18_rack_z_val)
           Move(coordinateArr,"User=7 Tool=1 SpeedS=10 AccelS=10 CP=0 SYNC=1")
-          --setGripper(0,50,50)
-          setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
+          setGripper(0,50,50)
+          --setGripperCheck( {pos=0,speed=50,force=50},2 )  --// Close the Gripper ,status 2
           Move(P156,"User=7 Tool=1 SpeedS=2 AccelS=2 CP=0 SYNC=1") --// Stn 18 Slide out 
           setGripper(40,50,50)
           setGripper(0,50,50)
@@ -1334,8 +1360,8 @@ if (err == 0)
           Go(coordinateArrSrcDest[2],"User=6 Tool=1 Speed=50 Accel=100 CP=100 SYNC=0")  --// Src Pose
           coordinateArr = setCoordinateDiffPos_z(coordinateArrSrcDest[2],stn2_z_diff_plc_val)
           Move(coordinateArr,"User=6 Tool=1 SpeedS=1 AccelS=100 CP=0 SYNC=1")  
-          --setGripper(50,50,50)
-          setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
+          setGripper(50,50,50)
+          --setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
           Move(coordinateArrSrcDest[2],"User=6 Tool=1 SpeedS=100 AccelS=100 CP=100 SYNC=0")  
           --Go(P160,"User=6 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1") --// Stn 17-18 Rack Help Pos
           Go(P112,"User=6 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0") --// Stn 2 Help Pos
@@ -1349,13 +1375,13 @@ if (err == 0)
           statusACK = send_UDP_ACK_2()
           interfaceOut[5] = 0
           Go(P112,"User=6 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1") --// Stn 2 Help Pos
-          --setGripper(40,50,100)
-          setGripperCheck( {pos=40,speed=50,force=100},3 )  --// Open the Gripper ,status 3
+          setGripper(40,50,100)
+          --setGripperCheck( {pos=40,speed=50,force=100},3 )  --// Open the Gripper ,status 3
           Go(coordinateArrSrcDest[1],"User=7 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1")
           coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn17_z_val)
           Move(coordinateArr,"User=7 Tool=1 SpeedS=10 AccelS=10 CP=0 SYNC=1")
-          --setGripper(0,5,5)
-          setGripperCheck( {pos=0,speed=5,force=5},2 )  --// Close the Gripper ,status 2
+          setGripper(0,5,5)
+          --setGripperCheck( {pos=0,speed=5,force=5},2 )  --// Close the Gripper ,status 2
           Move(coordinateArrSrcDest[1],"User=7 Tool=1 SpeedS=10 AccelS=10 CP=0 SYNC=1")
           Go(P112,"User=6 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1") --// Stn 2 Help Pos
           Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1")
@@ -1366,11 +1392,11 @@ if (err == 0)
           Go(coordinateArrSrcDest[2],"User=5 Tool=1 Speed=100 Accel=50 CP=0 SYNC=1")  --// Src Pose
           coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[2],stn11_z_val)
           Move(coordinateArr,"User=5 Tool=1 SpeedS=5 AccelS=2 CP=0 SYNC=1")  
-          --setGripper(50,50,50)
-          setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
+          setGripper(50,50,50)
+          --setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
           Move(coordinateArrSrcDest[2],"User=5 Tool=1 SpeedS=100 AccelS=50 CP=100 SYNC=0")  
-          --setGripper(0,50,50)
-          setGripperCheck( {pos=0,speed=50,force=100},3 )  --// Close the Gripper ,status 3
+          setGripper(0,50,50)
+          --setGripperCheck( {pos=0,speed=50,force=100},3 )  --// Close the Gripper ,status 3
           Go(P93,"User=3 Tool=1 Speed=100 Accel=100 CP=50 SYNC=0")
           Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")            
           Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
@@ -1381,13 +1407,13 @@ if (err == 0)
           statusACK = send_UDP_ACK_2()
           interfaceOut[5] = 0
           Go(P112,"User=6 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1")
-          --setGripper(40,50,100)
-          setGripperCheck( {pos=40,speed=50,force=100},3 )  --// Open the Gripper ,status 3
+          setGripper(40,50,100)
+          --setGripperCheck( {pos=40,speed=50,force=100},3 )  --// Open the Gripper ,status 3
           Go(coordinateArrSrcDest[1],"User=6 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1")
           coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[1],stn17_z_val)
           Move(coordinateArr,"User=6 Tool=1 SpeedS=5 AccelS=2 CP=0 SYNC=1")
-          --setGripper(0,5,5)
-          setGripperCheck( {pos=0,speed=5,force=5},2 )  --// Close the Gripper ,status 2
+          setGripper(0,5,5)
+          --setGripperCheck( {pos=0,speed=5,force=5},2 )  --// Close the Gripper ,status 2
           Move(coordinateArrSrcDest[1],"User=6 Tool=1 SpeedS=10 AccelS=10 CP=0 SYNC=1")
           Go(P112,"User=6 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1")
           Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1")
@@ -1398,11 +1424,11 @@ if (err == 0)
           Go(coordinateArrSrcDest[2],"User=5 Tool=1 Speed=100 Accel=50 CP=0 SYNC=1")  --// Src Pose
           coordinateArr = setCoordinatePos_z(coordinateArrSrcDest[2],stn11_z_val)
           Move(coordinateArr,"User=5 Tool=1 SpeedS=5 AccelS=2 CP=0 SYNC=1")  
-          --setGripper(50,50,50)
-          setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
+          setGripper(50,50,50)
+          --setGripperCheck( {pos=50,speed=50,force=50},3 )  --// Open the Gripper ,status 3
           Move(coordinateArrSrcDest[2],"User=5 Tool=1 SpeedS=100 AccelS=50 CP=100 SYNC=0")  
-          --setGripper(0,50,50)
-          setGripperCheck( {pos=0,speed=50,force=50},3 )  --// Open the Gripper ,status 3
+          setGripper(0,50,50)
+          --setGripperCheck( {pos=0,speed=50,force=50},3 )  --// Open the Gripper ,status 3
           Go(P93,"User=3 Tool=1 Speed=100 Accel=100 CP=50 SYNC=0")
           Go(P29,"User=3 Tool=1 CP=100 Speed=100 Accel=100 SYNC=0")            
           Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1")
@@ -1414,7 +1440,7 @@ if (err == 0)
           interfaceOut[5] = 0
           setGripper(100,50,50)
           --setGripperCheck( {pos=100,speed=50,force=50},3 )  --// Open the Gripper ,status 3
-          Go(P194,"User=6 Tool=1 CP=100 Speed=100 Accel=50 SYNC=0") --// Stn 2 Help Pos
+          Go(P194,"User=6 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1") --// Stn 2 Help Pos
           Go(P76,"User=6 Tool=1 CP=100 Speed=100 Accel=50 SYNC=0") --// Stn 15 Slide Approach 1 Pos
           Go(P77,"User=6 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1") --// Stn 15 Slide Approach 2 Pos
           Move(P135,"User=6 Tool=1 CP=0 SpeedS=1 AccelS=1 SYNC=1") --// Stn 15 Slide Pos
@@ -1432,7 +1458,7 @@ if (err == 0)
           interfaceOut[5] = 702 ----- axis 7 Cobas Pure Rack Holder
           statusACK = send_UDP_ACK_2()
           interfaceOut[5] = 0
-          Go(P194,"User=6 Tool=1 CP=100 Speed=100 Accel=50 SYNC=0") --// Stn 2 Help Pos
+          Go(P194,"User=6 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1") --// Stn 2 Help Pos
           Go(P78,"User=6 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1") --// Stn 16 Slide Approach 1 Pos
           Go(P79,"User=6 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1") --// Stn 16 Slide Approach 2 Pos
           Move(P136,"User=6 Tool=1 CP=0 SpeedS=1 AccelS=1 SYNC=1") --// Stn 16 Slide Pos
@@ -1449,7 +1475,7 @@ if (err == 0)
           interfaceOut[5] = 706 ----- axis 7 Centrifuge Home
           statusACK = send_UDP_ACK_2()
           interfaceOut[5] = 0
-          Go(P266,"User=2 Tool=1 CP=100 Speed=100 Accel=50 SYNC=0")    --//Stn2 Open Help 1 Pos
+          Go(P266,"User=2 Tool=1 CP=100 Speed=100 Accel=50 SYNC=1")    --//Stn2 Open Help 1 Pos
           Move(P267,"User=2 Tool=1 CP=100 SpeedS=2 AccelS=5 SYNC=1")   --//Stn2 Open Help 2 Pos
           Move(P266,"User=2 Tool=1 CP=100 SpeedS=100 AccelS=100 SYNC=0")    --//Stn2 Open Help 1 Pos
           Go(P91,"User=0 Tool=1 CP=100 Speed=100 Accel=100 SYNC=1") 
