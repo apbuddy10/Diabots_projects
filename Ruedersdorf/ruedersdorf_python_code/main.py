@@ -856,7 +856,8 @@ class MainApp:
         res=self.conn_Q400.getCurrentTubeResults()
         try:
             tube=self.station4.tube
-            tube.color = res.color
+            if res.color != Color.NONE:
+                tube.color = res.color
             if int(isSuccess) == 1 and tube is not None:                   
                 if tube.color == Color.GREEN:
                     location=await self.station5.getNextLocationSmall()
@@ -1112,10 +1113,10 @@ class MainApp:
         srcLoc = self.station3.machines[self.testCounter].location
         self.testCounter += 1
         #index, destLoc = await self.station2.getNextLocationToPlace()
-        processQueue.destLocation.extend([srcLoc, srcLoc])        
-        return [34, 34, TubeType.SMALL]
-        # processQueue.destLocation.extend([[0,0,0,0,0,0], [0,0,0,0,0,0]])  
-        # return [153, 153, TubeType.SMALL,1]
+        # processQueue.destLocation.extend([srcLoc, srcLoc])        
+        # return [34, 34, TubeType.SMALL]
+        processQueue.destLocation.extend([[2,0,0,0,0,0], [2,0,0,0,0,0]])  
+        return [51, 62, TubeType.SMALL,1]
    
 mainObj=MainApp()
 
@@ -1185,7 +1186,7 @@ class TCPServer(asyncio.Protocol):
                     if self.interfaceIn.dataFromRobot[6] == 1:
                         await mainObj.setCamera1Flag(True)
                     jobArray = await mainObj.getJob()
-                    # jobArray = await mainObj.getTestJob()
+                    #jobArray = await mainObj.getTestJob()
                     await self.setJobsLocations(jobArray) 
                 elif(self.interfaceIn.dataFromRobot[2] == 2 or self.interfaceIn.dataFromRobot[2] == 3):   # Stn4 Next Job ID, lockID
                     if self.interfaceIn.dataFromRobot[2] == 2:         # Stn4 Next Job ID before centrifugation, lockID

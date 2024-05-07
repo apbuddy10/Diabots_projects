@@ -128,10 +128,9 @@ class Station3Machine(StationMachine):
 
 
 class Station3(Station):
-    def __init__(self,name,jobs,machineCount=4):
-        super().__init__(name,jobs)  
-        self.gridSize=Station3MachineGridSize
-        self.machineCount=machineCount             
+    def __init__(self,name,jobs):
+        super().__init__(name,jobs)
+        self.machineCount=Station3MachineGridSize             
         self.machines:List[Station3Machine]=[]
         self.initMachines()
         self.batchCounter=0

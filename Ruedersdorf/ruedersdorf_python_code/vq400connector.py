@@ -1,7 +1,12 @@
+import time
 import asyncio
 from command_sender import CommandSender
 from q400 import Q400Connection
 from settings import Color
+from calculations import *
+import numpy as np
+import array
+
 
 class TubeResults:
     def __init__(self):
@@ -22,6 +27,8 @@ class Vq400Connector:
         self.port=port
         self.conn_Q400:Q400Connection = None
         self.tubeResults = TubeResults()
+        self.cam2_areas = np.asarray([254, 4400, 4344, 4280, 4180, 4110, 4075, 3930, 3740, 3600, 3470, 3280, 3130, 3060, 2990, 2830, 2668, 2540, 2390, 
+                                      2244, 2140, 2090, 1980, 1920, 1830, 1700, 1550, 1370, 1270, 1140, 1020, 940, 860, 720, 600, 470])
     
     async def initVQ400(self):
         if self.conn_Q400 is not None:
@@ -99,9 +106,9 @@ class Vq400Connector:
         return c1
 
     async def q400_execute_cam2(self, group:int):
-        await self.execute_execution_group_Q400(int(group))
         if group == 13:
             # Color
+            await self.execute_execution_group_Q400(int(group))
             color_value = await self.spreadsheet_result_from_Q400("stn4_color", "value")
             if int(color_value['value']) == 11:
                 self.tubeResults.color = Color.GREEN
@@ -116,7 +123,7 @@ class Vq400Connector:
                 self.tubeResults.color = Color.YELLOW
                 return 14
             elif int(color_value['value']) == 15:                
-                tube_type = await self.spreadsheet_result_from_Q400("tube_type", "judgement")
+                tube_type = await self.spreadsheet_result_from_Q400("tube_type_formula", "judgement")
                 if tube_type['judgement'] == 'OK':
                     self.tubeResults.color = Color.CRED
                     return 16
@@ -128,6 +135,7 @@ class Vq400Connector:
             return 0
         if group == 14:
             # Barcode, first time
+            await self.execute_execution_group_Q400(int(group))
             barcode_judgement = await self.spreadsheet_result_from_Q400("stn4_pose", "judgement")
             if barcode_judgement['judgement'] == 'OK':
                 self.tubeResults.stn4Pose = True
@@ -140,6 +148,7 @@ class Vq400Connector:
             return 0
         if group == 15:
             # Barcode, from second time
+            await self.execute_execution_group_Q400(int(group))
             barcode_judgement = await self.spreadsheet_result_from_Q400("stn4_pose", "judgement")
             if barcode_judgement['judgement'] == 'OK':
                 self.tubeResults.stn4Pose = True
@@ -151,8 +160,54 @@ class Vq400Connector:
                     return 0
                 return 0
             return 0
+        if group == 101:
+            self.ret_angle = -1000
+            timeout = time.time() + 10 #Changed from 5 sec
+            while time.time() < timeout:
+                # Please note the execution group num
+                await self.execute_execution_group_Q400(14)
+                barcode_judgement = await self.spreadsheet_result_from_Q400("stn4_pose_before", "judgement")
+                if barcode_judgement['judgement'] == 'OK':
+                    self.tubeResults.stn4Pose = True
+                    barcode_row = await self.spreadsheet_result_from_Q400("stn4_barcode", "value")
+                    barcode = str(barcode_row['value'])
+                    if await self.validateBarCode(barcode):
+                        self.tubeResults.barCode = barcode
+                        self.ret_angle = 100
+                        break
+            print(self.ret_angle)
+            return self.ret_angle
+        if group == 102:
+            self.ret_angle = -1000
+            timeout = time.time() + 10 #Changed from 5 sec
+            while time.time() < timeout:
+                # Please note the execution group num
+                await self.execute_execution_group_Q400(14)
+                barcode_judgement = await self.spreadsheet_result_from_Q400("stn4_pose", "judgement")
+                if barcode_judgement['judgement'] == 'OK':
+                    self.tubeResults.stn4Pose = True
+                    barcode_row = await self.spreadsheet_result_from_Q400("stn4_barcode", "value")
+                    barcode = str(barcode_row['value'])
+                    if await self.validateBarCode(barcode):
+                        self.tubeResults.barCode = barcode
+                        pixel_area_row = await self.spreadsheet_result_from_Q400("stn4_pixel_area", "value")
+                        pixel_area = int(pixel_area_row['value'])
+                        pixel_width_row = await self.spreadsheet_result_from_Q400("stn4_pixel_width", "value")
+                        pixel_width = int(pixel_width_row['value'])
+                        if pixel_area != 0 and pixel_width != 0:
+                            if pixel_area < 2500 and pixel_width < 23:
+                                self.ret_angle = 5
+                            else:
+                                nearest = self.cam2_areas[(np.abs(self.cam2_areas-pixel_area)).argmin()]
+                                index = ((array.array('i', self.cam2_areas))).index(nearest)
+                                self.ret_angle = index * 10
+                                #self.ret_angle = await calculate_angle(pixel_area)
+                        break
+            print(self.ret_angle)
+            return self.ret_angle
         if group == 16:
             # Level Green
+            await self.execute_execution_group_Q400(int(group))
             plasma_row = await self.spreadsheet_row_from_Q400("stn4_level_green")
             self.tubeResults.plasmaLevel = float(plasma_row['value'])
             if plasma_row['judgement'] == 'OK':
@@ -160,6 +215,7 @@ class Vq400Connector:
             return 0
         if group == 17:
             # Level Brown
+            await self.execute_execution_group_Q400(int(group))
             plasma_row = await self.spreadsheet_row_from_Q400("stn4_level_brown")
             self.tubeResults.plasmaLevel = float(plasma_row['value'])
             if plasma_row['judgement'] == 'OK':
@@ -167,6 +223,7 @@ class Vq400Connector:
             return 0
         if group == 18:
             # Level Red
+            await self.execute_execution_group_Q400(int(group))
             plasma_row = await self.spreadsheet_row_from_Q400("stn4_level_red")
             self.tubeResults.plasmaLevel = float(plasma_row['value'])
             if plasma_row['judgement'] == 'OK':
@@ -174,6 +231,7 @@ class Vq400Connector:
             return 0
         if group == 19:
             # Level Red
+            await self.execute_execution_group_Q400(int(group))
             plasma_row = await self.spreadsheet_row_from_Q400("stn4_level_orange")
             self.tubeResults.plasmaLevel = float(plasma_row['value'])
             if plasma_row['judgement'] == 'OK':
@@ -181,6 +239,7 @@ class Vq400Connector:
             return 0
         if group == 21:
             # Level NG
+            await self.execute_execution_group_Q400(int(group))
             return 1
         return 0
 

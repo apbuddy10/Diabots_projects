@@ -75,7 +75,7 @@ class AxisConn_7():
             return False
         else:
             print(
-                "else data:  --------------------------------------------------------     ", data)        
+                "else data:  -------------     ", data)        
         
 
     async def readNextPacket(self):
