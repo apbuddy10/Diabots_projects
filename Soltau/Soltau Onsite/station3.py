@@ -4,6 +4,7 @@ from grids_v2 import  Grid
 from stations import processQueue, StationMachine, Tube
 from settings import Color, Settings, Station3Size
 from interface_board import Board, Mouse, board_by_id, Keyboard
+from vq400connector import conn_Q400
 import asyncio
 
 
@@ -78,10 +79,11 @@ class Station3(StationMachine):
         if self.iterator < self.counter :
             if self.iterator==0 and not self.isDoorOpened:
                 await self.openDoor()
-            tube=self.tubes[self.iterator]
-            self.iterator+=1
-            jobslogger.info("{0} tube picked from {1} at index {2} ".format(tube.color.name,self.name,self.iterator))                  
-            return tube      
+            if self.isDoorOpened:
+                tube=self.tubes[self.iterator]
+                self.iterator+=1
+                jobslogger.info("{0} tube picked from {1} at index {2} ".format(tube.color.name,self.name,self.iterator))                  
+                return tube      
         return None
     
     async def getIterator(self):
@@ -154,39 +156,69 @@ class Station3(StationMachine):
     
     async def closeDoor(self):
         if self.isDoorOpened:
-            await self.keyboard.keyboard.down(Keyboard.KEY_CODES.KEY_ESCAPE)
-            await self.keyboard.keyboard.up(Keyboard.KEY_CODES.KEY_ESCAPE)
-            await asyncio.sleep(10)
-            await self.keyboard.keyboard.down(Keyboard.KEY_CODES.KEY_ENTER)
-            await self.keyboard.keyboard.up(Keyboard.KEY_CODES.KEY_ENTER)
-            jobslogger.info("{0} door closed".format(self.name))
+            count = 0
+            while (count < 3):
+                await self.keyboard.keyboard.down(Keyboard.KEY_CODES.KEY_ESCAPE)
+                await self.keyboard.keyboard.up(Keyboard.KEY_CODES.KEY_ESCAPE)
+                jobslogger.info("Compact Max key pressed in close: KEY_ESCAPE")
+                await asyncio.sleep(10)
+                await self.keyboard.keyboard.down(Keyboard.KEY_CODES.KEY_ENTER)
+                await self.keyboard.keyboard.up(Keyboard.KEY_CODES.KEY_ENTER)
+                jobslogger.info("Compact Max key pressed in close: KEY_ENTER")
+                close_status = await conn_Q400.q400_execute_cam2(24)
+                jobslogger.info("Compact Max close, close_status: {0}".format(close_status))
+                if close_status == 1:
+                    jobslogger.info("{0} door closed".format(self.name))
+                    self.isDoorOpened=False
+                    self.stn3_status_window = False
+                    break
+                else:
+                    jobslogger.info("{0} door closing failed".format(self.name))
+                    count = count + 1
+            jobslogger.info("{0} door closed forcibly".format(self.name))
             self.isDoorOpened=False
             self.stn3_status_window = False
 
     async def openDoor(self):
         if not self.isDoorOpened:
-            await self.keyboard.keyboard.down(Keyboard.KEY_CODES.KEY_ESCAPE)
-            await self.keyboard.keyboard.up(Keyboard.KEY_CODES.KEY_ESCAPE)
-            await asyncio.sleep(10)
-            await self.keyboard.keyboard.down(Keyboard.KEY_CODES.KEY_F1)
-            await self.keyboard.keyboard.up(Keyboard.KEY_CODES.KEY_F1)
-            jobslogger.info("{0} door opened".format(self.name))
-            await asyncio.sleep(10)
-            jobId=self.jobs[4].jobId
-            await processQueue.enqueue([jobId,jobId])   
-            processQueue.destLocation.extend([[0,0,0,0,0,0],[0,0,0,0,0,0]])
-            self.isDoorOpened=True
-        # Open door new
-        # await self.mouse.mouse.moveAbs(250,330)
-        # await self.mouse.mouse.click()
-        # await asyncio.sleep(1)
-        # await self.mouse.mouse.moveAbs(560,330)
-        # await self.mouse.mouse.click()
-        # await asyncio.sleep(1)
-        # await self.mouse.mouse.moveAbs(560,130)
-        # await self.mouse.mouse.click()
-        # await asyncio.sleep(1)
-
+            count = 0
+            while (count < 3):
+                special_status = await conn_Q400.q400_execute_cam2(26)
+                jobslogger.info("Compact Max special_status: {0}".format(special_status))
+                if special_status == 0:
+                    close_status = await conn_Q400.q400_execute_cam2(24)
+                    jobslogger.info("Compact Max close_status: {0}".format(close_status))
+                    if close_status == 1:
+                        await self.keyboard.keyboard.down(Keyboard.KEY_CODES.KEY_ESCAPE)
+                        await self.keyboard.keyboard.up(Keyboard.KEY_CODES.KEY_ESCAPE)
+                        jobslogger.info("Compact Max key pressed after close success: KEY_ESCAPE")
+                        await asyncio.sleep(10)
+                    dd_status = await conn_Q400.q400_execute_cam2(25)
+                    jobslogger.info("Compact Max dd_status: {0}".format(dd_status))
+                    if dd_status == 2 or dd_status == 1:
+                        await self.keyboard.keyboard.down(Keyboard.KEY_CODES.KEY_ESCAPE)
+                        await self.keyboard.keyboard.up(Keyboard.KEY_CODES.KEY_ESCAPE)
+                        jobslogger.info("Compact Max key pressed after dd success: KEY_ESCAPE")
+                        await asyncio.sleep(10)
+                        await self.keyboard.keyboard.down(Keyboard.KEY_CODES.KEY_F1)
+                        await self.keyboard.keyboard.up(Keyboard.KEY_CODES.KEY_F1)
+                        jobslogger.info("Compact Max key pressed after dd success: KEY_F1")
+                        await asyncio.sleep(10)
+                    else:
+                        await self.keyboard.keyboard.down(Keyboard.KEY_CODES.KEY_F1)
+                        await self.keyboard.keyboard.up(Keyboard.KEY_CODES.KEY_F1)
+                        jobslogger.info("Compact Max key pressed after dd failed: KEY_ESCAPE")
+                        await asyncio.sleep(10)
+                    open_status = await conn_Q400.q400_execute_cam2(23)
+                    jobslogger.info("Compact Max open_status: {0}".format(open_status))
+                    if open_status == 1:
+                        jobslogger.info("{0} door opened".format(self.name))
+                        jobId=self.jobs[4].jobId
+                        await processQueue.enqueue([jobId,jobId])   
+                        processQueue.destLocation.extend([[0,0,0,0,0,0],[0,0,0,0,0,0]])
+                        self.isDoorOpened=True
+                        break
+                count = count + 1
 
 
 # async def main():

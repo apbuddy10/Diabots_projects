@@ -25,7 +25,7 @@ from filemanager import FileManager
 from machine import MachineStatus
 from settings import Settings, Color, HolderStatus
 from stations import CommonError, Job, processQueue
-from vq400connector import Vq400Connector
+from vq400connector import conn_Q400
 from logger import jobslogger,errorlogger
 from axis7 import AxisConn_7
 # from communicationManager import commManager
@@ -35,12 +35,11 @@ from sftpClass import sftpCommunication
 class MainApp:
     def __init__(self):
         self.machines = {}
-        self.conn_Q400=Vq400Connector(Settings.vq400host)
+        #conn_Q400=Vq400Connector(Settings.vq400host)
         self.lastPingTime=None
         self.initialize()
         self.fileManager=FileManager()
         self.axis7 = AxisConn_7(Settings.Axis7Host,Settings.Axis7Port)
-        
         # print("Service is running... at {0} - {1}".format(Settings.systemip,Settings.systemport))      
 
     def  initialize(self):     
@@ -228,7 +227,7 @@ class MainApp:
             raise CommonError("Error occurred during set machine status")
 
     async def getResultsFromCamera1(self):
-        rows=await self.conn_Q400.q400_execute_cam1(1)
+        rows=await conn_Q400.q400_execute_cam1(1)
         self.lastPingTime=None
         return rows
 
@@ -291,10 +290,10 @@ class MainApp:
             return True
         if await self.getStation16_To_8_Job():
             return True
-        if await self.getStation15_To_17_Job():
-            return True
-        if await self.getStation16_To_18_Job():
-            return True
+        # if await self.getStation15_To_17_Job():
+        #     return True
+        # if await self.getStation16_To_18_Job():
+        #     return True
         if await self.getStation7_To_9_Job():
             return True
         if await self.getStation9_To_7_Job():
@@ -323,14 +322,14 @@ class MainApp:
             return True
         if await self.getStation9_To_11_Job():
             return True
-        if await self.getStation17_To_2_Job():
-            return True
-        if await self.getStation18_To_2_Job():
-            return True
-        if await self.getStation17_To_11_Job():
-            return True
-        if await self.getStation18_To_11_Job():
-            return True
+        # if await self.getStation17_To_2_Job():
+        #     return True
+        # if await self.getStation18_To_2_Job():
+        #     return True
+        # if await self.getStation17_To_11_Job():
+        #     return True
+        # if await self.getStation18_To_11_Job():
+        #     return True
         return False
     
     # from cobas pure racks storage to cobas pure rack holder
@@ -565,7 +564,7 @@ class MainApp:
         return False
     
     async def getCompactMaxStatus(self,group:int):
-        res = await self.conn_Q400.q400_execute_cam2(group)
+        res = await conn_Q400.q400_execute_cam2(group)
         return res
     
     # centrifuge racks to camera2 only Green tubes
@@ -574,20 +573,22 @@ class MainApp:
         #     return False
         tube=None
         if await self.station3.isAvailable():
-            tube=await self.station5.getNextGreenTube()
-            if tube is None:
-                if await self.station3.setMachineFilled():                    
-                    return await self.station3.getStation3StartMachineJob()
-            else:
+            if await self.station5.getNextGreenTubeAvailable():
                 if not self.station3.isDoorOpened:
                     await self.station3.openDoor()
-                srcJobId=self.station5.jobs[1].jobId 
-                destJobId=self.station4.jobs[1].jobId 
-                processQueue.destLocation.extend([tube.location,tube.location])            
-                await processQueue.enqueue([srcJobId,destJobId])                       
-                await self.station4.updateGrid(tube)
-                jobslogger.info("{0} tube moved from {1} to {2}".format(tube.color.name,self.station5.name,self.station4.name))
-                return True        
+                if self.station3.isDoorOpened:
+                    tube=await self.station5.getNextGreenTube()
+                    if tube is not None:
+                        srcJobId=self.station5.jobs[1].jobId 
+                        destJobId=self.station4.jobs[1].jobId 
+                        processQueue.destLocation.extend([tube.location,tube.location])            
+                        await processQueue.enqueue([srcJobId,destJobId])                       
+                        await self.station4.updateGrid(tube)
+                        jobslogger.info("{0} tube moved from {1} to {2}".format(tube.color.name,self.station5.name,self.station4.name))
+                        return True  
+            if tube is None and self.station3.isDoorOpened:
+                if await self.station3.setMachineFilled():    
+                    return await self.station3.getStation3StartMachineJob()       
         return False
 
     # centrifuge racks to camera2 only orange tubes
@@ -655,7 +656,7 @@ class MainApp:
         if await self.station3.getStatus() == MachineStatus.On or  await self.station3.getStatus() == MachineStatus.Running:
             tube=None
             if await self.station5.isAvailableForGreen():
-                await self.refreshCamera1Results()                
+                await self.refreshCamera1Results()
                 tube=await self.station1.getNextGreenTube()        
             if tube is not None:
                 srcJobId=self.station1.jobs[1].jobId 
@@ -710,12 +711,12 @@ class MainApp:
 
     #from camera 2 to coagulation machine, cobas pure rack and haematology machine
     async def getStation4NextJob(self,isSuccess):
-        res=self.conn_Q400.getCurrentTubeResults()
+        res=conn_Q400.getCurrentTubeResults()
         try:
             tube=self.station4.tube
             tube.color = res.color
-            if int(isSuccess) == 1 and tube is not None:                   
-                if tube.color == Color.GREEN:
+            if int(isSuccess) == 1 and tube is not None:
+                if tube.color == Color.GREEN and await self.station5.isAvailableForGreen():
                     location=await self.station5.getNextLocation()
                     processQueue.destLocation.extend([location,location]) 
                     await self.station5.updateGrid(tube.color)
@@ -723,7 +724,7 @@ class MainApp:
                     jobslogger.info("{0} tube moved from {1} to {2}".format(tube.color.name,self.station4.name,self.station5.name))
                     await self.fileManager.processFiles(res) 
                     await sftpCommunication.moveCSVToSFTPServer()
-                    self.conn_Q400.resetCurrentTubeResults()
+                    conn_Q400.resetCurrentTubeResults()
                     return self.station5.jobs[2].jobId                  
                 elif tube.color == Color.ORANGE or tube.color == Color.BROWN or tube.color == Color.YELLOW:
                     location=await self.station5.getNextLocation()
@@ -733,9 +734,9 @@ class MainApp:
                     jobslogger.info("{0} tube moved from {1} to {2}".format(tube.color.name,self.station4.name,self.station5.name))
                     await self.fileManager.processFiles(res) 
                     await sftpCommunication.moveCSVToSFTPServer()
-                    self.conn_Q400.resetCurrentTubeResults() 
+                    conn_Q400.resetCurrentTubeResults() 
                     return self.station5.jobs[2].jobId
-                elif tube.color == Color.RED:
+                elif tube.color == Color.RED and await self.station9.isAvailable():
                     location=await self.station9.getNextLocation()
                     processQueue.destLocation.extend([location,location])
                     await self.station9.updateGrid(tube.color)
@@ -743,7 +744,7 @@ class MainApp:
                     jobslogger.info("{0} tube moved from {1} to {2}".format(tube.color.name,self.station4.name,self.station9.name))
                     await self.fileManager.processFiles(res) 
                     await sftpCommunication.moveCSVToSFTPServer()
-                    self.conn_Q400.resetCurrentTubeResults()                    
+                    conn_Q400.resetCurrentTubeResults()                    
                     return self.station9.jobs[4].jobId
                 else:
                     location=await self.station10.getNextLocation()           
@@ -752,7 +753,7 @@ class MainApp:
                     jobslogger.info("Camera 2 results: Color-{0},Barcode-{1},Blood level-{2},Plasma level-{3}".format(res.color.name,res.barCode,res.bloodLevel,res.plasmaLevel))
                     jobslogger.info("{0} tube moved from {1} to {2}".format(tube.color.name,self.station4.name,self.station10.name)) 
                     #await self.fileManager.processFailedFiles(res)
-                    self.conn_Q400.resetCurrentTubeResults()
+                    conn_Q400.resetCurrentTubeResults()
                     # await commManager.sendMessage(Settings.failtubemsg)
                     return self.station10.jobs[2].jobId
             else: 
@@ -762,7 +763,7 @@ class MainApp:
                 jobslogger.info("Camera 2 results: Color-{0},Barcode-{1},Blood level-{2},Plasma level-{3}".format(res.color.name,res.barCode,res.bloodLevel,res.plasmaLevel))
                 jobslogger.info("{0} tube moved from {1} to {2}".format(tube.color.name,self.station4.name,self.station10.name)) 
                 #await self.fileManager.processFailedFiles(res)
-                self.conn_Q400.resetCurrentTubeResults()
+                conn_Q400.resetCurrentTubeResults()
                 # await commManager.sendMessage(Settings.failtubemsg)
                 return self.station10.jobs[2].jobId
         except Exception as e: 
@@ -772,7 +773,7 @@ class MainApp:
             raise CommonError("Unexpected error occurred. Please check logs!")
 
     async def getStation4NextJob_afterCentrifugation(self,isSucess):
-        res=self.conn_Q400.getCurrentTubeResults()
+        res=conn_Q400.getCurrentTubeResults()
         try:
             tube=self.station4.tube
             tube.color = res.color
@@ -785,7 +786,7 @@ class MainApp:
                     jobslogger.info("Camera 2 results: Color-{0},Barcode-{1},Blood level-{2},Plasma level-{3}".format(res.color.name,res.barCode,res.bloodLevel,res.plasmaLevel))
                     jobslogger.info("{0} tube moved from {1} to {2}".format(tube.color.name,self.station4.name,self.station3.name))
                     #await self.fileManager.processFilesAfterCentrifugation(res) 
-                    self.conn_Q400.resetCurrentTubeResults()
+                    conn_Q400.resetCurrentTubeResults()
                     return self.station3.jobs[2].jobId
                 elif tube.color == Color.ORANGE or tube.color == Color.BROWN or tube.color == Color.YELLOW:
                     location=await self.station14.getNextLocation()
@@ -803,7 +804,7 @@ class MainApp:
                     jobslogger.info("Camera 2 results: Color-{0},Barcode-{1},Blood level-{2},Plasma level-{3}".format(res.color.name,res.barCode,res.bloodLevel,res.plasmaLevel))
                     jobslogger.info("{0} tube moved from {1} to {2}".format(tube.color.name,self.station4.name,self.station14.name))
                     #await self.fileManager.processFilesAfterCentrifugation(res) 
-                    self.conn_Q400.resetCurrentTubeResults() 
+                    conn_Q400.resetCurrentTubeResults() 
                     return self.station14.jobs[3].jobId  
                 else:  
                     location=await self.station10.getNextLocation()           
@@ -813,7 +814,7 @@ class MainApp:
                     jobslogger.info("Camera 2 results: Color-{0},Barcode-{1},Blood level-{2},Plasma level-{3}".format(res.color.name,res.barCode,res.bloodLevel,res.plasmaLevel))
                     jobslogger.info("{0} tube moved from {1} to {2}".format(tube.color.name,self.station4.name,self.station10.name)) 
                     #await self.fileManager.processFailedFilesAfterCentrifugation(res)
-                    self.conn_Q400.resetCurrentTubeResults()
+                    conn_Q400.resetCurrentTubeResults()
                     # await commManager.sendMessage(Settings.failtubemsg)
                     return self.station10.jobs[2].jobId        
             else:
@@ -824,7 +825,7 @@ class MainApp:
                 jobslogger.info("Camera 2 results: Color-{0},Barcode-{1},Blood level-{2},Plasma level-{3}".format(res.color.name,res.barCode,res.bloodLevel,res.plasmaLevel))
                 jobslogger.info("{0} tube moved from {1} to {2}".format(tube.color.name,self.station4.name,self.station10.name)) 
                 #await self.fileManager.processFailedFilesAfterCentrifugation(res)
-                self.conn_Q400.resetCurrentTubeResults()
+                conn_Q400.resetCurrentTubeResults()
                 # await commManager.sendMessage(Settings.failtubemsg)
                 return self.station10.jobs[2].jobId
         except Exception as e: 
@@ -902,7 +903,7 @@ class MainApp:
             raise CommonError("Error occured during ping. please check logs")  
 
     async def getCamera2Results(self,group:int):
-        res = await self.conn_Q400.q400_execute_cam2(group)
+        res = await conn_Q400.q400_execute_cam2(group)
         return res
 
     # need to be removed later
@@ -1018,7 +1019,7 @@ class TCPServer(asyncio.Protocol):
                     self.interfaceOut.srcPos = location[0]
                     self.interfaceOut.destPos = location[1]            
             elif(self.interfaceIn.dataFromRobot[4] == 41):
-                self.interfaceOut.status = await mainObj.conn_Q400.q400_execute_cam2(int(self.interfaceIn.dataFromRobot[2]))
+                self.interfaceOut.status = await conn_Q400.q400_execute_cam2(int(self.interfaceIn.dataFromRobot[2]))
             elif(self.interfaceIn.dataFromRobot[4] == 302):               
                 await mainObj.station3.updateGrid(Color.GREEN)
             elif(self.interfaceIn.dataFromRobot[4] == 61):  # centrifuge check lock
@@ -1048,7 +1049,7 @@ class TCPServer(asyncio.Protocol):
                 pose = self.getPose(3)
                 await mainObj.station3.initGrids(pose[0], pose[1], pose[2], 2, 4)
             elif(self.interfaceIn.dataFromRobot[4] == 4):  # Q400
-                await mainObj.conn_Q400.initVQ400()                 
+                await conn_Q400.initVQ400()                 
             elif(self.interfaceIn.dataFromRobot[4] == 9):  # Sysmex Rack initialization
                 pose = self.getPose(6)
                 await mainObj.station9.initGrids(pose[0], pose[1], pose[2], pose[3], pose[4], pose[5]) 

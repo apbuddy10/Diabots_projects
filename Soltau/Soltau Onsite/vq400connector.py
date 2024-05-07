@@ -1,7 +1,7 @@
 import asyncio
 from command_sender import CommandSender
 from q400 import Q400Connection
-from settings import Color
+from settings import Settings,Color
 
 class TubeResults:
     def __init__(self):
@@ -109,6 +109,33 @@ class Vq400Connector:
             if compact_status['judgement'] == 'OK':
                 return 1
             return 0
+        if group == 23:
+            # Compact Max open
+            stago_open = await self.spreadsheet_result_from_Q400("stago_open", "judgement")
+            if stago_open['judgement'] == 'OK':
+                return 1
+            return 0
+        if group == 24:
+            # Compact Max close
+            stago_close = await self.spreadsheet_result_from_Q400("stago_close", "judgement")
+            if stago_close['judgement'] == 'OK':
+                return 1
+            return 0
+        if group == 25:
+            # Compact Max dd
+            compact_dd_1 = await self.spreadsheet_result_from_Q400("stago_dd_1", "judgement")
+            compact_dd_2 = await self.spreadsheet_result_from_Q400("stago_dd_2", "judgement")
+            if compact_dd_1['judgement'] == 'OK' and compact_dd_2['judgement'] == 'OK':
+                return 2
+            elif compact_dd_1['judgement'] == 'OK':
+                return 1
+            return 0
+        if group == 26:
+            # Compact Max special
+            stago_special = await self.spreadsheet_result_from_Q400("stago_special", "judgement")
+            if stago_special['judgement'] == 'OK':
+                return 1
+            return 0
         if group == 13:
             # Color
             color_value = await self.spreadsheet_result_from_Q400("stn4_color", "value")
@@ -207,3 +234,5 @@ class Vq400Connector:
                     self.__dict__['mode'] = state.get('mode')
 
         return False
+
+conn_Q400=Vq400Connector(Settings.vq400host)

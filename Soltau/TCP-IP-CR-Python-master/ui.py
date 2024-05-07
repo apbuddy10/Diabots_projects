@@ -56,14 +56,15 @@ class RobotUI(object):
 
         # all entry
         self.entry_dict = {}
-
+        # Feed counter 
+        self.feed_counter = 0
         # Robot Connect
         self.frame_robot = LabelFrame(self.root, text="Robot Connect",
                                       labelanchor="nw", bg="#FFFFFF", width=870, height=70, border=2)
 
         self.label_ip = Label(self.frame_robot, text="IP Address:")
         self.label_ip.place(rely=0.2, x=10)
-        ip_port = StringVar(self.root, value="127.0.0.1")
+        ip_port = StringVar(self.root, value="192.168.0.65")
         self.entry_ip = Entry(self.frame_robot, width=12, textvariable=ip_port)
         self.entry_ip.place(rely=0.2, x=90)
 
@@ -300,57 +301,57 @@ class RobotUI(object):
         while True:
             try:
                 time.sleep(0.05)
-                if self.client_dash is not None:
+                # if self.client_dash is not None:
                     # Safety
-                    self.button_reset_1 = self.read_sensor_avg(3,1,10)
-                    self.button_reset_2 = self.read_sensor_avg(5,1,10)
-                    self.process_indicator = self.read_sensor_avg(25,1,10)
-                    self.sensor_1 = self.read_sensor_avg(4,0,10)
-                    self.light_sensor_cam_1 = self.read_sensor_avg(1,0,10)
-                    self.light_sensor_cam_2 = self.read_sensor_avg(2,0,10)
-                    if self.light_sensor_cam_1 == 0 and  self.light_sensor_cam_2 == 0:
-                        self.client_dash.DOExecute(10, 1)
-                    # print(self.read_sensor_avg(26,1,10))
-                    # Commented code for safety 
-                    if self.process_indicator == 1 :
-                        if self.sensor_1 == 0:
-                            self.global_sensor=0
-                        continue
-                    if self.pause_2 and (self.button_reset_1 == 1 or self.button_reset_2 == 1):
-                        self.client_dash.DOExecute(5, 1)
-                        self.resume_script()
-                        self.client_dash.DOExecute(3, 1)
-                        self.client_dash.DOExecute(4, 1)
-                        self.client_dash.DOExecute(5, 0)
-                        self.pause_2 = False   
-                        print("Resumed")             
-                    if self.sensor_1 == 0 or self.global_sensor == 0 and not self.pause_2:
-                        self.pause_script()
-                        self.pause_2 = True
-                        self.global_sensor=1
-                        print("Paused")
-                    if self.pause_2:
-                        self.client_dash.DOExecute(3, 1)
-                        self.client_dash.DOExecute(4, 1)
-                        time.sleep(0.1)
-                        self.client_dash.DOExecute(3, 0)
-                        self.client_dash.DOExecute(4, 0)
-                        time.sleep(0.1)
-                        continue
-                    # End of Commented code for safety 
+                self.button_reset_1 = self.read_sensor_avg(3,1,10)
+                self.button_reset_2 = self.read_sensor_avg(5,1,10)
+                self.process_indicator = self.read_sensor_avg(25,1,10)
+                self.sensor_1 = self.read_sensor_avg(4,0,10)
+                self.light_sensor_cam_1 = self.read_sensor_avg(1,0,10)
+                self.light_sensor_cam_2 = self.read_sensor_avg(2,0,10)
+                if self.light_sensor_cam_1 == 0 and  self.light_sensor_cam_2 == 0:
+                    self.client_dash.DOExecute(10, 1)
+                # print(self.read_sensor_avg(26,1,10))
+                # Commented code for safety 
+                if self.process_indicator == 1 :
+                    if self.sensor_1 == 0:
+                        self.global_sensor=0
+                    continue
+                if self.pause_2 and (self.button_reset_1 == 1 or self.button_reset_2 == 1):
+                    self.client_dash.DOExecute(5, 1)
+                    self.resume_script()
+                    self.client_dash.DOExecute(3, 1)
+                    self.client_dash.DOExecute(4, 1)
+                    self.client_dash.DOExecute(5, 0)
+                    self.pause_2 = False   
+                    print("Resumed")             
+                if self.sensor_1 == 0 or self.global_sensor == 0 and not self.pause_2:
+                    self.pause_script()
+                    self.pause_2 = True
+                    self.global_sensor=1
+                    print("Paused")
+                if self.pause_2:
+                    self.client_dash.DOExecute(3, 1)
+                    self.client_dash.DOExecute(4, 1)
+                    time.sleep(0.1)
+                    self.client_dash.DOExecute(3, 0)
+                    self.client_dash.DOExecute(4, 0)
+                    time.sleep(0.1)
+                    continue
+                # End of Commented code for safety 
 
-                    # self.process_indicator_cam1 = self.read_sensor_avg(26,1,10)
-                    # if self.process_indicator_cam1 == 0 :
-                    #     continue
-                    
-                    if self.light_sensor_cam_1 == 0 and self.light_sensor_cam_2 == 0 and not self.pause:
-                        self.pause_script()
-                        self.pause = True
-                        print("Paused")
-                    if self.light_sensor_cam_1 == 1 and self.light_sensor_cam_2 == 1 and self.pause:
-                        self.resume_script()
-                        self.pause = False
-                        print("Resumed")
+                # self.process_indicator_cam1 = self.read_sensor_avg(26,1,10)
+                # if self.process_indicator_cam1 == 0 :
+                #     continue
+                
+                if self.light_sensor_cam_1 == 0 and self.light_sensor_cam_2 == 0 and not self.pause:
+                    self.pause_script()
+                    self.pause = True
+                    print("Paused")
+                if self.light_sensor_cam_1 == 1 and self.light_sensor_cam_2 == 1 and self.pause:
+                    self.resume_script()
+                    self.pause = False
+                    print("Resumed")
             except Exception as e:
                 print("Exception occurred: ", e)
                 if self.client_dash is not None:
@@ -370,17 +371,18 @@ class RobotUI(object):
             input_val_inv = 0
         else:
             input_val_inv = 1
-        for read_cnt in range(range_avg_val):
-            # print(self.client_dash.DI(inp_DI))
-            reading_val = int(self.client_dash.DI(inp_DI))
-            if (reading_val != input_val):
-                break
+        if self.label_di_input is not None or "":
+            for read_cnt in range(range_avg_val):
+                reading_val = int(self.client_dash.DI(inp_DI))
+                if (reading_val != input_val):
+                    break
+                else:
+                    sensor_read_cnt +=1
+            if sensor_read_cnt == range_avg_val and reading_val == input_val:
+                return input_val
             else:
-                sensor_read_cnt +=1
-        if sensor_read_cnt == range_avg_val and reading_val == input_val:
-            return input_val
-        else:
-            return input_val_inv
+                return input_val_inv
+        return -1
 
     def convert_dict(self, alarm_list):
         alarm_dict = {}
@@ -526,11 +528,16 @@ class RobotUI(object):
         self.resume_button['state'] = tk.DISABLED
 
     def stop_script(self):
-        self.client_dash.StopScript()        
+        self.client_dash.StopScript()       
+        # self.disable_client_dash_buttons() 
         self.stop_button['state'] = tk.DISABLED
         self.pause_button['state'] = tk.DISABLED
         self.resume_button['state'] = tk.DISABLED
         self.start_button['state'] = tk.NORMAL
+        # Destroy the script
+        print("Robot Stopped")
+        self.root.destroy()
+
 
     def pause_script(self):
         self.client_dash.PauseScript()
@@ -617,20 +624,33 @@ class RobotUI(object):
         hasRead = 0
         while True:
             #print("self.global_state(connect)", self.global_state["connect"])
-            if not self.global_state["connect"]:
-                break
-            data = bytes()
-            while hasRead < 1440:
-                temp = self.client_feed.socket_dobot.recv(1440 - hasRead)
-                if len(temp) > 0:
-                    hasRead += len(temp)
-                    data += temp
-            hasRead = 0
+            try :
+                if not self.global_state["connect"]:
+                    break
+                data = bytes()
+                while hasRead < 1440:
+                    temp = self.client_feed.socket_dobot.recv(1440 - hasRead)
+                    if len(temp) > 0:
+                        hasRead += len(temp)
+                        data += temp
+                hasRead = 0
 
-            a = np.frombuffer(data, dtype=MyType)
+                a = np.frombuffer(data, dtype=MyType)
+            except Exception as e:
+                print("Exception occurred: ", e)
+                if self.client_feed is not None:
+                    self.client_feed.close()
+                    self.client_feed = None
+                try:
+                    self.client_feed = DobotApiDashboard(self.entry_ip.get(), int(self.entry_feed.get()), self.text_log)
+                except Exception as e:
+                    print("Exception occurred in reconnecting: ", e)
+
+
             #print("robot_mode:", a["robot_mode"][0])
-            #print("test_value:", hex((a['test_value'][0])))
+            # print("test_value:", hex((a['test_value'][0])))
             if hex((a['test_value'][0])) == '0x123456789abcdef':
+                self.feed_counter = 0
                 # print('tool_vector_actual',
                 #       np.around(a['tool_vector_actual'], decimals=4))
                 # print('q_actual', np.around(a['q_actual'], decimals=4))
@@ -647,7 +667,47 @@ class RobotUI(object):
                 self.set_feed_joint(LABEL_JOINT, a["q_actual"])
                 self.set_feed_joint(LABEL_COORD, a["tool_vector_actual"])
 
-                # check alarms
+                # # check alarms
+                # if a["robot_mode"] == 9:
+                #     self.display_error_info()
+                
+            if hex((a['test_value'][0])) != '0x123456789abcdef':
+                self.feed_counter = self.feed_counter + 1
+                if(self.feed_counter > 10):
+                    self.feed_counter = 0
+                    try:
+                        if self.client_feed is not None:
+                            self.client_feed.close()
+                            self.client_feed = None
+                        # self.client_feed.close()
+                        # self.client_feed = None
+                        
+                        self.client_feed = DobotApi(
+                            self.entry_ip.get(), int(self.entry_feed.get()), self.text_log)
+                        print("Connected to Client Feed Dobot ...")
+                    except Exception as e:
+                        print("Exception occurred in reconnecting: ", e)
+
+            #     # Refresh coordinate points
+            #     self.set_feed_joint(LABEL_JOINT, a["q_actual"])
+            #     self.set_feed_joint(LABEL_COORD, a["tool_vector_actual"])
+            # elif hex((a['test_value'][0])) != '0x0':
+            #     # print('tool_vector_actual',
+            #     #       np.around(a['tool_vector_actual'], decimals=4))
+            #     # print('q_actual', np.around(a['q_actual'], decimals=4))
+
+            #     # Refresh Properties
+            #     # self.label_feed_speed["text"] = a["speed_scaling"][0]
+            #     # self.label_robot_mode["text"] = LABEL_ROBOT_MODE[a["robot_mode"][0]]
+            #     self.label_di_input["text"] = bin(a["digital_input_bits"][0])[
+            #         2:].rjust(64, '0')
+            #     self.label_di_output["text"] = bin(a["digital_output_bits"][0])[
+            #         2:].rjust(64, '0')
+
+                # Refresh coordinate points
+                # self.set_feed_joint(LABEL_JOINT, a["q_actual"])
+                # self.set_feed_joint(LABEL_COORD, a["tool_vector_actual"])
+                # # check alarms
                 # if a["robot_mode"] == 9:
                 #     self.display_error_info()
 

@@ -142,6 +142,7 @@ class Settings:
     Axis7Port="9060"
     PacketLimit = 1000  
     RetryCounter = 100
+    sftpTimeout = 600 #sec
 
     # sourcepath="D:\\QVITEC\\Images"
     # destpath="\\\\192.168.140.34\\robo\\QVITEC\\Images"

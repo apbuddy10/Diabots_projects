@@ -2,9 +2,10 @@ import pysftp
 from urllib.parse import urlparse
 import os
 from settings import Settings
-from logger import jobslogger
+from logger import jobslogger,errorlogger
 from utils import utils
 import asyncio
+import time
 
 from stations import CommonError
 
@@ -85,15 +86,21 @@ class Sftp:
         """
         Uploads the source files from local to the sftp server.
         """
-
-        try:
-            jobslogger.info("SFTP uploading, {0}, {1}".format(source_local_path,remote_path)) 
-            await self.connect()            
-            self.connection.put(source_local_path, remote_path)            
-            await self.disconnect()
-            jobslogger.info("SFTP uploading success") 
-        except Exception as err:
-            raise Exception(err)
+        success = False
+        timeout = time.time() + Settings.sftpTimeout 
+        while (time.time()  < timeout):
+            try:
+                jobslogger.info("SFTP uploading, {0}, {1}".format(source_local_path,remote_path)) 
+                await self.connect()            
+                self.connection.put(source_local_path, remote_path)            
+                await self.disconnect()
+                jobslogger.info("SFTP uploading success") 
+                success = True
+                break
+            except Exception as err:
+                errorlogger.exception("SFTP Error: {0}".format(err))
+        if not success:
+            raise CommonError("Sftp timeout exceeded. Please check error logs!")
 
     async def moveCSVToSFTPServer(self):
         local_path = "C:\\Diabots\\Soltau Onsite\\CSV\\"

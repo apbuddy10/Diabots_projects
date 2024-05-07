@@ -98,6 +98,15 @@ class Stn5Batch:
             locations.append(self.grids[i].location)
         return locations
     
+     # to move to station 3
+    async def getNextGreenTubeAvailable(self):
+        if self.status == BatchStatus.Process_Completed:
+            for i in range(0,self.batchSize):
+                if(self.tubes[i].color==Color.GREEN):
+                    jobslogger.info("Green tubes available in stago ")                                      
+                    return True
+        return False
+        
     # to move to station 3
     async def getNextGreenTube(self):
         if self.status == BatchStatus.Process_Completed:
@@ -250,6 +259,12 @@ class Station5(Station):
                 jobslogger.info("{0} batch {1} made empty".format(self.name,self.batchCounter+1))
                 self.batchIterator = (self.batchIterator + 1) % self.batchCount
         return tube
+
+    async def getNextGreenTubeAvailable(self):
+        batch=self.batches[self.batchIterator]
+        if batch.status != BatchStatus.Process_Completed:
+            return None
+        return await batch.getNextGreenTubeAvailable()
 
     # this station as source to station 2
     async def getNextOrangeTube(self):
